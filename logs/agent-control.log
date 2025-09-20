@@ -1167,3 +1167,16 @@
 [2025-09-20 17:49:32] [INFO] Monitoring Agent Control Center started
 [2025-09-20 17:49:32] [INFO] Checking agent status...
 [2025-09-20 17:49:32] [WARN] No monitoring-agent processes found from workspace
+[2025-09-20 17:49:44] [INFO] Monitoring Agent Control Center started
+[2025-09-20 17:49:44] [INFO] Starting Monitoring agent...
+[2025-09-20 17:49:44] [INFO] Checking agent status...
+[2025-09-20 17:49:44] [WARN] No monitoring-agent processes found from workspace
+[2025-09-20 17:49:44] [INFO] Starting agent from workspace: C:\Users\ANANDHU\Downloads\monitoring-agent-windows\monitoring-agent.exe
+[2025-09-20 17:49:44] [INFO] Agent start command executed (Launcher PID: 8556)
+[2025-09-20 17:49:57] [INFO] Checking agent status...
+[2025-09-20 17:49:57] [SUCCESS] Found workspace agent process (PID: 8556)
+[2025-09-20 17:49:57] [INFO] Saved agent PID 8556 to file
+[2025-09-20 17:49:57] [INFO] Agent state file found
+[2025-09-20 17:49:57] [WARN] Agent is disconnected from manager
+[2025-09-20 17:49:57] [SUCCESS] Agent daemon started successfully (PID: 8556)
+[2025-09-20 17:49:59] [INFO] Checking agent status...
