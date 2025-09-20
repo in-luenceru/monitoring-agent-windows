@@ -1,6 +1,6 @@
-# Wazuh Agent Control Center
+# Monitoring Agent Control Center
 
-A professional PowerShell script for managing Wazuh Windows Agent with comprehensive enrollment, configuration, and control capabilities.
+A professional PowerShell script for managing Monitoring Agent Windows with comprehensive enrollment, configuration, and control capabilities.
 
 ## Features
 
@@ -16,13 +16,13 @@ A professional PowerShell script for managing Wazuh Windows Agent with comprehen
 
 - Windows PowerShell 5.1 or PowerShell Core 6+
 - Administrator privileges
-- Wazuh Agent installed in the same directory as the script
+- Monitoring Agent installed in the same directory as the script
 
 ## Installation
 
-1. Place the `WazuhAgentControl.ps1` script in your Wazuh agent directory
+1. Place the `MonitoringAgentControl.ps1` script in your Monitoring agent directory
 2. Ensure you have the following files in the same directory:
-   - `wazuh-agent.exe`
+   - `monitoring-agent.exe`
    - `ossec.conf`
    - `client.keys` (will be created during enrollment)
 
@@ -34,7 +34,7 @@ Run the script without parameters to launch the interactive menu:
 
 ```powershell
 # Run as Administrator
-.\WazuhAgentControl.ps1
+.\MonitoringAgentControl.ps1
 ```
 
 ### Command Line Mode
@@ -43,26 +43,26 @@ For automation and scripting:
 
 ```powershell
 # Start the agent
-.\WazuhAgentControl.ps1 start
+.\MonitoringAgentControl.ps1 start
 
 # Stop the agent
-.\WazuhAgentControl.ps1 stop
+.\MonitoringAgentControl.ps1 stop
 
 # Restart the agent
-.\WazuhAgentControl.ps1 restart
+.\MonitoringAgentControl.ps1 restart
 
 # Check agent status
-.\WazuhAgentControl.ps1 status
+.\MonitoringAgentControl.ps1 status
 
 # Start enrollment process
-.\WazuhAgentControl.ps1 enroll
+.\MonitoringAgentControl.ps1 enroll
 ```
 
 ## Interactive Menu Options
 
-1. **Enroll Agent**: Configure connection to Wazuh manager
-2. **Start Agent**: Start the Wazuh agent service
-3. **Stop Agent**: Stop the Wazuh agent service
+1. **Enroll Agent**: Configure connection to Monitoring manager
+2. **Start Agent**: Start the Monitoring agent service
+3. **Stop Agent**: Stop the Monitoring agent service
 4. **Restart Agent**: Restart the agent service
 5. **Check Agent Status**: View current agent status and connection
 6. **View Recent Logs**: Display recent agent log entries
@@ -74,7 +74,7 @@ For automation and scripting:
 The enrollment process guides you through:
 
 1. **Manager Configuration**:
-   - Enter Wazuh manager IP address or hostname
+   - Enter Monitoring manager IP address or hostname
    - Specify manager port (default: 1514)
 
 2. **Client Key Setup**:
@@ -162,7 +162,7 @@ The script checks:
    - Solution: Run PowerShell as Administrator
 
 2. **"Agent executable not found"**
-   - Solution: Ensure script is in the Wazuh agent directory
+   - Solution: Ensure script is in the Monitoring agent directory
 
 3. **"Connection failed"**
    - Check manager IP and port
@@ -184,7 +184,7 @@ The script checks:
 
 ### Custom Manager Ports
 The script supports custom manager ports. Standard ports:
-- **1514**: Default Wazuh manager port
+- **1514**: Default Monitoring manager port
 - **1515**: Alternative port for encrypted communications
 
 ### Network Validation
@@ -198,7 +198,7 @@ The script performs:
 ### Example 1: First-time Setup
 ```powershell
 # 1. Run the script as Administrator
-.\WazuhAgentControl.ps1
+.\MonitoringAgentControl.ps1
 
 # 2. Select option 1 (Enroll Agent)
 # 3. Enter manager IP: 192.168.1.100
@@ -211,14 +211,14 @@ The script performs:
 ### Example 2: Automated Restart
 ```powershell
 # Stop, wait, and start agent
-.\WazuhAgentControl.ps1 stop
+.\MonitoringAgentControl.ps1 stop
 Start-Sleep -Seconds 5
-.\WazuhAgentControl.ps1 start
+.\MonitoringAgentControl.ps1 start
 ```
 
 ### Example 3: Status Check in Script
 ```powershell
-$Status = & .\WazuhAgentControl.ps1 status
+$Status = & .\MonitoringAgentControl.ps1 status
 if ($LASTEXITCODE -eq 0) {
     Write-Host "Agent is running properly"
 } else {
@@ -232,7 +232,7 @@ For issues with the control script:
 1. Check the log files for detailed error messages
 2. Verify all prerequisites are met
 3. Ensure proper file permissions
-4. Review the Wazuh agent documentation
+4. Review the Monitoring agent documentation
 
 ## Version History
 
@@ -245,4 +245,4 @@ For issues with the control script:
 
 ## License
 
-This script is provided as-is for managing Wazuh Windows agents. Use in accordance with your organization's security policies.
+This script is provided as-is for managing Monitoring Agent Windows. Use in accordance with your organization's security policies.

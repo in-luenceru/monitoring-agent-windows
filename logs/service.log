@@ -1,0 +1,53 @@
+[2025-09-20 17:08:40] [INFO] === Monitoring Agent Service Manager ===
+[2025-09-20 17:08:40] [INFO] Action: InstallNSSM
+[2025-09-20 17:08:40] [INFO] Service Name: MonitoringAgent
+[2025-09-20 17:08:40] [INFO] Agent Path: C:\Users\ANANDHU\Downloads\monitoring-agent-windows
+[2025-09-20 17:08:40] [INFO] Agent Executable: C:\Users\ANANDHU\Downloads\monitoring-agent-windows\monitoring-agent.exe
+[2025-09-20 17:08:40] [INFO] Downloading NSSM (Non-Sucking Service Manager)...
+[2025-09-20 17:08:40] [INFO] Downloading NSSM from https://nssm.cc/release/nssm-2.24.zip
+[2025-09-20 17:08:43] [INFO] Extracting NSSM...
+[2025-09-20 17:08:44] [INFO] NSSM downloaded and installed successfully
+[2025-09-20 17:08:44] [INFO] Operation 'InstallNSSM' completed successfully
+[2025-09-20 17:08:50] [INFO] === Monitoring Agent Service Manager ===
+[2025-09-20 17:08:50] [INFO] Action: Install
+[2025-09-20 17:08:50] [INFO] Service Name: MonitoringAgent
+[2025-09-20 17:08:50] [INFO] Agent Path: C:\Users\ANANDHU\Downloads\monitoring-agent-windows
+[2025-09-20 17:08:50] [INFO] Agent Executable: C:\Users\ANANDHU\Downloads\monitoring-agent-windows\monitoring-agent.exe
+[2025-09-20 17:08:50] [INFO] Installing Monitoring Agent as Windows Service...
+[2025-09-20 17:08:50] [INFO] Downloading NSSM (Non-Sucking Service Manager)...
+[2025-09-20 17:08:50] [INFO] NSSM already exists at C:\Users\ANANDHU\Downloads\monitoring-agent-windows\nssm.exe
+[2025-09-20 17:08:50] [INFO] Creating service 'MonitoringAgent' using NSSM...
+[2025-09-20 17:08:51] [INFO] Configuring service parameters...
+[2025-09-20 17:08:51] [INFO] Service 'MonitoringAgent' installed successfully
+[2025-09-20 17:08:51] [INFO] Service will start automatically on system startup
+[2025-09-20 17:08:51] [INFO] Operation 'Install' completed successfully
+[2025-09-20 17:08:57] [INFO] === Monitoring Agent Service Manager ===
+[2025-09-20 17:08:57] [INFO] Action: Status
+[2025-09-20 17:08:57] [INFO] Service Name: MonitoringAgent
+[2025-09-20 17:08:57] [INFO] Agent Path: C:\Users\ANANDHU\Downloads\monitoring-agent-windows
+[2025-09-20 17:08:57] [INFO] Agent Executable: C:\Users\ANANDHU\Downloads\monitoring-agent-windows\monitoring-agent.exe
+[2025-09-20 17:08:57] [INFO] Checking Monitoring Agent Service status...
+[2025-09-20 17:08:57] [INFO] Service Name: MonitoringAgent
+[2025-09-20 17:08:57] [INFO] Display Name: Monitoring Agent Service
+[2025-09-20 17:08:57] [INFO] Status: Stopped
+[2025-09-20 17:08:57] [INFO] Start Type: Automatic
+[2025-09-20 17:08:57] [INFO] Monitoring Agent Process ID: 16136
+[2025-09-20 17:08:57] [INFO] Process Start Time: 09/20/2025 16:53:30
+[2025-09-20 17:08:57] [INFO] Service Log Size: 2.57 KB
+[2025-09-20 17:08:57] [INFO] Operation 'Status' completed successfully
+[2025-09-20 17:09:05] [INFO] === Monitoring Agent Service Manager ===
+[2025-09-20 17:09:05] [INFO] Action: Start
+[2025-09-20 17:09:05] [INFO] Service Name: MonitoringAgent
+[2025-09-20 17:09:05] [INFO] Agent Path: C:\Users\ANANDHU\Downloads\monitoring-agent-windows
+[2025-09-20 17:09:05] [INFO] Agent Executable: C:\Users\ANANDHU\Downloads\monitoring-agent-windows\monitoring-agent.exe
+[2025-09-20 17:09:05] [INFO] Starting Monitoring Agent Service...
+[2025-09-20 17:09:07] [ERROR] Service 'MonitoringAgent' failed to start. Status: Stopped
+[2025-09-20 17:09:07] [ERROR] Operation 'Start' failed
+[2025-09-20 17:09:36] [INFO] === Monitoring Agent Service Manager ===
+[2025-09-20 17:09:36] [INFO] Action: Start
+[2025-09-20 17:09:36] [INFO] Service Name: MonitoringAgent
+[2025-09-20 17:09:36] [INFO] Agent Path: C:\Users\ANANDHU\Downloads\monitoring-agent-windows
+[2025-09-20 17:09:36] [INFO] Agent Executable: C:\Users\ANANDHU\Downloads\monitoring-agent-windows\monitoring-agent.exe
+[2025-09-20 17:09:36] [INFO] Starting Monitoring Agent Service...
+[2025-09-20 17:09:38] [ERROR] Service 'MonitoringAgent' failed to start. Status: Stopped
+[2025-09-20 17:09:38] [ERROR] Operation 'Start' failed
