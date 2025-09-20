@@ -1,0 +1,54 @@
+==================================================================
+CUSTOM SECUREMONITOR AGENT - ENTERPRISE LICENSE
+==================================================================
+
+Custom Security Solutions - SecureMonitor Agent
+Version: 4.13.0-custom
+Build Date: September 20, 2025
+
+© 2025 Custom Security Solutions. All rights reserved.
+
+ENTERPRISE CUSTOM LICENSE AGREEMENT
+
+This software is a professionally customized security monitoring 
+solution based on open-source security frameworks. This custom 
+build includes proprietary enhancements, configurations, and 
+branding developed specifically for enterprise use.
+
+GRANT OF LICENSE:
+Subject to the terms of this agreement, Custom Security Solutions 
+grants you a non-exclusive license to use this customized security 
+monitoring software for your internal business operations.
+
+CUSTOMIZATION RIGHTS:
+- Full access to configuration files
+- Custom branding and rebranding rights
+- Modification of policies and rules
+- Integration with existing systems
+- Custom development extensions
+
+SUPPORT:
+- Enterprise support available 24/7
+- Custom configuration assistance
+- Professional services for customization
+- Training and documentation provided
+
+RESTRICTIONS:
+- This software may not be redistributed without permission
+- Reverse engineering for competitive purposes is prohibited
+- Commercial resale requires separate licensing agreement
+
+WARRANTY:
+This custom software is provided "as is" with professional 
+support and maintenance options available through Custom 
+Security Solutions.
+
+For licensing inquiries, custom development, and enterprise 
+support, contact:
+
+Custom Security Solutions
+Enterprise Security Division
+Email: enterprise@customsec.com
+Phone: +1-XXX-XXX-XXXX
+
+==================================================================
