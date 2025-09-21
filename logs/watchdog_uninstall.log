@@ -1,0 +1,73 @@
+[2025-09-21 14:59:39] [INFO] [UNINSTALLER] Starting Monitoring Agent Watchdog service uninstallation...
+[2025-09-21 14:59:39] [INFO] [UNINSTALLER] Service name: MonitoringAgentWatchdog
+[2025-09-21 14:59:39] [INFO] [UNINSTALLER] Workspace: C:\Users\ANANDHU\Downloads\monitoring-agent-windows
+[2025-09-21 14:59:42] [INFO] [UNINSTALLER] Service is already stopped
+[2025-09-21 14:59:42] [INFO] [UNINSTALLER] Removing service: MonitoringAgentWatchdog
+[2025-09-21 14:59:42] [SUCCESS] [UNINSTALLER] Service removed successfully with sc.exe
+[2025-09-21 14:59:45] [SUCCESS] [UNINSTALLER] Service removal verified
+[2025-09-21 14:59:45] [INFO] [UNINSTALLER] Analyzing files for cleanup...
+[2025-09-21 14:59:45] [INFO] [UNINSTALLER] Cleanup summary:
+[2025-09-21 14:59:45] [INFO] [UNINSTALLER]   PID Files: 2 items found
+[2025-09-21 14:59:45] [INFO] [UNINSTALLER]     - monitoring-agent.pid
+[2025-09-21 14:59:45] [INFO] [UNINSTALLER]     - watchdog.pid
+[2025-09-21 14:59:45] [INFO] [UNINSTALLER]   Log Files: 2 items found
+[2025-09-21 14:59:45] [INFO] [UNINSTALLER]     - logs\watchdog.log
+[2025-09-21 14:59:45] [INFO] [UNINSTALLER]     - logs\watchdog_install.log
+[2025-09-21 14:59:45] [INFO] [UNINSTALLER]   Flag Files: No items found
+[2025-09-21 14:59:45] [INFO] [UNINSTALLER]   Config Files: 1 items found
+[2025-09-21 14:59:45] [INFO] [UNINSTALLER]     - monitoringagent_watchdog.json
+[2025-09-21 14:59:59] [INFO] [UNINSTALLER] Cleaning up PID Files...
+[2025-09-21 14:59:59] [SUCCESS] [UNINSTALLER] Removed file: monitoring-agent.pid
+[2025-09-21 14:59:59] [SUCCESS] [UNINSTALLER] Removed file: watchdog.pid
+[2025-09-21 14:59:59] [INFO] [UNINSTALLER] Cleaned up 2 items in category: PID Files
+[2025-09-21 14:59:59] [INFO] [UNINSTALLER] Cleaning up Flag Files...
+[2025-09-21 14:59:59] [INFO] [UNINSTALLER] Item not found (already clean): manual_stop.flag
+[2025-09-21 14:59:59] [INFO] [UNINSTALLER] Item not found (already clean): watchdog_paused.flag
+[2025-09-21 14:59:59] [INFO] [UNINSTALLER] Cleaned up 0 items in category: Flag Files
+[2025-09-21 14:59:59] [INFO] [UNINSTALLER] Cleaning up Config Files...
+[2025-09-21 14:59:59] [SUCCESS] [UNINSTALLER] Removed file: monitoringagent_watchdog.json
+[2025-09-21 14:59:59] [INFO] [UNINSTALLER] Cleaned up 1 items in category: Config Files
+[2025-09-21 14:59:59] [INFO] [UNINSTALLER] Cleaning up Log Files...
+[2025-09-21 14:59:59] [SUCCESS] [UNINSTALLER] Removed file: logs\watchdog.log
+[2025-09-21 14:59:59] [SUCCESS] [UNINSTALLER] Removed file: logs\watchdog_install.log
+[2025-09-21 14:59:59] [INFO] [UNINSTALLER] Item not found (already clean): logs\watchdog_service_stdout.log
+[2025-09-21 14:59:59] [INFO] [UNINSTALLER] Item not found (already clean): logs\watchdog_service_stderr.log
+[2025-09-21 14:59:59] [INFO] [UNINSTALLER] Cleaned up 2 items in category: Log Files
+[2025-09-21 14:59:59] [SUCCESS] [UNINSTALLER] File cleanup completed successfully
+[2025-09-21 14:59:59] [SUCCESS] [UNINSTALLER] Monitoring Agent Watchdog uninstallation completed!
+[2025-09-21 15:02:17] [INFO] [UNINSTALLER] Starting Monitoring Agent Watchdog service uninstallation...
+[2025-09-21 15:02:17] [INFO] [UNINSTALLER] Service name: MonitoringAgentWatchdog
+[2025-09-21 15:02:17] [INFO] [UNINSTALLER] Workspace: C:\Users\ANANDHU\Downloads\monitoring-agent-windows
+[2025-09-21 15:02:25] [INFO] [UNINSTALLER] Service is already stopped
+[2025-09-21 15:02:25] [INFO] [UNINSTALLER] Removing service: MonitoringAgentWatchdog
+[2025-09-21 15:02:25] [SUCCESS] [UNINSTALLER] Service removed successfully with sc.exe
+[2025-09-21 15:02:28] [SUCCESS] [UNINSTALLER] Service removal verified
+[2025-09-21 15:02:28] [INFO] [UNINSTALLER] Analyzing files for cleanup...
+[2025-09-21 15:02:28] [INFO] [UNINSTALLER] Cleanup summary:
+[2025-09-21 15:02:28] [INFO] [UNINSTALLER]   PID Files: 1 items found
+[2025-09-21 15:02:28] [INFO] [UNINSTALLER]     - monitoring-agent.pid
+[2025-09-21 15:02:28] [INFO] [UNINSTALLER]   Log Files: 2 items found
+[2025-09-21 15:02:28] [INFO] [UNINSTALLER]     - logs\watchdog.log
+[2025-09-21 15:02:28] [INFO] [UNINSTALLER]     - logs\watchdog_install.log
+[2025-09-21 15:02:28] [INFO] [UNINSTALLER]   Flag Files: No items found
+[2025-09-21 15:02:28] [INFO] [UNINSTALLER]   Config Files: 1 items found
+[2025-09-21 15:02:28] [INFO] [UNINSTALLER]     - monitoringagent_watchdog.json
+[2025-09-21 15:02:35] [INFO] [UNINSTALLER] Cleaning up PID Files...
+[2025-09-21 15:02:35] [SUCCESS] [UNINSTALLER] Removed file: monitoring-agent.pid
+[2025-09-21 15:02:35] [INFO] [UNINSTALLER] Item not found (already clean): watchdog.pid
+[2025-09-21 15:02:35] [INFO] [UNINSTALLER] Cleaned up 1 items in category: PID Files
+[2025-09-21 15:02:35] [INFO] [UNINSTALLER] Cleaning up Flag Files...
+[2025-09-21 15:02:35] [INFO] [UNINSTALLER] Item not found (already clean): manual_stop.flag
+[2025-09-21 15:02:35] [INFO] [UNINSTALLER] Item not found (already clean): watchdog_paused.flag
+[2025-09-21 15:02:35] [INFO] [UNINSTALLER] Cleaned up 0 items in category: Flag Files
+[2025-09-21 15:02:35] [INFO] [UNINSTALLER] Cleaning up Config Files...
+[2025-09-21 15:02:35] [SUCCESS] [UNINSTALLER] Removed file: monitoringagent_watchdog.json
+[2025-09-21 15:02:35] [INFO] [UNINSTALLER] Cleaned up 1 items in category: Config Files
+[2025-09-21 15:02:35] [INFO] [UNINSTALLER] Cleaning up Log Files...
+[2025-09-21 15:02:35] [SUCCESS] [UNINSTALLER] Removed file: logs\watchdog.log
+[2025-09-21 15:02:35] [SUCCESS] [UNINSTALLER] Removed file: logs\watchdog_install.log
+[2025-09-21 15:02:35] [INFO] [UNINSTALLER] Item not found (already clean): logs\watchdog_service_stdout.log
+[2025-09-21 15:02:35] [INFO] [UNINSTALLER] Item not found (already clean): logs\watchdog_service_stderr.log
+[2025-09-21 15:02:35] [INFO] [UNINSTALLER] Cleaned up 2 items in category: Log Files
+[2025-09-21 15:02:35] [SUCCESS] [UNINSTALLER] File cleanup completed successfully
+[2025-09-21 15:02:35] [SUCCESS] [UNINSTALLER] Monitoring Agent Watchdog uninstallation completed!

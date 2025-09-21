@@ -261,19 +261,10 @@ function Get-AgentStatus {
                         $StateContent = Get-Content $StateFile -Raw -ErrorAction SilentlyContinue
                         Write-Log "Agent state file found" "INFO"
                         
-                        if ($StateContent -match "status='connected'") {
-                            $Connected = $true
-                            Write-Log "Agent is connected to manager" "SUCCESS"
-                        } elseif ($StateContent -match "status='disconnected'") {
-                            $Connected = $false
-                            Write-Log "Agent is disconnected from manager" "WARN"
-                        } else {
-                            Write-Log "Agent connection status unknown" "WARN"
-                        }
                     } catch {
                         Write-Log "Could not read state file: $($_.Exception.Message)" "WARN"
                     }
-                }
+             }
                 
                 return @{
                     Running = $true
@@ -362,14 +353,6 @@ function Start-MonitoringAgent {
                     # Wait a bit more for full initialization
                     Start-Sleep -Seconds 2
                     
-                    # Check final status
-                    $FinalStatus = Get-AgentStatus
-                    if ($FinalStatus.Connected -eq $true) {
-                        Write-Log "Agent connected to manager successfully" "SUCCESS"
-                    } elseif ($FinalStatus.Connected -eq $false) {
-                        Write-Log "Agent started but not yet connected to manager" "WARN"
-                    }
-                    
                     return $true
                 } else {
                     $RetryCount++
@@ -403,30 +386,86 @@ function Stop-MonitoringAgent {
             return $true
         }
         
-        # First, try to gracefully stop the agent using the stop command
-        Write-Log "Attempting graceful shutdown using agent stop command..." "INFO"
+        # First, try to gracefully stop the agent using Windows signals and CTRL+C
+        Write-Log "Attempting graceful shutdown using Windows termination signals..." "INFO"
         try {
-            $StopInfo = New-Object System.Diagnostics.ProcessStartInfo
-            $StopInfo.FileName = $Script:AgentExe
-            $StopInfo.Arguments = "stop"
-            $StopInfo.UseShellExecute = $false
-            $StopInfo.CreateNoWindow = $true
-            $StopInfo.WorkingDirectory = $Script:AgentPath
-            $StopInfo.WindowStyle = [System.Diagnostics.ProcessWindowStyle]::Hidden
+            # Get the agent process for graceful shutdown
+            $AgentProcess = Get-CimInstance -ClassName Win32_Process -Filter "Name = 'monitoring-agent.exe'" -ErrorAction SilentlyContinue | 
+                Where-Object { $_.ExecutablePath -eq $Script:AgentExe }
             
-            $StopProcess = [System.Diagnostics.Process]::Start($StopInfo)
-            if ($StopProcess) {
-                Write-Log "Stop command executed (PID: $($StopProcess.Id))" "INFO"
-                $StopProcess.WaitForExit(10000)  # Wait up to 10 seconds for stop command
-                Write-Log "Stop command completed" "INFO"
+            if ($AgentProcess) {
+                $ProcessObj = Get-Process -Id $AgentProcess.ProcessId -ErrorAction SilentlyContinue
+                if ($ProcessObj) {
+                    Write-Log "Sending graceful shutdown signal to process $($AgentProcess.ProcessId)..." "INFO"
+                    
+                    # Method 1: Try AttachConsole and GenerateConsoleCtrlEvent for CTRL+C
+                    try {
+                        Add-Type -TypeDefinition @"
+                            using System;
+                            using System.Runtime.InteropServices;
+                            public class Win32 {
+                                [DllImport("kernel32.dll", SetLastError=true)]
+                                public static extern bool AttachConsole(uint dwProcessId);
+                                [DllImport("kernel32.dll", SetLastError=true)]
+                                public static extern bool GenerateConsoleCtrlEvent(uint dwCtrlEvent, uint dwProcessGroupId);
+                                [DllImport("kernel32.dll", SetLastError=true)]
+                                public static extern bool FreeConsole();
+                                public const uint CTRL_C_EVENT = 0;
+                            }
+"@ -ErrorAction SilentlyContinue
+                        
+                        if ([Win32]::AttachConsole($AgentProcess.ProcessId)) {
+                            Write-Log "Attached to agent console, sending CTRL+C..." "INFO"
+                            
+                            if ([Win32]::GenerateConsoleCtrlEvent([Win32]::CTRL_C_EVENT, 0)) {
+                                Write-Log "CTRL+C signal sent successfully" "SUCCESS"
+                                
+                                # Wait for graceful shutdown with timeout
+                                $GracefulWait = 0
+                                while (!$ProcessObj.HasExited -and $GracefulWait -lt 10) {
+                                    Start-Sleep -Seconds 1
+                                    $GracefulWait++
+                                    Write-Log "Waiting for graceful shutdown... ($GracefulWait/10)" "INFO"
+                                }
+                                
+                                if ($ProcessObj.HasExited) {
+                                    Write-Log "Agent gracefully shut down via CTRL+C signal" "SUCCESS"
+                                    [Win32]::FreeConsole()
+                                    return $true
+                                }
+                            }
+                            [Win32]::FreeConsole()
+                        }
+                    } catch {
+                        Write-Log "CTRL+C method failed: $($_.Exception.Message)" "WARN"
+                    }
+                    
+                    # Method 2: Try to close main window first (graceful shutdown for GUI apps)
+                    if (!$ProcessObj.HasExited -and $ProcessObj.CloseMainWindow()) {
+                        Write-Log "Sent close window signal successfully" "INFO"
+                        
+                        # Wait for graceful shutdown with timeout
+                        $GracefulWait = 0
+                        while (!$ProcessObj.HasExited -and $GracefulWait -lt 10) {
+                            Start-Sleep -Seconds 1
+                            $GracefulWait++
+                            Write-Log "Waiting for graceful shutdown... ($GracefulWait/10)" "INFO"
+                        }
+                        
+                        if ($ProcessObj.HasExited) {
+                            Write-Log "Agent gracefully closed via CloseMainWindow signal" "SUCCESS"
+                            return $true
+                        }
+                    }
+                }
             }
         }
         catch {
-            Write-Log "Graceful stop command failed: $($_.Exception.Message)" "WARN"
+            Write-Log "Graceful shutdown attempt failed: $($_.Exception.Message)" "WARN"
         }
         
         # Wait for graceful shutdown
-        Start-Sleep -Seconds 3
+        Start-Sleep -Seconds 5
         
         # Check if agent stopped gracefully
         $NewStatus = Get-AgentStatus
@@ -483,20 +522,40 @@ function Stop-MonitoringAgent {
             Write-Log "Removed .agent_info file" "INFO"
         }
         
-        # Clear any cached connection state
+        # Clear any cached connection state and force disconnect signal
         $StateFile = Join-Path $Script:AgentPath "monitoring-agent.state"
         if (Test-Path $StateFile) {
             try {
-                # Update state to disconnected
+                # Update state to disconnected with timestamp
                 $StateContent = Get-Content $StateFile -Raw -ErrorAction SilentlyContinue
                 if ($StateContent) {
                     $StateContent = $StateContent -replace "status='connected'", "status='disconnected'"
+                    $StateContent = $StateContent -replace "last_keepalive='\d+'", "last_keepalive='0'"
                     Set-Content $StateFile -Value $StateContent -Force
-                    Write-Log "Updated agent state to disconnected" "INFO"
+                    Write-Log "Updated agent state to disconnected with immediate effect" "INFO"
                 }
             }
             catch {
                 Write-Log "Could not update state file: $($_.Exception.Message)" "WARN"
+            }
+        }
+        
+        # Clear any persistent agent connection files to force clean disconnect
+        $LogCollectorState = Join-Path $Script:AgentPath "monitoring-logcollector.state"
+        if (Test-Path $LogCollectorState) {
+            Remove-Item $LogCollectorState -Force -ErrorAction SilentlyContinue
+            Write-Log "Cleared logcollector state" "INFO"
+        }
+        
+        # Also check for any queue files that might indicate pending messages
+        $QueueDir = Join-Path $Script:AgentPath "queue"
+        if (Test-Path $QueueDir) {
+            try {
+                Get-ChildItem $QueueDir -Recurse -File | Where-Object { $_.Name -like "*pending*" -or $_.Name -like "*queue*" } | Remove-Item -Force -ErrorAction SilentlyContinue
+                Write-Log "Cleared any pending queue files" "INFO"
+            }
+            catch {
+                Write-Log "Could not clear queue files: $($_.Exception.Message)" "WARN"
             }
         }
         
@@ -683,7 +742,39 @@ function Start-AgentEnrollment {
     Write-Log "Starting agent enrollment process..." "INFO"
     
     Write-Host "`n=== MONITORING AGENT ENROLLMENT ===" -ForegroundColor Cyan
-    Write-Host "This process will configure your agent to connect to a Monitoring manager.`n" -ForegroundColor Gray
+    Write-Host "Choose your enrollment method:`n" -ForegroundColor Gray
+    
+    Write-Host "1. Auto-Enrollment (Recommended)" -ForegroundColor Green
+    Write-Host "   - Uses agent-auth.exe to automatically register with manager" -ForegroundColor Gray
+    Write-Host "   - Requires manager IP, port, and agent name" -ForegroundColor Gray
+    Write-Host "   - Manager automatically generates and assigns client key" -ForegroundColor Gray
+    
+    Write-Host "`n2. Manual Enrollment" -ForegroundColor Yellow
+    Write-Host "   - Requires pre-generated client key from manager" -ForegroundColor Gray
+    Write-Host "   - Client key must be obtained separately from manager" -ForegroundColor Gray
+    Write-Host "   - Supports both plain text and base64 encoded keys" -ForegroundColor Gray
+    
+    do {
+        $Choice = Read-Host "`nSelect enrollment method (1 for Auto, 2 for Manual)"
+        switch ($Choice) {
+            "1" {
+                return Start-AgentAutoEnrollment
+            }
+            "2" {
+                return Start-AgentManualEnrollment
+            }
+            default {
+                Write-Host "Invalid choice. Please enter 1 or 2." -ForegroundColor Red
+            }
+        }
+    } while ($true)
+}
+
+function Start-AgentManualEnrollment {
+    Write-Log "Starting manual agent enrollment process..." "INFO"
+    
+    Write-Host "`n=== MONITORING AGENT MANUAL ENROLLMENT ===" -ForegroundColor Cyan
+    Write-Host "This process will configure your agent to connect to a Monitoring manager using a pre-generated client key.`n" -ForegroundColor Gray
     
     # Get Manager IP/Hostname
     do {
@@ -816,6 +907,335 @@ function Start-AgentEnrollment {
     
     return $true
 }
+
+function Start-AgentAutoEnrollment {
+    Write-Log "Starting agent auto-enrollment process..." "INFO"
+    
+    Write-Host "`n=== MONITORING AGENT AUTO-ENROLLMENT ===" -ForegroundColor Cyan
+    Write-Host "This process will automatically enroll your agent with the Monitoring manager using agent-auth.exe.`n" -ForegroundColor Gray
+    
+    # Get Manager IP/Hostname
+    do {
+        $ManagerAddress = Get-UserInput -Prompt "Enter Monitoring Manager IP address or hostname"
+        
+        if (Test-IPAddress $ManagerAddress) {
+            Write-Log "Valid IP address provided: $ManagerAddress" "SUCCESS"
+            break
+        }
+        elseif (Test-Hostname $ManagerAddress) {
+            Write-Log "Valid hostname provided: $ManagerAddress" "SUCCESS"
+            break
+        }
+        else {
+            Write-Host "Invalid IP address or hostname. Please try again." -ForegroundColor Red
+        }
+    } while ($true)
+    
+    # Get Manager Port (optional)
+    Write-Host "`nManager Authentication Port Information:" -ForegroundColor Gray
+    Write-Host "  • Default agent-auth port: 1515 (for enrollment/authentication)" -ForegroundColor Gray
+    Write-Host "  • Default agent communication port: 1514 (for data transmission)" -ForegroundColor Gray
+    Write-Host "  • Most Wazuh/OSSEC managers use port 1515 for enrollment" -ForegroundColor Gray
+    Write-Host "`nManager port for enrollment (default: 1515, press Enter to use default):" -ForegroundColor Gray
+    $ManagerPort = Read-Host "Port"
+    if ([string]::IsNullOrWhiteSpace($ManagerPort)) {
+        $ManagerPort = "1515"
+    }
+    
+    # Validate port number
+    try {
+        $PortNumber = [int]$ManagerPort
+        if ($PortNumber -lt 1 -or $PortNumber -gt 65535) {
+            Write-Host "Invalid port number. Using default 1515." -ForegroundColor Yellow
+            $ManagerPort = "1515"
+        }
+    }
+    catch {
+        Write-Host "Invalid port format. Using default 1515." -ForegroundColor Yellow
+        $ManagerPort = "1515"
+    }
+    
+    # Get Agent Name
+    Write-Host "`nAgent Name Information:" -ForegroundColor Gray
+    Write-Host "The agent name should be unique and descriptive (e.g., DESKTOP-HOSTNAME-DATE)." -ForegroundColor Gray
+    Write-Host "Default suggestion: $($env:COMPUTERNAME)-$(Get-Date -Format 'yyyyMMdd-HHmmss')" -ForegroundColor Gray
+    
+    $DefaultAgentName = "$($env:COMPUTERNAME)-$(Get-Date -Format 'yyyyMMdd-HHmmss')"
+    Write-Host "`nAgent name (press Enter to use default: $DefaultAgentName):" -ForegroundColor Gray
+    $AgentName = Read-Host "Agent Name"
+    if ([string]::IsNullOrWhiteSpace($AgentName)) {
+        $AgentName = $DefaultAgentName
+    }
+    
+    # Validate agent name (no spaces, special characters that might cause issues)
+    if ($AgentName -match '[<>:"/\\|?*\s]') {
+        Write-Host "Warning: Agent name contains special characters that might cause issues." -ForegroundColor Yellow
+        Write-Host "Recommended characters: letters, numbers, hyphens, underscores only." -ForegroundColor Yellow
+        $Continue = Read-Host "Continue with this name anyway? (y/n)"
+        if ($Continue -ne 'y' -and $Continue -ne 'Y') {
+            Write-Log "Auto-enrollment cancelled by user due to agent name" "INFO"
+            return $false
+        }
+    }
+    
+    # Get optional password if manager requires it
+    Write-Host "`nAuthorization Password (optional - leave empty if manager doesn't require password):" -ForegroundColor Gray
+    $AuthPassword = Read-Host "Password" -AsSecureString
+    $AuthPasswordPlain = ""
+    if ($AuthPassword.Length -gt 0) {
+        $AuthPasswordPlain = [Runtime.InteropServices.Marshal]::PtrToStringAuto([Runtime.InteropServices.Marshal]::SecureStringToBSTR($AuthPassword))
+    }
+    
+    # Show configuration summary
+    Write-Host "`n=== AUTO-ENROLLMENT SUMMARY ===" -ForegroundColor Cyan
+    Write-Host "Manager Address: $ManagerAddress" -ForegroundColor White
+    Write-Host "Manager Port: $ManagerPort" -ForegroundColor White
+    Write-Host "Agent Name: $AgentName" -ForegroundColor White
+    if ($AuthPasswordPlain) {
+        Write-Host "Authorization Password: [PROVIDED]" -ForegroundColor Green
+    }
+    else {
+        Write-Host "Authorization Password: [NOT PROVIDED]" -ForegroundColor Gray
+    }
+    
+    $Confirm = Read-Host "`nProceed with auto-enrollment? (y/n)"
+    if ($Confirm -ne 'y' -and $Confirm -ne 'Y') {
+        Write-Log "Auto-enrollment cancelled by user" "INFO"
+        return $false
+    }
+    
+    # Stop agent if running
+    $Status = Get-AgentStatus
+    if ($Status.Running) {
+        Write-Log "Stopping agent for auto-enrollment..." "INFO"
+        if (!(Stop-MonitoringAgent)) {
+            Write-Log "Failed to stop agent for auto-enrollment" "ERROR"
+            return $false
+        }
+        
+        # Clean up database files to prevent startup issues
+        Write-Log "Cleaning up database files..." "INFO"
+        Clear-AgentDatabases
+    }
+    
+    # Backup existing client.keys if it exists
+    if (Test-Path $Script:ClientKeys) {
+        $BackupPath = Backup-ConfigFile $Script:ClientKeys
+        Write-Log "Backed up existing client.keys" "INFO"
+    }
+    
+    # Build agent-auth command
+    $AgentAuthExe = Join-Path $Script:AgentPath "agent-auth.exe"
+    if (!(Test-Path $AgentAuthExe)) {
+        Write-Log "agent-auth.exe not found: $AgentAuthExe" "ERROR"
+        return $false
+    }
+    
+    $AgentAuthArgs = @(
+        "-m", $ManagerAddress,
+        "-p", $ManagerPort,
+        "-A", $AgentName
+    )
+    
+    if ($AuthPasswordPlain) {
+        $AgentAuthArgs += @("-P", $AuthPasswordPlain)
+    }
+    
+    # Execute agent-auth
+    Write-Log "Executing auto-enrollment with agent-auth.exe..." "INFO"
+    Write-Log "Command: agent-auth.exe -m $ManagerAddress -p $ManagerPort -A `"$AgentName`"" "INFO"
+    
+    try {
+        $ProcessInfo = New-Object System.Diagnostics.ProcessStartInfo
+        $ProcessInfo.FileName = $AgentAuthExe
+        $ProcessInfo.Arguments = $AgentAuthArgs -join " "
+        $ProcessInfo.UseShellExecute = $false
+        $ProcessInfo.RedirectStandardOutput = $true
+        $ProcessInfo.RedirectStandardError = $true
+        $ProcessInfo.CreateNoWindow = $true
+        $ProcessInfo.WorkingDirectory = $Script:AgentPath
+        
+        $Process = New-Object System.Diagnostics.Process
+        $Process.StartInfo = $ProcessInfo
+        
+        # Start the process
+        $Process.Start() | Out-Null
+        
+        # Read output
+        $StdOut = $Process.StandardOutput.ReadToEnd()
+        $StdErr = $Process.StandardError.ReadToEnd()
+        
+        # Wait for completion with timeout
+        if (!$Process.WaitForExit(30000)) {  # 30 second timeout
+            $Process.Kill()
+            Write-Log "agent-auth.exe timed out after 30 seconds" "ERROR"
+            return $false
+        }
+        
+        $ExitCode = $Process.ExitCode
+        
+        Write-Log "agent-auth.exe completed with exit code: $ExitCode" "INFO"
+        
+        if ($StdOut) {
+            Write-Log "agent-auth output: $StdOut" "INFO"
+            Write-Host "Output: $StdOut" -ForegroundColor Cyan
+        }
+        
+        if ($StdErr) {
+            Write-Log "agent-auth errors: $StdErr" "WARN"
+            if ($StdErr -notmatch "INFO|DEBUG") {
+                Write-Host "Errors: $StdErr" -ForegroundColor Yellow
+            }
+        }
+        
+        if ($ExitCode -eq 0) {
+            Write-Log "Auto-enrollment completed successfully!" "SUCCESS"
+            
+            # Verify client.keys was created/updated
+            if (Test-Path $Script:ClientKeys) {
+                $KeyContent = Get-Content $Script:ClientKeys -ErrorAction SilentlyContinue
+                if ($KeyContent) {
+                    Write-Log "client.keys file updated successfully" "SUCCESS"
+                    
+                    # Parse key info for display
+                    $KeyParts = $KeyContent.Split(' ')
+                    if ($KeyParts.Length -ge 3) {
+                        Write-Host "`nEnrollment Details:" -ForegroundColor Green
+                        Write-Host "  Agent ID: $($KeyParts[0])" -ForegroundColor White
+                        Write-Host "  Agent Name: $($KeyParts[1])" -ForegroundColor White
+                        Write-Host "  Agent IP: $($KeyParts[2])" -ForegroundColor White
+                    }
+                }
+                else {
+                    Write-Log "client.keys file is empty after enrollment" "ERROR"
+                    return $false
+                }
+            }
+            else {
+                Write-Log "client.keys file not found after enrollment" "ERROR"
+                return $false
+            }
+            
+            # Update ossec.conf with manager address (use port 1514 for communication)
+            if (!(Update-OssecConfig -ManagerIP $ManagerAddress -ManagerPort "1514")) {
+                Write-Log "Failed to update ossec.conf - agent may not connect properly" "WARN"
+            }
+            
+            Write-Host "`nAuto-enrollment completed successfully!" -ForegroundColor Green
+            
+            # Ask if user wants to start the agent
+            Write-Host "`nDo you want to start the agent now? (y/n)" -ForegroundColor Yellow
+            $StartAgent = Read-Host
+            if ($StartAgent -eq 'y' -or $StartAgent -eq 'Y') {
+                if (Start-MonitoringAgent) {
+                    Write-Host "`nAgent started successfully! Checking connection status..." -ForegroundColor Green
+                    Start-Sleep -Seconds 5
+                    Get-AgentStatus | Out-Null
+                }
+                else {
+                    Write-Host "`nFailed to start agent. Please check the logs." -ForegroundColor Red
+                }
+            }
+            
+            return $true
+        }
+        else {
+            Write-Log "Auto-enrollment failed with exit code: $ExitCode" "ERROR"
+            if ($StdErr) {
+                Write-Host "Error details: $StdErr" -ForegroundColor Red
+                
+                # Provide specific guidance based on error type
+                if ($StdErr -match "Connection refused|SSL error" -and $StdErr -match "Maybe the port specified is incorrect") {
+                    Write-Host "`nTROUBLESHOoting SUGGESTIONS:" -ForegroundColor Yellow
+                    Write-Host "1. Verify the manager is running and accessible" -ForegroundColor White
+                    Write-Host "2. Check if port $ManagerPort is the correct enrollment port" -ForegroundColor White
+                    Write-Host "3. Common ports:" -ForegroundColor White
+                    Write-Host "   • Port 1515: Standard Wazuh/OSSEC enrollment port" -ForegroundColor Gray
+                    Write-Host "   • Port 1514: Agent communication port (not for enrollment)" -ForegroundColor Gray
+                    Write-Host "4. Verify firewall allows connections to port $ManagerPort" -ForegroundColor White
+                    Write-Host "5. Ensure the manager's authd service is running" -ForegroundColor White
+                    
+                    Write-Host "`nWould you like to try again with port 1515? (y/n)" -ForegroundColor Yellow
+                    $RetryWithCorrectPort = Read-Host
+                    if ($RetryWithCorrectPort -eq 'y' -or $RetryWithCorrectPort -eq 'Y') {
+                        Write-Host "Retrying with port 1515..." -ForegroundColor Cyan
+                        
+                        # Retry with port 1515
+                        $AgentAuthArgs = @(
+                            "-m", $ManagerAddress,
+                            "-p", "1515",
+                            "-A", $AgentName
+                        )
+                        
+                        if ($AuthPasswordPlain) {
+                            $AgentAuthArgs += @("-P", $AuthPasswordPlain)
+                        }
+                        
+                        Write-Log "Retrying enrollment with port 1515..." "INFO"
+                        
+                        try {
+                            $ProcessInfo.Arguments = $AgentAuthArgs -join " "
+                            $RetryProcess = New-Object System.Diagnostics.Process
+                            $RetryProcess.StartInfo = $ProcessInfo
+                            
+                            $RetryProcess.Start() | Out-Null
+                            $RetryStdOut = $RetryProcess.StandardOutput.ReadToEnd()
+                            $RetryStdErr = $RetryProcess.StandardError.ReadToEnd()
+                            
+                            if (!$RetryProcess.WaitForExit(30000)) {
+                                $RetryProcess.Kill()
+                                Write-Log "Retry attempt timed out" "ERROR"
+                                return $false
+                            }
+                            
+                            $RetryExitCode = $RetryProcess.ExitCode
+                            
+                            if ($RetryExitCode -eq 0) {
+                                Write-Log "Auto-enrollment successful on retry with port 1515!" "SUCCESS"
+                                $StdOut = $RetryStdOut
+                                $ExitCode = 0  # Set to success to continue with verification
+                            }
+                            else {
+                                Write-Log "Retry also failed with exit code: $RetryExitCode" "ERROR"
+                                if ($RetryStdErr) {
+                                    Write-Host "Retry error: $RetryStdErr" -ForegroundColor Red
+                                }
+                                return $false
+                            }
+                        }
+                        catch {
+                            Write-Log "Error during retry: $($_.Exception.Message)" "ERROR"
+                            return $false
+                        }
+                    }
+                    else {
+                        return $false
+                    }
+                }
+                elseif ($StdErr -match "Invalid agent name" -or $StdErr -match "agent name") {
+                    Write-Host "`nAgent name '$AgentName' may be invalid or already exists." -ForegroundColor Yellow
+                    Write-Host "Try using a more unique name or check manager logs." -ForegroundColor White
+                }
+                elseif ($StdErr -match "password" -or $StdErr -match "authentication") {
+                    Write-Host "`nManager may require an authorization password." -ForegroundColor Yellow
+                    Write-Host "Contact your administrator for the enrollment password." -ForegroundColor White
+                }
+                else {
+                    Write-Host "`nGeneral troubleshooting:" -ForegroundColor Yellow
+                    Write-Host "1. Verify manager IP address is correct" -ForegroundColor White
+                    Write-Host "2. Check network connectivity to the manager" -ForegroundColor White
+                    Write-Host "3. Ensure manager's authd service is running" -ForegroundColor White
+                    Write-Host "4. Check manager logs for more details" -ForegroundColor White
+                }
+            }
+            return $false
+        }
+    }
+    catch {
+        Write-Log "Error during auto-enrollment: $($_.Exception.Message)" "ERROR"
+        return $false
+    }
+}
 #endregion
 
 #region Main Menu Functions
@@ -841,18 +1261,7 @@ function Show-MainMenu {
         Write-Host "  Agent: " -NoNewline -ForegroundColor White
         Write-Host "RUNNING" -ForegroundColor Green
         Write-Host "  PID: $($Status.ProcessId)" -ForegroundColor Gray
-        if ($Status.Connected -eq $true) {
-            Write-Host "  Connection: " -NoNewline -ForegroundColor White
-            Write-Host "CONNECTED" -ForegroundColor Green
-        }
-        elseif ($Status.Connected -eq $false) {
-            Write-Host "  Connection: " -NoNewline -ForegroundColor White
-            Write-Host "DISCONNECTED" -ForegroundColor Red
-        }
-        else {
-            Write-Host "  Connection: " -NoNewline -ForegroundColor White
-            Write-Host "UNKNOWN" -ForegroundColor Yellow
-        }
+       
     }
     else {
         Write-Host "  Agent: " -NoNewline -ForegroundColor White
@@ -862,7 +1271,7 @@ function Show-MainMenu {
     Write-Host "`n" + "="*50 -ForegroundColor Gray
     Write-Host "MAIN MENU" -ForegroundColor Cyan
     Write-Host "="*50 -ForegroundColor Gray
-    Write-Host "1. Enroll Agent (Configure Manager Connection)" -ForegroundColor White
+    Write-Host "1. Enroll Agent (Auto & Manual Options)" -ForegroundColor White
     Write-Host "2. Start Agent" -ForegroundColor White
     Write-Host "3. Stop Agent" -ForegroundColor White
     Write-Host "4. Restart Agent" -ForegroundColor White
@@ -1053,6 +1462,12 @@ function Main {
             "enroll" {
                 if (Start-AgentEnrollment) { exit 0 } else { exit 1 }
             }
+            "auto-enroll" {
+                if (Start-AgentAutoEnrollment) { exit 0 } else { exit 1 }
+            }
+            "manual-enroll" {
+                if (Start-AgentManualEnrollment) { exit 0 } else { exit 1 }
+            }
             "cleanup" {
                 $AgentRunning = (Get-AgentStatus).Running
                 if ($AgentRunning) {
@@ -1067,7 +1482,15 @@ function Main {
                 if ($CleanupResult) { exit 0 } else { exit 1 }
             }
             default {
-                Write-Host "Usage: .\MonitoringAgentControl.ps1 [start|stop|restart|status|enroll|cleanup]" -ForegroundColor Yellow
+                Write-Host "Usage: .\MonitoringAgentControl.ps1 [start|stop|restart|status|enroll|auto-enroll|manual-enroll|cleanup]" -ForegroundColor Yellow
+                Write-Host "  start        - Start the monitoring agent" -ForegroundColor Gray
+                Write-Host "  stop         - Stop the monitoring agent" -ForegroundColor Gray
+                Write-Host "  restart      - Restart the monitoring agent" -ForegroundColor Gray
+                Write-Host "  status       - Check agent status" -ForegroundColor Gray
+                Write-Host "  enroll       - Interactive enrollment (auto/manual choice)" -ForegroundColor Gray
+                Write-Host "  auto-enroll  - Auto-enrollment using agent-auth.exe" -ForegroundColor Gray
+                Write-Host "  manual-enroll- Manual enrollment with pre-generated key" -ForegroundColor Gray
+                Write-Host "  cleanup      - Clean database files" -ForegroundColor Gray
                 Write-Host "Or run without parameters for interactive mode." -ForegroundColor Gray
                 exit 1
             }

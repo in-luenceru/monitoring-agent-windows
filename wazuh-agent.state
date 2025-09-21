@@ -7,17 +7,17 @@
 status='connected'
 
 # Last time a keepalive was sent
-last_keepalive='2025-09-20 17:49:45'
+last_keepalive='2025-09-21 20:00:54'
 
 # Last time a control message was received
-last_ack='2025-09-20 17:49:55'
+last_ack='2025-09-21 20:00:54'
 
 # Number of generated events
-msg_count='454'
+msg_count='2855'
 
 # Number of messages (events + control messages) sent to the manager
-msg_sent='421'
+msg_sent='3204'
 
 # Number of events currently buffered
 # Empty if anti-flooding mechanism is disabled
-msg_buffer='36'
+msg_buffer='0'

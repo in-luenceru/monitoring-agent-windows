@@ -1,0 +1,47 @@
+=== MONITORING AGENT WATCHDOG TEST REPORT ===
+Generated: 2025-09-21 14:10:25
+Test Mode: True
+Skip Service Tests: True
+Interactive: False
+
+SUMMARY:
+Total Tests: 17
+Passed: 8
+Failed: 9
+Success Rate: 47.06%
+
+DETAILED RESULTS:
+[PASS] Admin Rights - 14:09:00
+  Details: Running as Administrator
+[PASS] Control Script Exists - 14:09:00
+  Details: C:\Users\ANANDHU\Downloads\monitoring-agent-windows\MonitoringAgentControl.ps1
+[PASS] Watchdog Script Exists - 14:09:00
+  Details: C:\Users\ANANDHU\Downloads\monitoring-agent-windows\MonitoringAgentWatchdog.ps1
+[PASS] Agent Executable Exists - 14:09:00
+  Details: C:\Users\ANANDHU\Downloads\monitoring-agent-windows\monitoring-agent.exe
+[FAIL] Control Script Status Command - 14:09:00
+  Details: Status command executed
+[FAIL] Control Script Start Command - 14:09:00
+  Error: Start command failed
+[FAIL] Control Script Stop Command - 14:09:00
+  Error: Stop command failed
+[FAIL] Control Script Force Stop - 14:09:05
+  Error: Force stop command failed
+[PASS] PID File Removed on Stop - 14:09:10
+  Details: PID file removed when agent stopped
+[FAIL] PID File Test Pre-condition - 14:09:15
+  Error: Failed to start agent for PID file test
+[PASS] Watchdog Starts Agent - 14:09:33
+  Details: Watchdog automatically started stopped agent
+[FAIL] Watchdog Standalone Test - 14:09:33
+  Error: A parameter cannot be found that matches parameter name 'Force'.
+[PASS] Agent Process Killed - 14:09:39
+  Details: Simulated crash by killing PID 12516
+[PASS] Crash Recovery - 14:09:39
+  Details: Service not running - manual restart expected
+[FAIL] Manual Stop Pre-condition - 14:09:44
+  Error: Failed to stop agent manually
+[FAIL] Force Stop Pre-condition - 14:09:49
+  Error: Failed to force stop agent
+[FAIL] Crash Loop Protection Triggered - 14:10:25
+  Details: Watchdog paused after repeated crashes

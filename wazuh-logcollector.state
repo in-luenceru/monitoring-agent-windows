@@ -1,7 +1,7 @@
 {
 	"global":	{
-		"start":	"2025-09-20 17:32:33",
-		"end":	"2025-09-20 17:33:33",
+		"start":	"2025-09-21 16:48:05",
+		"end":	"2025-09-21 20:00:24",
 		"files":	[{
 				"location":	"active-response\\active-responses.log",
 				"events":	0,
@@ -12,24 +12,24 @@
 					}]
 			}, {
 				"location":	"System",
-				"events":	10,
-				"bytes":	10014,
+				"events":	516,
+				"bytes":	528349,
 				"targets":	[{
 						"name":	"agent",
 						"drops":	0
 					}]
 			}, {
 				"location":	"Security",
-				"events":	12,
-				"bytes":	22189,
+				"events":	666,
+				"bytes":	1222722,
 				"targets":	[{
 						"name":	"agent",
 						"drops":	0
 					}]
 			}, {
 				"location":	"Application",
-				"events":	4,
-				"bytes":	2562,
+				"events":	33,
+				"bytes":	24463,
 				"targets":	[{
 						"name":	"agent",
 						"drops":	0
@@ -37,8 +37,8 @@
 			}]
 	},
 	"interval":	{
-		"start":	"2025-09-20 17:32:33",
-		"end":	"2025-09-20 17:33:33",
+		"start":	"2025-09-21 19:59:24",
+		"end":	"2025-09-21 20:00:24",
 		"files":	[{
 				"location":	"active-response\\active-responses.log",
 				"events":	0,
@@ -49,24 +49,24 @@
 					}]
 			}, {
 				"location":	"System",
-				"events":	10,
-				"bytes":	10014,
+				"events":	1,
+				"bytes":	1030,
 				"targets":	[{
 						"name":	"agent",
 						"drops":	0
 					}]
 			}, {
 				"location":	"Security",
-				"events":	12,
-				"bytes":	22189,
+				"events":	0,
+				"bytes":	0,
 				"targets":	[{
 						"name":	"agent",
 						"drops":	0
 					}]
 			}, {
 				"location":	"Application",
-				"events":	4,
-				"bytes":	2562,
+				"events":	0,
+				"bytes":	0,
 				"targets":	[{
 						"name":	"agent",
 						"drops":	0
