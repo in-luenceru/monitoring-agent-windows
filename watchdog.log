@@ -26,3 +26,13 @@
 [2025-09-21 14:50:37] [WARN] [WATCHDOG] Watchdog is paused - waiting for manual intervention
 [2025-09-21 14:51:07] [WARN] [WATCHDOG] Watchdog is paused - waiting for manual intervention
 [2025-09-21 14:51:16] [DEBUG] [WATCHDOG] Removed watchdog PID file
+[2025-09-22 07:48:57] [INFO] === Monitoring Agent Watchdog Service Started ===
+[2025-09-22 07:48:57] [INFO] PowerShell Version: 5.1.26100.4652
+[2025-09-22 07:48:57] [INFO] Running as: desktop-ivbqt1t\anandhu
+[2025-09-22 07:48:57] [INFO] Monitoring Agent Watchdog Service Starting
+[2025-09-22 07:48:57] [INFO] Agent Path: C:\Users\ANANDHU\Downloads\monitoring-agent-windows
+[2025-09-22 07:48:57] [INFO] Check Interval: 30 seconds
+[2025-09-22 07:48:57] [INFO] Max Restart Attempts: 5
+[2025-09-22 07:48:57] [INFO] Initial startup delay (10 seconds)...
+[2025-09-22 07:49:07] [INFO] Agent process found (PID: 22864)
+[2025-09-22 07:49:13] [INFO] === Monitoring Agent Watchdog Service Stopped ===

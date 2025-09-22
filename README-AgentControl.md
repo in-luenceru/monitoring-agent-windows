@@ -1,16 +1,30 @@
 # Monitoring Agent Control Center
 
-A professional PowerShell script for managing Monitoring Agent Windows with comprehensive enrollment, configuration, and control capabilities.
+A professional PowerShell script for managing Monitoring Agent Windows with comprehensive enrollment, configuration, and control capabilities, including **automatic startup management**.
 
 ## Features
 
 - **Agent Enrollment**: Easy setup with manager IP and client key configuration
+- **Auto-Startup Management**: Integrated automatic startup after system boot, restart, or sleep
+- **Task Scheduler Integration**: Uses Windows Task Scheduler for reliable auto-startup
+- **Intelligent Watchdog**: Monitors agent status and restarts if stopped unexpectedly
 - **Base64 Support**: Handles both plain text and base64 encoded client keys
 - **Agent Control**: Start, stop, restart, and status monitoring
 - **Configuration Management**: Automatic backup and update of configuration files
 - **User-Friendly Interface**: Interactive menu system with colored output
 - **Production Ready**: Comprehensive logging, error handling, and validation
 - **Command Line Support**: Can be used both interactively and via command line
+
+## Auto-Startup Features
+
+The Control Center now includes **fully integrated auto-startup management**:
+
+- **Seamless Integration**: Starting the agent automatically enables auto-startup; stopping disables it
+- **Multiple Triggers**: Auto-starts after system boot, restart, wake from sleep, and user logon
+- **Intelligent Monitoring**: Watchdog process monitors agent health and restarts if needed
+- **Configurable Settings**: Customizable startup delays, restart limits, and monitoring intervals
+- **Manual Override**: Option to manually manage auto-startup settings independent of agent status
+- **Comprehensive Logging**: Detailed logs for all auto-startup activities and watchdog operations
 
 ## Requirements
 
@@ -130,32 +144,116 @@ Run the script without parameters to launch the interactive menu:
 For automation and scripting:
 
 ```powershell
-# Start the agent
+# Start the agent (automatically enables auto-startup)
 .\MonitoringAgentControl.ps1 start
 
-# Stop the agent
+# Stop the agent (automatically disables auto-startup) 
 .\MonitoringAgentControl.ps1 stop
 
-# Restart the agent
+# Restart the agent (maintains current auto-startup state)
 .\MonitoringAgentControl.ps1 restart
 
-# Check agent status
+# Check agent status (includes auto-startup information)
 .\MonitoringAgentControl.ps1 status
 
 # Start enrollment process
 .\MonitoringAgentControl.ps1 enroll
+
+# Auto-enrollment with agent-auth.exe
+.\MonitoringAgentControl.ps1 auto-enroll
+
+# Manual enrollment with pre-generated key
+.\MonitoringAgentControl.ps1 manual-enroll
+
+# Clean database files
+.\MonitoringAgentControl.ps1 cleanup
 ```
+
+**Note**: When using command line mode, auto-startup management is fully integrated. Starting the agent will automatically set up auto-startup tasks, and stopping will disable them.
 
 ## Interactive Menu Options
 
 1. **Enroll Agent**: Configure connection to Monitoring manager
-2. **Start Agent**: Start the Monitoring agent service
-3. **Stop Agent**: Stop the Monitoring agent service
+2. **Start Agent**: Start the Monitoring agent service (automatically enables auto-startup)
+3. **Stop Agent**: Stop the Monitoring agent service (automatically disables auto-startup)
 4. **Restart Agent**: Restart the agent service
-5. **Check Agent Status**: View current agent status and connection
+5. **Check Agent Status**: View current agent status, connection, and auto-startup status
 6. **View Recent Logs**: Display recent agent log entries
 7. **Show Configuration**: Display current agent configuration
-8. **Exit**: Close the control center
+8. **Auto-Startup Management**: Manual control of auto-startup settings
+9. **Clean Database Files**: Clean agent database files (with restart if needed)
+0. **Exit**: Close the control center
+
+## Auto-Startup Management
+
+### Automatic Integration
+
+The Control Center now **automatically manages auto-startup** when you start or stop the agent:
+
+- **Starting the Agent** (`Option 2` or `.\MonitoringAgentControl.ps1 start`):
+  - Automatically installs auto-startup tasks
+  - Starts the watchdog monitoring service
+  - Configures multiple startup triggers (boot, restart, wake, logon)
+
+- **Stopping the Agent** (`Option 3` or `.\MonitoringAgentControl.ps1 stop`):
+  - Automatically stops auto-startup tasks
+  - Stops the watchdog monitoring service
+  - Agent will not auto-start until manually started again
+
+### Manual Auto-Startup Control (Option 8)
+
+For advanced users who want manual control over auto-startup settings:
+
+```
+╔══════════════════════════════════════════════════════════════════════════════════════════════════════════════
+║                                    AUTO-STARTUP MANAGEMENT                                                  ║
+╠══════════════════════════════════════════════════════════════════════════════════════════════════════════════
+║  1. Install Auto-Startup Tasks     - Enable automatic startup after system events                          ║
+║  2. Remove Auto-Startup Tasks      - Disable automatic startup                                              ║
+║  3. Start Auto-Startup Tasks       - Start auto-startup services (if installed)                            ║
+║  4. Stop Auto-Startup Tasks        - Stop auto-startup services (keeps tasks installed)                    ║
+║  5. Show Auto-Startup Status       - Display current auto-startup configuration                            ║
+║  0. Return to Main Menu            - Go back to main menu                                                  ║
+╚══════════════════════════════════════════════════════════════════════════════════════════════════════════════
+```
+
+### Auto-Startup Features
+
+- **Multiple Triggers**: 
+  - System startup/boot
+  - System restart
+  - Wake from sleep/hibernation
+  - User logon
+
+- **Intelligent Watchdog**:
+  - Monitors agent every 30 seconds
+  - Automatically restarts if agent stops unexpectedly
+  - Configurable restart limits (default: 5 attempts per hour)
+  - Comprehensive logging of all restart activities
+
+- **Startup Configuration**:
+  - Configurable startup delay (default: 30 seconds after trigger)
+  - Runs with highest privileges and priority
+  - Starts even if no user is logged in
+  - Compatible with fast startup and hibernation
+
+### Status Information
+
+The `Check Agent Status` option now includes auto-startup information:
+
+```powershell
+=== MONITORING AGENT STATUS ===
+Agent Status: Running (PID: 12345)
+Agent State: Connected to manager
+Uptime: 2 hours 30 minutes
+
+=== AUTO-STARTUP STATUS ===
+Tasks Installed: Yes
+Tasks Running: Yes
+Watchdog Status: Running (PID: 67890)
+Last Startup: 2025-01-22 08:30:15
+Restart Count: 0
+```
 
 ## Enrollment Process
 
@@ -261,6 +359,39 @@ The script checks:
    - Verify key format (ID NAME IP KEY)
    - Check for extra spaces or characters
    - Ensure key was copied correctly from manager
+
+### Auto-Startup Troubleshooting
+
+5. **Auto-startup not working after reboot**
+   - Check if tasks are installed: Use Option 8 → Option 5
+   - Verify Task Scheduler service is running: `Get-Service Schedule`
+   - Review startup logs in the `logs/` directory
+   - Ensure script path hasn't changed
+
+6. **Watchdog not restarting agent**
+   - Check watchdog process: Look for `MonitoringAgentWatchdog.ps1` in Task Manager
+   - Review watchdog logs: Check `logs/watchdog.log`
+   - Verify restart limits haven't been exceeded
+   - Ensure agent is properly stopped before watchdog attempts restart
+
+7. **Tasks installed but not starting**
+   - Check task status: `Get-ScheduledTask -TaskName "MonitoringAgent*"`
+   - Verify task execution settings: Open Task Scheduler and check task properties
+   - Review system event logs: Check Windows Event Viewer for task scheduler errors
+   - Ensure tasks have proper permissions: Tasks should run as SYSTEM
+
+8. **Agent starts but auto-startup status shows as disabled**
+   - Restart the Control Center script
+   - Check if tasks were installed in a different user context
+   - Verify script is running with Administrator privileges
+   - Use Option 8 → Option 1 to reinstall auto-startup tasks
+
+### Auto-Startup Log Locations
+
+- **Agent Logs**: `logs/service.log`
+- **Watchdog Logs**: `logs/watchdog.log`
+- **Task Scheduler Logs**: Windows Event Viewer → Task Scheduler Operational
+- **Agent Control Logs**: Current directory (timestamped entries)
 
 ### Log Locations
 

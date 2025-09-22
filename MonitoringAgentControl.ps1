@@ -31,6 +31,9 @@ $Script:LogFile = Join-Path $AgentPath "logs\agent-control.log"
 $Script:PidFile = Join-Path $AgentPath "monitoring-agent.pid"
 $Script:AgentInfo = Join-Path $AgentPath ".agent_info"
 
+# Auto-startup configuration
+$Script:TaskName = "MonitoringAgentAutoStart"
+
 # Ensure logs directory exists
 $LogDir = Split-Path $Script:LogFile -Parent
 if (!(Test-Path $LogDir)) {
@@ -225,6 +228,290 @@ function Test-ProcessRunning {
         return $false
     }
 }
+
+function Test-PidFileStatus {
+    <#
+    .SYNOPSIS
+        Tests the status of the PID file and validates if it refers to a running agent process
+    .DESCRIPTION
+        This function provides detailed validation of the PID file status including:
+        - Whether PID file exists
+        - Whether the PID refers to a running process
+        - Whether the process is actually our monitoring agent
+        - Whether the process is from our workspace
+    .OUTPUTS
+        Returns a hashtable with validation results
+    #>
+    
+    try {
+        $Result = @{
+            PidFileExists = $false
+            PidFromFile = $null
+            ProcessRunning = $false
+            IsOurAgent = $false
+            IsWorkspaceAgent = $false
+            Status = "Unknown"
+        }
+        
+        # Check if PID file exists
+        if (Test-Path $Script:PidFile) {
+            $Result.PidFileExists = $true
+            
+            # Get PID from file
+            $PidFromFile = Get-AgentPid
+            if ($PidFromFile) {
+                $Result.PidFromFile = $PidFromFile
+                
+                # Check if process is running
+                $ProcessRunning = Test-ProcessRunning $PidFromFile
+                $Result.ProcessRunning = $ProcessRunning
+                
+                if ($ProcessRunning) {
+                    # Check if it's a monitoring-agent process
+                    $Process = Get-CimInstance -ClassName Win32_Process -Filter "ProcessId = $PidFromFile" -ErrorAction SilentlyContinue
+                    if ($Process -and $Process.Name -eq "monitoring-agent.exe") {
+                        $Result.IsOurAgent = $true
+                        
+                        # Check if it's from our workspace
+                        if ($Process.ExecutablePath -eq $Script:AgentExe) {
+                            $Result.IsWorkspaceAgent = $true
+                            $Result.Status = "Valid"
+                        } else {
+                            $Result.Status = "WrongWorkspace"
+                        }
+                    } else {
+                        $Result.Status = "WrongProcess"
+                    }
+                } else {
+                    $Result.Status = "ProcessNotRunning"
+                }
+            } else {
+                $Result.Status = "InvalidPidFile"
+            }
+        } else {
+            $Result.Status = "NoPidFile"
+        }
+        
+        return $Result
+    }
+    catch {
+        Write-Log "Error testing PID file status: $($_.Exception.Message)" "ERROR"
+        return @{
+            PidFileExists = $false
+            PidFromFile = $null
+            ProcessRunning = $false
+            IsOurAgent = $false
+            IsWorkspaceAgent = $false
+            Status = "Error"
+            Error = $_.Exception.Message
+        }
+    }
+}
+#endregion
+
+#region Auto-Startup Management Functions
+function Install-AutoStartupTasks {
+    Write-Log "Installing auto-startup tasks..." "INFO"
+    
+    $LogFile = Join-Path $Script:AgentPath "logs\task-scheduler.log"
+    $timestamp = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
+    
+    # Ensure logs directory exists
+    $logsDir = Join-Path $Script:AgentPath "logs"
+    if (!(Test-Path $logsDir)) {
+        New-Item -Path $logsDir -ItemType Directory -Force | Out-Null
+    }
+    
+    Add-Content $LogFile "[$timestamp] [INFO] Starting auto-startup tasks installation" -ErrorAction SilentlyContinue
+    
+    try {
+        # Remove existing tasks if they exist
+        Add-Content $LogFile "[$timestamp] [INFO] Removing existing auto-startup tasks (if any)" -ErrorAction SilentlyContinue
+        Remove-AutoStartupTasks | Out-Null
+        
+        # Create the startup task
+        Write-Log "Creating agent startup task..." "INFO"
+        Add-Content $LogFile "[$timestamp] [INFO] Creating agent startup task: $Script:TaskName" -ErrorAction SilentlyContinue
+        
+        $startupAction = New-ScheduledTaskAction -Execute "cmd.exe" -Argument "/c `"$Script:AgentPath\auto-start-wrapper.bat`"" -WorkingDirectory $Script:AgentPath
+        
+        $startupTriggers = @(
+            New-ScheduledTaskTrigger -AtStartup
+            New-ScheduledTaskTrigger -AtLogOn
+        )
+        
+        $startupSettings = New-ScheduledTaskSettingsSet -AllowStartIfOnBatteries -DontStopIfGoingOnBatteries -StartWhenAvailable -RestartOnIdle -DontStopOnIdleEnd -ExecutionTimeLimit (New-TimeSpan -Hours 0) -RestartCount 999 -RestartInterval (New-TimeSpan -Minutes 1) -Hidden -MultipleInstances IgnoreNew
+        
+        $startupPrincipal = New-ScheduledTaskPrincipal -UserId "SYSTEM" -LogonType ServiceAccount -RunLevel Highest
+        
+        $startupTask = New-ScheduledTask -Action $startupAction -Trigger $startupTriggers -Settings $startupSettings -Principal $startupPrincipal -Description "Automatically starts the Monitoring Agent at system startup and user logon"
+        
+        Register-ScheduledTask -TaskName $Script:TaskName -InputObject $startupTask -Force | Out-Null
+        
+        Write-Log "Agent startup task created successfully" "SUCCESS"
+        Add-Content $LogFile "[$timestamp] [SUCCESS] Agent startup task created: $Script:TaskName" -ErrorAction SilentlyContinue
+        
+        Write-Log "Auto-startup task installed successfully" "SUCCESS"
+        Add-Content $LogFile "[$timestamp] [SUCCESS] Auto-startup task installation completed" -ErrorAction SilentlyContinue
+        return $true
+    }
+    catch {
+        Write-Log "Error installing auto-startup task: $_" "ERROR"
+        Add-Content $LogFile "[$timestamp] [ERROR] Error installing auto-startup task: $_" -ErrorAction SilentlyContinue
+        return $false
+    }
+}
+
+function Remove-AutoStartupTasks {
+    Write-Log "Removing auto-startup task..." "INFO"
+    
+    $LogFile = Join-Path $Script:AgentPath "logs\task-scheduler.log"
+    $timestamp = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
+    
+    try {
+        $tasksRemoved = 0
+        
+        Add-Content $LogFile "[$timestamp] [INFO] Starting auto-startup task removal" -ErrorAction SilentlyContinue
+        
+        # Stop and remove startup task
+        $startupTask = Get-ScheduledTask -TaskName $Script:TaskName -ErrorAction SilentlyContinue
+        if ($startupTask) {
+            if ($startupTask.State -eq "Running") {
+                Stop-ScheduledTask -TaskName $Script:TaskName -ErrorAction SilentlyContinue
+                Add-Content $LogFile "[$timestamp] [INFO] Stopped running startup task: $Script:TaskName" -ErrorAction SilentlyContinue
+            }
+            Unregister-ScheduledTask -TaskName $Script:TaskName -Confirm:$false
+            Write-Log "Removed startup task: $Script:TaskName" "INFO"
+            Add-Content $LogFile "[$timestamp] [SUCCESS] Removed startup task: $Script:TaskName" -ErrorAction SilentlyContinue
+            $tasksRemoved++
+        }
+        else {
+            Add-Content $LogFile "[$timestamp] [INFO] Startup task not found: $Script:TaskName" -ErrorAction SilentlyContinue
+        }
+        
+        # Also remove any existing watchdog task (cleanup from previous versions)
+        $watchdogTaskName = "MonitoringAgentWatchdog"  # Legacy task name for cleanup
+        $watchdogTask = Get-ScheduledTask -TaskName $watchdogTaskName -ErrorAction SilentlyContinue
+        if ($watchdogTask) {
+            if ($watchdogTask.State -eq "Running") {
+                Stop-ScheduledTask -TaskName $watchdogTaskName -ErrorAction SilentlyContinue
+                Add-Content $LogFile "[$timestamp] [INFO] Stopped legacy watchdog task: $watchdogTaskName" -ErrorAction SilentlyContinue
+            }
+            Unregister-ScheduledTask -TaskName $watchdogTaskName -Confirm:$false
+            Write-Log "Removed legacy watchdog task: $watchdogTaskName" "INFO"
+            Add-Content $LogFile "[$timestamp] [SUCCESS] Removed legacy watchdog task: $watchdogTaskName" -ErrorAction SilentlyContinue
+            $tasksRemoved++
+        }
+        
+        if ($tasksRemoved -gt 0) {
+            Write-Log "Auto-startup task removed successfully" "SUCCESS"
+            Add-Content $LogFile "[$timestamp] [SUCCESS] Auto-startup task removal completed - removed $tasksRemoved task(s)" -ErrorAction SilentlyContinue
+        }
+        else {
+            Write-Log "No auto-startup task found to remove" "INFO"
+            Add-Content $LogFile "[$timestamp] [INFO] No auto-startup task found to remove" -ErrorAction SilentlyContinue
+        }
+        
+        return $true
+    }
+    catch {
+        Write-Log "Error removing auto-startup task: $_" "ERROR"
+        Add-Content $LogFile "[$timestamp] [ERROR] Error removing auto-startup task: $_" -ErrorAction SilentlyContinue
+        return $false
+    }
+}
+
+function Start-AutoStartupTasks {
+    Write-Log "Starting auto-startup task..." "INFO"
+    
+    $LogFile = Join-Path $Script:AgentPath "logs\task-scheduler.log"
+    $timestamp = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
+    
+    try {
+        # Start startup task
+        $startupTask = Get-ScheduledTask -TaskName $Script:TaskName -ErrorAction SilentlyContinue
+        if ($startupTask) {
+            if ($startupTask.State -ne "Running") {
+                Start-ScheduledTask -TaskName $Script:TaskName
+                Write-Log "Started startup task" "SUCCESS"
+                Add-Content $LogFile "[$timestamp] [SUCCESS] Started startup task: $Script:TaskName" -ErrorAction SilentlyContinue
+            }
+            else {
+                Add-Content $LogFile "[$timestamp] [INFO] Startup task already running: $Script:TaskName" -ErrorAction SilentlyContinue
+            }
+        }
+        else {
+            Write-Log "Startup task not found - needs to be installed first" "WARN"
+            Add-Content $LogFile "[$timestamp] [WARN] Startup task not found: $Script:TaskName" -ErrorAction SilentlyContinue
+            return $false
+        }
+        
+        Write-Log "Auto-startup task started successfully" "SUCCESS"
+        Add-Content $LogFile "[$timestamp] [SUCCESS] Auto-startup task management completed" -ErrorAction SilentlyContinue
+        
+        return $true
+    }
+    catch {
+        Write-Log "Error starting auto-startup task: $_" "ERROR"
+        Add-Content $LogFile "[$timestamp] [ERROR] Error starting auto-startup task: $_" -ErrorAction SilentlyContinue
+        return $false
+    }
+}
+
+function Stop-AutoStartupTasks {
+    Write-Log "Stopping auto-startup task..." "INFO"
+    
+    $LogFile = Join-Path $Script:AgentPath "logs\task-scheduler.log"
+    $timestamp = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
+    
+    try {
+        # Stop startup task
+        $startupTask = Get-ScheduledTask -TaskName $Script:TaskName -ErrorAction SilentlyContinue
+        if ($startupTask -and $startupTask.State -eq "Running") {
+            Stop-ScheduledTask -TaskName $Script:TaskName
+            Write-Log "Stopped startup task" "SUCCESS"
+            Add-Content $LogFile "[$timestamp] [SUCCESS] Stopped startup task: $Script:TaskName" -ErrorAction SilentlyContinue
+        }
+        elseif ($startupTask) {
+            Add-Content $LogFile "[$timestamp] [INFO] Startup task already stopped: $Script:TaskName" -ErrorAction SilentlyContinue
+        }
+        else {
+            Write-Log "No auto-startup task found to stop" "INFO"
+            Add-Content $LogFile "[$timestamp] [INFO] No auto-startup task found to stop" -ErrorAction SilentlyContinue
+        }
+        
+        return $true
+    }
+    catch {
+        Write-Log "Error stopping auto-startup task: $_" "ERROR"
+        Add-Content $LogFile "[$timestamp] [ERROR] Error stopping auto-startup task: $_" -ErrorAction SilentlyContinue
+        return $false
+    }
+}
+
+function Get-AutoStartupStatus {
+    try {
+        $startupTask = Get-ScheduledTask -TaskName $Script:TaskName -ErrorAction SilentlyContinue
+        
+        # Task is "active" if it is enabled (Ready state) or running
+        $startupActive = ($startupTask -and ($startupTask.State -eq "Ready" -or $startupTask.State -eq "Running"))
+        
+        return @{
+            StartupInstalled = ($null -ne $startupTask)
+            StartupRunning = $startupActive
+            AutoStartupEnabled = ($null -ne $startupTask)
+            AutoStartupActive = $startupActive
+        }
+    }
+    catch {
+        return @{
+            StartupInstalled = $false
+            StartupRunning = $false
+            AutoStartupEnabled = $false
+            AutoStartupActive = $false
+        }
+    }
+}
 #endregion
 
 #region Agent Control Functions
@@ -232,25 +519,54 @@ function Get-AgentStatus {
     Write-Log "Checking agent status..." "INFO"
     
     try {
+        # Get PID from file first (if exists) for cross-reference
+        $PidFromFile = Get-AgentPid
+        
         # Check for monitoring-agent processes using Get-CimInstance for more detailed info
         $AgentProcesses = Get-CimInstance -ClassName Win32_Process -Filter "Name = 'monitoring-agent.exe'" -ErrorAction SilentlyContinue
         
+        # Variables to track process validation
+        $WorkspaceProcesses = @()
+        $PidFileValid = $false
+        $RunningProcessId = $null
+        
         if ($AgentProcesses) {
             # Filter processes that are actually from our workspace
-            $WorkspaceProcesses = @()
             foreach ($proc in $AgentProcesses) {
                 if ($proc.ExecutablePath -eq $Script:AgentExe) {
                     $WorkspaceProcesses += $proc
+                    
+                    # Check if this process matches the PID file
+                    if ($PidFromFile -and $proc.ProcessId -eq $PidFromFile) {
+                        $PidFileValid = $true
+                        Write-Log "PID file matches running process (PID: $($proc.ProcessId))" "SUCCESS"
+                    }
                 }
             }
             
             if ($WorkspaceProcesses.Count -gt 0) {
-                $MainProcess = $WorkspaceProcesses[0]
-                $ProcessId = $MainProcess.ProcessId
-                Write-Log "Found workspace agent process (PID: $ProcessId)" "SUCCESS"
+                # Use the process that matches PID file if valid, otherwise use first workspace process
+                if ($PidFileValid) {
+                    $MainProcess = $WorkspaceProcesses | Where-Object { $_.ProcessId -eq $PidFromFile } | Select-Object -First 1
+                } else {
+                    $MainProcess = $WorkspaceProcesses[0]
+                    Write-Log "PID file doesn't match any running process, using first workspace process" "WARN"
+                }
                 
-                # Save the PID for future reference
-                Save-AgentPid $ProcessId
+                $RunningProcessId = $MainProcess.ProcessId
+                Write-Log "Found workspace agent process (PID: $RunningProcessId)" "SUCCESS"
+                
+                # Update PID file with current running process if different
+                if (!$PidFileValid -or $PidFromFile -ne $RunningProcessId) {
+                    Write-Log "Updating PID file with current running process ID: $RunningProcessId" "INFO"
+                    Save-AgentPid $RunningProcessId
+                }
+                
+                # Validate the process is actually running and accessible
+                $ProcessRunning = Test-ProcessRunning $RunningProcessId
+                if (!$ProcessRunning) {
+                    Write-Log "Process $RunningProcessId found in process list but not accessible - may be terminating" "WARN"
+                }
                 
                 # Check agent state file for connection status
                 $StateFile = Join-Path $Script:AgentPath "monitoring-agent.state"
@@ -261,26 +577,74 @@ function Get-AgentStatus {
                         $StateContent = Get-Content $StateFile -Raw -ErrorAction SilentlyContinue
                         Write-Log "Agent state file found" "INFO"
                         
+                        # Try to determine connection status from state file content
+                        if ($StateContent -and $StateContent.Length -gt 0) {
+                            # Look for connection indicators in state content
+                            if ($StateContent -match "connected|active|running") {
+                                $Connected = $true
+                                Write-Log "Agent appears to be connected based on state file" "INFO"
+                            } elseif ($StateContent -match "disconnected|stopped|inactive") {
+                                $Connected = $false
+                                Write-Log "Agent appears to be disconnected based on state file" "INFO"
+                            }
+                        }
                     } catch {
                         Write-Log "Could not read state file: $($_.Exception.Message)" "WARN"
                     }
-             }
+                }
+                
+                $autoStartupStatus = Get-AutoStartupStatus
                 
                 return @{
-                    Running = $true
+                    Running = $ProcessRunning
                     Connected = $Connected
-                    ProcessId = $ProcessId
+                    ProcessId = $RunningProcessId
                     ProcessCount = $WorkspaceProcesses.Count
                     WorkingDirectory = $MainProcess.CommandLine
+                    PidFileValid = $PidFileValid
+                    PidFromFile = $PidFromFile
+                    AutoStartupEnabled = $autoStartupStatus.AutoStartupEnabled
+                    AutoStartupRunning = $autoStartupStatus.AutoStartupActive
                 }
             } else {
                 Write-Log "Found monitoring-agent processes but none from our workspace" "WARN"
             }
         }
         
-        # No processes found - clean up any stale PID file
+        # No workspace processes found
+        if ($PidFromFile) {
+            # Check if PID from file is still a valid process
+            $PidProcessValid = Test-ProcessRunning $PidFromFile
+            if ($PidProcessValid) {
+                # Check if it's still our agent process
+                $PidProcess = Get-CimInstance -ClassName Win32_Process -Filter "ProcessId = $PidFromFile" -ErrorAction SilentlyContinue
+                if ($PidProcess -and $PidProcess.Name -eq "monitoring-agent.exe" -and $PidProcess.ExecutablePath -eq $Script:AgentExe) {
+                    Write-Log "PID file refers to valid workspace agent process, but not found in initial scan - process may be starting/stopping" "WARN"
+                    
+                    $autoStartupStatus = Get-AutoStartupStatus
+                    
+                    return @{
+                        Running = $true
+                        Connected = $null
+                        ProcessId = $PidFromFile
+                        ProcessCount = 1
+                        WorkingDirectory = $PidProcess.CommandLine
+                        PidFileValid = $true
+                        PidFromFile = $PidFromFile
+                        AutoStartupEnabled = $autoStartupStatus.AutoStartupEnabled
+                        AutoStartupRunning = $autoStartupStatus.AutoStartupActive
+                    }
+                } else {
+                    Write-Log "PID file refers to process $PidFromFile but it's not our agent - PID file may be stale" "WARN"
+                }
+            } else {
+                Write-Log "PID file refers to process $PidFromFile but process is not running - PID file may be stale" "WARN"
+            }
+        }
+        
         Write-Log "No monitoring-agent processes found from workspace" "WARN"
-        Remove-AgentPid
+        
+        $autoStartupStatus = Get-AutoStartupStatus
         
         return @{
             Running = $false
@@ -288,6 +652,10 @@ function Get-AgentStatus {
             ProcessId = $null
             ProcessCount = 0
             WorkingDirectory = $null
+            PidFileValid = $false
+            PidFromFile = $PidFromFile
+            AutoStartupEnabled = $autoStartupStatus.AutoStartupEnabled
+            AutoStartupRunning = $autoStartupStatus.AutoStartupActive
         }
     }
     catch {
@@ -349,6 +717,15 @@ function Start-MonitoringAgent {
                 if ($NewStatus.Running) {
                     Write-Log "Agent daemon started successfully (PID: $($NewStatus.ProcessId))" "SUCCESS"
                     $AgentStarted = $true
+                    
+                    # Install and start auto-startup tasks automatically
+                    Write-Log "Configuring auto-startup..." "INFO"
+                    $autoStartupStatus = Get-AutoStartupStatus
+                    if (!$autoStartupStatus.AutoStartupEnabled) {
+                        Install-AutoStartupTasks | Out-Null
+                    } else {
+                        Start-AutoStartupTasks | Out-Null
+                    }
                     
                     # Wait a bit more for full initialization
                     Start-Sleep -Seconds 2
@@ -471,7 +848,8 @@ function Stop-MonitoringAgent {
         $NewStatus = Get-AgentStatus
         if (!$NewStatus.Running) {
             Write-Log "Agent stopped gracefully" "SUCCESS"
-            Remove-AgentPid
+            # Keep PID file for reference - don't delete it
+            Write-Log "PID file preserved for reference" "INFO"
             return $true
         }
         
@@ -513,8 +891,9 @@ function Stop-MonitoringAgent {
             }
         }
         
-        # Clean up files
-        Remove-AgentPid
+        # Clean up files - preserve PID file for reference
+        # Remove-AgentPid  # Commented out - keep PID file for reference
+        Write-Log "Preserving PID file for reference" "INFO"
         
         # Remove auto-enrollment info file
         if (Test-Path $Script:AgentInfo) {
@@ -564,6 +943,11 @@ function Stop-MonitoringAgent {
         $FinalStatus = Get-AgentStatus
         if (!$FinalStatus.Running) {
             Write-Log "Agent stopped successfully and should disconnect from manager" "SUCCESS"
+            
+            # Stop auto-startup tasks when agent is manually stopped
+            Write-Log "Stopping auto-startup tasks..." "INFO"
+            Stop-AutoStartupTasks | Out-Null
+            
             return $true
         }
         else {
@@ -1256,39 +1640,86 @@ function Show-MainMenu {
 
     # Show current status
     $Status = Get-AgentStatus
+    $PidStatus = Test-PidFileStatus
+    
     Write-Host "Current Status:" -ForegroundColor White
     if ($Status.Running) {
         Write-Host "  Agent: " -NoNewline -ForegroundColor White
         Write-Host "RUNNING" -ForegroundColor Green
         Write-Host "  PID: $($Status.ProcessId)" -ForegroundColor Gray
-       
+        
+        # Show PID file validation status
+        if ($Status.PidFileValid) {
+            Write-Host "  PID File: " -NoNewline -ForegroundColor White
+            Write-Host "VALID" -ForegroundColor Green
+        } else {
+            Write-Host "  PID File: " -NoNewline -ForegroundColor White
+            Write-Host "MISMATCH (will be updated)" -ForegroundColor Yellow
+        }
     }
     else {
         Write-Host "  Agent: " -NoNewline -ForegroundColor White
         Write-Host "STOPPED" -ForegroundColor Red
+        
+        # Show PID file status when agent is stopped
+        if ($PidStatus.PidFileExists) {
+            Write-Host "  PID File: " -NoNewline -ForegroundColor White
+            switch ($PidStatus.Status) {
+                "ProcessNotRunning" { 
+                    Write-Host "EXISTS (PID: $($PidStatus.PidFromFile), process stopped)" -ForegroundColor Gray 
+                }
+                "WrongProcess" { 
+                    Write-Host "STALE (PID: $($PidStatus.PidFromFile), different process)" -ForegroundColor Yellow 
+                }
+                "WrongWorkspace" { 
+                    Write-Host "STALE (PID: $($PidStatus.PidFromFile), different workspace)" -ForegroundColor Yellow 
+                }
+                default { 
+                    Write-Host "EXISTS (PID: $($PidStatus.PidFromFile))" -ForegroundColor Gray 
+                }
+            }
+        } else {
+            Write-Host "  PID File: " -NoNewline -ForegroundColor White
+            Write-Host "NOT FOUND" -ForegroundColor Gray
+        }
+    }
+    
+    # Show auto-startup status
+    Write-Host "  Auto-Startup: " -NoNewline -ForegroundColor White
+    if ($Status.AutoStartupEnabled) {
+        if ($Status.AutoStartupRunning) {
+            Write-Host "ENABLED & RUNNING" -ForegroundColor Green
+        } else {
+            Write-Host "ENABLED & STOPPED" -ForegroundColor Yellow
+        }
+    } else {
+        Write-Host "DISABLED" -ForegroundColor Red
     }
     
     Write-Host "`n" + "="*50 -ForegroundColor Gray
     Write-Host "MAIN MENU" -ForegroundColor Cyan
     Write-Host "="*50 -ForegroundColor Gray
     Write-Host "1. Enroll Agent (Auto & Manual Options)" -ForegroundColor White
-    Write-Host "2. Start Agent" -ForegroundColor White
-    Write-Host "3. Stop Agent" -ForegroundColor White
+    Write-Host "2. Start Agent (Auto-Startup Enabled)" -ForegroundColor White
+    Write-Host "3. Stop Agent (Auto-Startup Disabled)" -ForegroundColor White
     Write-Host "4. Restart Agent" -ForegroundColor White
     Write-Host "5. Check Agent Status" -ForegroundColor White
     Write-Host "6. View Recent Logs" -ForegroundColor White
     Write-Host "7. Show Configuration" -ForegroundColor White
-    Write-Host "8. Clean Database Files" -ForegroundColor White
-    Write-Host "9. Exit" -ForegroundColor White
+    Write-Host "8. Manage Auto-Startup" -ForegroundColor White
+    Write-Host "9. Clean Database Files" -ForegroundColor White
+    Write-Host "0. Exit" -ForegroundColor White
     Write-Host "="*50 -ForegroundColor Gray
 }
 
 function Show-RecentLogs {
     Write-Host "`n=== RECENT AGENT LOGS ===" -ForegroundColor Cyan
     
+    # Display Agent Logs
     $LogPath = Join-Path $Script:AgentPath "ossec.log"
     if (Test-Path $LogPath) {
-        $RecentLogs = Get-Content $LogPath -Tail 20 -ErrorAction SilentlyContinue
+        Write-Host "`n--- AGENT LOGS (Last 10 entries) ---" -ForegroundColor White
+        $RecentLogs = Get-Content $LogPath -Tail 10 -ErrorAction SilentlyContinue
         if ($RecentLogs) {
             $RecentLogs | ForEach-Object {
                 if ($_ -match "ERROR|CRITICAL") {
@@ -1306,11 +1737,69 @@ function Show-RecentLogs {
             }
         }
         else {
-            Write-Host "No recent logs found." -ForegroundColor Yellow
+            Write-Host "No recent agent logs found." -ForegroundColor Yellow
         }
     }
     else {
-        Write-Host "Log file not found: $LogPath" -ForegroundColor Red
+        Write-Host "Agent log file not found: $LogPath" -ForegroundColor Red
+    }
+    
+    # Display Auto-Startup Logs
+    Write-Host "`n--- AUTO-STARTUP LOGS (Last 5 entries) ---" -ForegroundColor White
+    $AutoStartupLogPath = Join-Path $Script:AgentPath "logs\task-scheduler.log"
+    if (Test-Path $AutoStartupLogPath) {
+        $AutoStartupLogs = Get-Content $AutoStartupLogPath -Tail 5 -ErrorAction SilentlyContinue
+        if ($AutoStartupLogs) {
+            $AutoStartupLogs | ForEach-Object {
+                if ($_ -match "ERROR|FAILED") {
+                    Write-Host $_ -ForegroundColor Red
+                }
+                elseif ($_ -match "WARN") {
+                    Write-Host $_ -ForegroundColor Yellow
+                }
+                elseif ($_ -match "SUCCESS|STARTED|INSTALLED") {
+                    Write-Host $_ -ForegroundColor Green
+                }
+                else {
+                    Write-Host $_ -ForegroundColor Cyan
+                }
+            }
+        }
+        else {
+            Write-Host "No auto-startup logs found." -ForegroundColor Yellow
+        }
+    }
+    else {
+        Write-Host "Auto-startup log not found (auto-startup may not be configured)" -ForegroundColor Yellow
+    }
+    
+    # Display Service Control Logs
+    Write-Host "`n--- SERVICE CONTROL LOGS (Last 5 entries) ---" -ForegroundColor White
+    $ServiceLogPath = Join-Path $Script:AgentPath "logs\service.log"
+    if (Test-Path $ServiceLogPath) {
+        $ServiceLogs = Get-Content $ServiceLogPath -Tail 5 -ErrorAction SilentlyContinue
+        if ($ServiceLogs) {
+            $ServiceLogs | ForEach-Object {
+                if ($_ -match "ERROR|FAILED") {
+                    Write-Host $_ -ForegroundColor Red
+                }
+                elseif ($_ -match "WARN") {
+                    Write-Host $_ -ForegroundColor Yellow
+                }
+                elseif ($_ -match "STARTED|SUCCESS|STOPPED") {
+                    Write-Host $_ -ForegroundColor Green
+                }
+                else {
+                    Write-Host $_ -ForegroundColor Gray
+                }
+            }
+        }
+        else {
+            Write-Host "No service control logs found." -ForegroundColor Yellow
+        }
+    }
+    else {
+        Write-Host "Service control log not found" -ForegroundColor Yellow
     }
     
     Write-Host "`nPress any key to continue..." -ForegroundColor Gray
@@ -1358,11 +1847,89 @@ function Show-Configuration {
     $null = $Host.UI.RawUI.ReadKey()
 }
 
+function Show-AutoStartupMenu {
+    Write-Host "`n=== AUTO-STARTUP MANAGEMENT ===" -ForegroundColor Cyan
+    
+    $autoStatus = Get-AutoStartupStatus
+    
+    Write-Host "Current Auto-Startup Status:" -ForegroundColor White
+    Write-Host "  Startup Task Installed: $($autoStatus.StartupInstalled)" -ForegroundColor $(if ($autoStatus.StartupInstalled) { "Green" } else { "Red" })
+    Write-Host "  Startup Task Running: $($autoStatus.StartupRunning)" -ForegroundColor $(if ($autoStatus.StartupRunning) { "Green" } else { "Red" })
+    Write-Host "  Auto-Startup Enabled: $($autoStatus.AutoStartupEnabled)" -ForegroundColor $(if ($autoStatus.AutoStartupEnabled) { "Green" } else { "Red" })
+    
+    Write-Host "`nAuto-Startup Options:" -ForegroundColor White
+    Write-Host "1. Install Auto-Startup" -ForegroundColor White
+    Write-Host "2. Remove Auto-Startup" -ForegroundColor White
+    Write-Host "3. Start Auto-Startup Tasks" -ForegroundColor White
+    Write-Host "4. Stop Auto-Startup Tasks" -ForegroundColor White
+    Write-Host "5. Return to Main Menu" -ForegroundColor White
+    
+    $choice = Read-Host "`nSelect option (1-5)"
+    
+    switch ($choice) {
+        "1" {
+            Write-Host "`nInstalling auto-startup..." -ForegroundColor Yellow
+            if (Install-AutoStartupTasks) {
+                Write-Host "Auto-startup installed successfully!" -ForegroundColor Green
+            } else {
+                Write-Host "Failed to install auto-startup." -ForegroundColor Red
+            }
+            Write-Host "`nPress any key to continue..." -ForegroundColor Gray
+            $null = $Host.UI.RawUI.ReadKey()
+        }
+        "2" {
+            Write-Host "`nAre you sure you want to remove auto-startup? (y/N): " -ForegroundColor Yellow -NoNewline
+            $confirm = Read-Host
+            if ($confirm -eq "y" -or $confirm -eq "Y") {
+                if (Remove-AutoStartupTasks) {
+                    Write-Host "Auto-startup removed successfully!" -ForegroundColor Green
+                } else {
+                    Write-Host "Failed to remove auto-startup." -ForegroundColor Red
+                }
+            }
+            Write-Host "`nPress any key to continue..." -ForegroundColor Gray
+            $null = $Host.UI.RawUI.ReadKey()
+        }
+        "3" {
+            Write-Host "`nStarting auto-startup tasks..." -ForegroundColor Yellow
+            if (Start-AutoStartupTasks) {
+                Write-Host "Auto-startup tasks started successfully!" -ForegroundColor Green
+            } else {
+                Write-Host "Failed to start auto-startup tasks." -ForegroundColor Red
+            }
+            Write-Host "`nPress any key to continue..." -ForegroundColor Gray
+            $null = $Host.UI.RawUI.ReadKey()
+        }
+        "4" {
+            Write-Host "`nStopping auto-startup tasks..." -ForegroundColor Yellow
+            if (Stop-AutoStartupTasks) {
+                Write-Host "Auto-startup tasks stopped successfully!" -ForegroundColor Green
+            } else {
+                Write-Host "Failed to stop auto-startup tasks." -ForegroundColor Red
+            }
+            Write-Host "`nPress any key to continue..." -ForegroundColor Gray
+            $null = $Host.UI.RawUI.ReadKey()
+        }
+        "5" {
+            return
+        }
+        default {
+            Write-Host "`nInvalid option. Please select 1-5." -ForegroundColor Red
+            Start-Sleep -Seconds 2
+        }
+    }
+    
+    # Show menu again unless returning to main
+    if ($choice -ne "5") {
+        Show-AutoStartupMenu
+    }
+}
+
 function Start-InteractiveMenu {
     while ($true) {
         Show-MainMenu
         
-        $Choice = Read-Host "`nSelect an option (1-9)"
+        $Choice = Read-Host "`nSelect an option (0-9)"
         
         switch ($Choice) {
             "1" {
@@ -1397,6 +1964,9 @@ function Start-InteractiveMenu {
                 Show-Configuration
             }
             "8" {
+                Show-AutoStartupMenu
+            }
+            "9" {
                 Write-Host "`n=== CLEANING DATABASE FILES ===" -ForegroundColor Cyan
                 $AgentRunning = (Get-AgentStatus).Running
                 if ($AgentRunning) {
@@ -1411,13 +1981,13 @@ function Start-InteractiveMenu {
                 Write-Host "`nPress any key to continue..." -ForegroundColor Gray
                 $null = $Host.UI.RawUI.ReadKey()
             }
-            "9" {
+            "0" {
                 Write-Log "Exiting Monitoring Agent Control Center" "INFO"
                 Write-Host "`nThank you for using Monitoring Agent Control Center!" -ForegroundColor Green
                 exit 0
             }
             default {
-                Write-Host "`nInvalid option. Please select 1-9." -ForegroundColor Red
+                Write-Host "`nInvalid option. Please select 0-9." -ForegroundColor Red
                 Start-Sleep -Seconds 2
             }
         }

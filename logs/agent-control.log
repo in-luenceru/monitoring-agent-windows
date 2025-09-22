@@ -2719,3 +2719,769 @@ D4080000:error:0A000126:SSL routines:ssl3_read_n:unexpected eof while reading:ss
 [2025-09-21 16:58:01] [SUCCESS] [FALLBACK-WATCHDOG] Fallback watchdog started (PID: 568)
 [2025-09-21 17:14:23] [INFO] [FALLBACK-WATCHDOG] Fallback watchdog stopping
 [2025-09-21 17:14:23] [INFO] [FALLBACK-WATCHDOG] Fallback watchdog stopping
+[2025-09-21 20:05:07] [INFO] Monitoring Agent Control Center started
+[2025-09-21 20:05:07] [INFO] Starting agent enrollment process...
+[2025-09-21 20:05:12] [INFO] Starting agent auto-enrollment process...
+[2025-09-21 20:05:18] [SUCCESS] Valid IP address provided: 127.0.0.1
+[2025-09-21 20:05:32] [INFO] Checking agent status...
+[2025-09-21 20:05:32] [SUCCESS] Found workspace agent process (PID: 15112)
+[2025-09-21 20:05:32] [INFO] Saved agent PID 15112 to file
+[2025-09-21 20:05:32] [INFO] Agent state file found
+[2025-09-21 20:05:32] [INFO] Stopping agent for auto-enrollment...
+[2025-09-21 20:05:32] [INFO] Stopping Monitoring agent...
+[2025-09-21 20:05:32] [INFO] Checking agent status...
+[2025-09-21 20:05:32] [SUCCESS] Found workspace agent process (PID: 15112)
+[2025-09-21 20:05:32] [INFO] Saved agent PID 15112 to file
+[2025-09-21 20:05:32] [INFO] Agent state file found
+[2025-09-21 20:05:32] [INFO] Attempting graceful shutdown using Windows termination signals...
+[2025-09-21 20:05:33] [INFO] Sending graceful shutdown signal to process 15112...
+[2025-09-21 20:05:43] [INFO] Checking agent status...
+[2025-09-21 20:05:43] [SUCCESS] Found workspace agent process (PID: 15112)
+[2025-09-21 20:05:43] [INFO] Saved agent PID 15112 to file
+[2025-09-21 20:05:43] [INFO] Agent state file found
+[2025-09-21 20:05:43] [WARN] Graceful shutdown failed, force terminating processes...
+[2025-09-21 20:05:44] [INFO] Force terminating workspace agent process (PID: 15112)
+[2025-09-21 20:05:44] [WARN] Force killing process 15112
+[2025-09-21 20:05:44] [SUCCESS] Process 15112 terminated
+[2025-09-21 20:05:44] [INFO] Removed PID file
+[2025-09-21 20:05:44] [INFO] Removed .agent_info file
+[2025-09-21 20:05:44] [INFO] Updated agent state to disconnected with immediate effect
+[2025-09-21 20:05:44] [INFO] Cleared any pending queue files
+[2025-09-21 20:05:46] [INFO] Checking agent status...
+[2025-09-21 20:05:46] [WARN] No monitoring-agent processes found from workspace
+[2025-09-21 20:05:46] [SUCCESS] Agent stopped successfully and should disconnect from manager
+[2025-09-21 20:05:46] [INFO] Cleaning up database files...
+[2025-09-21 20:05:46] [INFO] Cleaning up agent database files...
+[2025-09-21 20:05:46] [INFO] Removing database file: C:\Users\ANANDHU\Downloads\monitoring-agent-windows\queue\fim\db\fim.db
+[2025-09-21 20:05:46] [INFO] Removing database file: C:\Users\ANANDHU\Downloads\monitoring-agent-windows\queue\fim\db\fim.db-journal
+[2025-09-21 20:05:46] [INFO] Removing database file: C:\Users\ANANDHU\Downloads\monitoring-agent-windows\queue\syscollector\db\local.db
+[2025-09-21 20:05:46] [INFO] Removing database file: C:\Users\ANANDHU\Downloads\monitoring-agent-windows\queue\syscollector\db\local.db-journal
+[2025-09-21 20:05:46] [SUCCESS] Database cleanup completed
+[2025-09-21 20:05:46] [INFO] Backup created: C:\Users\ANANDHU\Downloads\monitoring-agent-windows\client.keys.backup_20250921_200546
+[2025-09-21 20:05:46] [INFO] Backed up existing client.keys
+[2025-09-21 20:05:46] [INFO] Executing auto-enrollment with agent-auth.exe...
+[2025-09-21 20:05:46] [INFO] Command: agent-auth.exe -m 127.0.0.1 -p 1515 -A "anandhu"
+[2025-09-21 20:05:47] [INFO] agent-auth.exe completed with exit code: 0
+[2025-09-21 20:05:47] [WARN] agent-auth errors: 2025/09/21 20:05:47 agent-auth: INFO: Started (pid: 10280).
+2025/09/21 20:05:47 agent-auth: INFO: Requesting a key from server: 127.0.0.1
+2025/09/21 20:05:47 agent-auth: INFO: No authentication password provided
+2025/09/21 20:05:47 agent-auth: INFO: Using agent name as: anandhu
+2025/09/21 20:05:47 agent-auth: INFO: Waiting for server reply
+2025/09/21 20:05:47 agent-auth: INFO: Valid key received
+
+[2025-09-21 20:05:47] [SUCCESS] Auto-enrollment completed successfully!
+[2025-09-21 20:05:47] [SUCCESS] client.keys file updated successfully
+[2025-09-21 20:05:47] [INFO] Updating ossec.conf with manager IP: 127.0.0.1
+[2025-09-21 20:05:47] [INFO] Backup created: C:\Users\ANANDHU\Downloads\monitoring-agent-windows\ossec.conf.backup_20250921_200547
+[2025-09-21 20:05:47] [SUCCESS] ossec.conf updated successfully
+[2025-09-21 20:05:55] [INFO] Starting Monitoring agent...
+[2025-09-21 20:05:55] [INFO] Checking agent status...
+[2025-09-21 20:05:55] [WARN] No monitoring-agent processes found from workspace
+[2025-09-21 20:05:55] [INFO] Starting agent from workspace: C:\Users\ANANDHU\Downloads\monitoring-agent-windows\monitoring-agent.exe
+[2025-09-21 20:05:55] [INFO] Agent start command executed (Launcher PID: 19548)
+[2025-09-21 20:06:08] [INFO] Checking agent status...
+[2025-09-21 20:06:08] [SUCCESS] Found workspace agent process (PID: 19548)
+[2025-09-21 20:06:08] [INFO] Saved agent PID 19548 to file
+[2025-09-21 20:06:08] [INFO] Agent state file found
+[2025-09-21 20:06:08] [SUCCESS] Agent daemon started successfully (PID: 19548)
+[2025-09-21 20:06:15] [INFO] Checking agent status...
+[2025-09-21 20:06:16] [SUCCESS] Found workspace agent process (PID: 19548)
+[2025-09-21 20:06:16] [INFO] Saved agent PID 19548 to file
+[2025-09-21 20:06:16] [INFO] Agent state file found
+[2025-09-21 20:13:42] [INFO] Monitoring Agent Control Center started
+[2025-09-21 20:13:42] [INFO] Stopping Monitoring agent...
+[2025-09-21 20:13:42] [INFO] Checking agent status...
+[2025-09-21 20:13:43] [SUCCESS] Found workspace agent process (PID: 19548)
+[2025-09-21 20:13:43] [INFO] Saved agent PID 19548 to file
+[2025-09-21 20:13:43] [INFO] Agent state file found
+[2025-09-21 20:13:43] [INFO] Attempting graceful shutdown using Windows termination signals...
+[2025-09-21 20:13:43] [INFO] Sending graceful shutdown signal to process 19548...
+[2025-09-21 20:13:48] [INFO] Checking agent status...
+[2025-09-21 20:13:48] [SUCCESS] Found workspace agent process (PID: 19548)
+[2025-09-21 20:13:48] [INFO] Saved agent PID 19548 to file
+[2025-09-21 20:13:48] [INFO] Agent state file found
+[2025-09-21 20:13:48] [WARN] Graceful shutdown failed, force terminating processes...
+[2025-09-21 20:13:48] [INFO] Force terminating workspace agent process (PID: 19548)
+[2025-09-21 20:13:48] [WARN] Force killing process 19548
+[2025-09-21 20:13:48] [SUCCESS] Process 19548 terminated
+[2025-09-21 20:13:48] [INFO] Removed PID file
+[2025-09-21 20:13:48] [INFO] Removed .agent_info file
+[2025-09-21 20:13:48] [INFO] Updated agent state to disconnected with immediate effect
+[2025-09-21 20:13:48] [INFO] Cleared any pending queue files
+[2025-09-21 20:13:50] [INFO] Checking agent status...
+[2025-09-21 20:13:51] [WARN] No monitoring-agent processes found from workspace
+[2025-09-21 20:13:51] [SUCCESS] Agent stopped successfully and should disconnect from manager
+[2025-09-22 07:31:31] [INFO] Monitoring Agent Control Center started
+[2025-09-22 07:31:31] [INFO] Checking agent status...
+[2025-09-22 07:31:32] [WARN] No monitoring-agent processes found from workspace
+[2025-09-22 07:33:09] [INFO] Monitoring Agent Control Center started
+[2025-09-22 07:33:09] [INFO] Starting Monitoring agent...
+[2025-09-22 07:33:09] [INFO] Checking agent status...
+[2025-09-22 07:33:09] [WARN] No monitoring-agent processes found from workspace
+[2025-09-22 07:33:09] [INFO] Starting agent from workspace: C:\Users\ANANDHU\Downloads\monitoring-agent-windows\monitoring-agent.exe
+[2025-09-22 07:33:09] [INFO] Agent start command executed (Launcher PID: 22864)
+[2025-09-22 07:33:22] [INFO] Checking agent status...
+[2025-09-22 07:33:22] [SUCCESS] Found workspace agent process (PID: 22864)
+[2025-09-22 07:33:22] [INFO] Saved agent PID 22864 to file
+[2025-09-22 07:33:22] [INFO] Agent state file found
+[2025-09-22 07:33:22] [SUCCESS] Agent daemon started successfully (PID: 22864)
+[2025-09-22 07:33:36] [INFO] Monitoring Agent Control Center started
+[2025-09-22 07:33:36] [INFO] Checking agent status...
+[2025-09-22 07:33:36] [SUCCESS] Found workspace agent process (PID: 22864)
+[2025-09-22 07:33:36] [INFO] Saved agent PID 22864 to file
+[2025-09-22 07:33:36] [INFO] Agent state file found
+[2025-09-22 08:00:24] [INFO] Monitoring Agent Control Center started
+[2025-09-22 08:00:24] [INFO] Checking agent status...
+[2025-09-22 08:00:24] [SUCCESS] Found workspace agent process (PID: 22864)
+[2025-09-22 08:00:24] [INFO] Saved agent PID 22864 to file
+[2025-09-22 08:00:24] [INFO] Agent state file found
+[2025-09-22 08:20:55] [INFO] Monitoring Agent Control Center started
+[2025-09-22 08:21:04] [INFO] Monitoring Agent Control Center started
+[2025-09-22 08:21:04] [INFO] Checking agent status...
+[2025-09-22 08:21:04] [SUCCESS] Found workspace agent process (PID: 22864)
+[2025-09-22 08:21:04] [INFO] Saved agent PID 22864 to file
+[2025-09-22 08:21:04] [INFO] Agent state file found
+[2025-09-22 08:25:02] [INFO] Monitoring Agent Control Center started
+[2025-09-22 08:25:02] [INFO] Checking agent status...
+[2025-09-22 08:25:03] [SUCCESS] Found workspace agent process (PID: 22864)
+[2025-09-22 08:25:03] [INFO] Saved agent PID 22864 to file
+[2025-09-22 08:25:03] [INFO] Agent state file found
+[2025-09-22 08:25:08] [INFO] Monitoring Agent Control Center started
+[2025-09-22 08:25:08] [INFO] Stopping Monitoring agent...
+[2025-09-22 08:25:08] [INFO] Checking agent status...
+[2025-09-22 08:25:08] [SUCCESS] Found workspace agent process (PID: 22864)
+[2025-09-22 08:25:08] [INFO] Saved agent PID 22864 to file
+[2025-09-22 08:25:08] [INFO] Agent state file found
+[2025-09-22 08:25:12] [INFO] Attempting graceful shutdown using Windows termination signals...
+[2025-09-22 08:25:12] [INFO] Sending graceful shutdown signal to process 22864...
+[2025-09-22 08:25:18] [INFO] Checking agent status...
+[2025-09-22 08:25:19] [SUCCESS] Found workspace agent process (PID: 22864)
+[2025-09-22 08:25:19] [INFO] Saved agent PID 22864 to file
+[2025-09-22 08:25:19] [INFO] Agent state file found
+[2025-09-22 08:25:23] [WARN] Graceful shutdown failed, force terminating processes...
+[2025-09-22 08:25:23] [INFO] Force terminating workspace agent process (PID: 22864)
+[2025-09-22 08:25:23] [WARN] Force killing process 22864
+[2025-09-22 08:25:23] [SUCCESS] Process 22864 terminated
+[2025-09-22 08:25:23] [INFO] Removed PID file
+[2025-09-22 08:25:23] [INFO] Removed .agent_info file
+[2025-09-22 08:25:23] [INFO] Updated agent state to disconnected with immediate effect
+[2025-09-22 08:25:24] [INFO] Cleared any pending queue files
+[2025-09-22 08:25:26] [INFO] Checking agent status...
+[2025-09-22 08:25:26] [WARN] No monitoring-agent processes found from workspace
+[2025-09-22 08:25:30] [SUCCESS] Agent stopped successfully and should disconnect from manager
+[2025-09-22 08:25:30] [INFO] Stopping auto-startup tasks...
+[2025-09-22 08:25:30] [INFO] Stopping auto-startup tasks...
+[2025-09-22 08:25:35] [INFO] No running auto-startup tasks found to stop
+[2025-09-22 08:25:55] [INFO] Monitoring Agent Control Center started
+[2025-09-22 08:25:55] [INFO] Starting Monitoring agent...
+[2025-09-22 08:25:55] [INFO] Checking agent status...
+[2025-09-22 08:25:55] [WARN] No monitoring-agent processes found from workspace
+[2025-09-22 08:26:00] [INFO] Starting agent from workspace: C:\Users\ANANDHU\Downloads\monitoring-agent-windows\monitoring-agent.exe
+[2025-09-22 08:26:00] [INFO] Agent start command executed (Launcher PID: 10468)
+[2025-09-22 08:26:13] [INFO] Checking agent status...
+[2025-09-22 08:26:13] [SUCCESS] Found workspace agent process (PID: 10468)
+[2025-09-22 08:26:13] [INFO] Saved agent PID 10468 to file
+[2025-09-22 08:26:13] [INFO] Agent state file found
+[2025-09-22 08:26:16] [SUCCESS] Agent daemon started successfully (PID: 10468)
+[2025-09-22 08:26:16] [INFO] Configuring auto-startup...
+[2025-09-22 08:26:19] [INFO] Starting auto-startup tasks...
+[2025-09-22 08:26:20] [SUCCESS] Started startup task
+[2025-09-22 08:26:22] [SUCCESS] Started watchdog task
+[2025-09-22 08:27:01] [INFO] Monitoring Agent Control Center started
+[2025-09-22 08:27:01] [INFO] Checking agent status...
+[2025-09-22 08:27:01] [SUCCESS] Found workspace agent process (PID: 10468)
+[2025-09-22 08:27:01] [INFO] Saved agent PID 10468 to file
+[2025-09-22 08:27:02] [INFO] Agent state file found
+[2025-09-22 08:41:40] [INFO] Monitoring Agent Control Center started
+[2025-09-22 08:41:40] [INFO] Stopping Monitoring agent...
+[2025-09-22 08:41:40] [INFO] Checking agent status...
+[2025-09-22 08:41:41] [SUCCESS] Found workspace agent process (PID: 10468)
+[2025-09-22 08:41:41] [INFO] Saved agent PID 10468 to file
+[2025-09-22 08:41:41] [INFO] Agent state file found
+[2025-09-22 08:41:46] [INFO] Attempting graceful shutdown using Windows termination signals...
+[2025-09-22 08:41:47] [INFO] Sending graceful shutdown signal to process 10468...
+[2025-09-22 08:41:52] [INFO] Checking agent status...
+[2025-09-22 08:41:52] [SUCCESS] Found workspace agent process (PID: 10468)
+[2025-09-22 08:41:52] [INFO] Saved agent PID 10468 to file
+[2025-09-22 08:41:52] [INFO] Agent state file found
+[2025-09-22 08:41:58] [WARN] Graceful shutdown failed, force terminating processes...
+[2025-09-22 08:41:58] [INFO] Force terminating workspace agent process (PID: 10468)
+[2025-09-22 08:41:58] [WARN] Force killing process 10468
+[2025-09-22 08:41:58] [SUCCESS] Process 10468 terminated
+[2025-09-22 08:41:58] [INFO] Removed PID file
+[2025-09-22 08:41:58] [INFO] Removed .agent_info file
+[2025-09-22 08:41:58] [INFO] Updated agent state to disconnected with immediate effect
+[2025-09-22 08:41:58] [INFO] Cleared any pending queue files
+[2025-09-22 08:42:00] [INFO] Checking agent status...
+[2025-09-22 08:42:01] [WARN] No monitoring-agent processes found from workspace
+[2025-09-22 08:42:06] [SUCCESS] Agent stopped successfully and should disconnect from manager
+[2025-09-22 08:42:06] [INFO] Stopping auto-startup tasks...
+[2025-09-22 08:42:06] [INFO] Stopping auto-startup tasks...
+[2025-09-22 08:42:12] [INFO] No running auto-startup tasks found to stop
+[2025-09-22 08:42:33] [INFO] Monitoring Agent Control Center started
+[2025-09-22 08:42:33] [INFO] Starting Monitoring agent...
+[2025-09-22 08:42:33] [INFO] Checking agent status...
+[2025-09-22 08:42:33] [WARN] No monitoring-agent processes found from workspace
+[2025-09-22 08:42:38] [INFO] Starting agent from workspace: C:\Users\ANANDHU\Downloads\monitoring-agent-windows\monitoring-agent.exe
+[2025-09-22 08:42:38] [INFO] Agent start command executed (Launcher PID: 6440)
+[2025-09-22 08:42:51] [INFO] Checking agent status...
+[2025-09-22 08:42:52] [SUCCESS] Found workspace agent process (PID: 6440)
+[2025-09-22 08:42:52] [INFO] Saved agent PID 6440 to file
+[2025-09-22 08:42:52] [INFO] Agent state file found
+[2025-09-22 08:42:54] [SUCCESS] Agent daemon started successfully (PID: 6440)
+[2025-09-22 08:42:54] [INFO] Configuring auto-startup...
+[2025-09-22 08:42:57] [INFO] Starting auto-startup tasks...
+[2025-09-22 08:42:59] [SUCCESS] Started startup task
+[2025-09-22 08:43:00] [SUCCESS] Started watchdog task
+[2025-09-22 08:43:52] [INFO] Monitoring Agent Control Center started
+[2025-09-22 08:43:53] [INFO] Checking agent status...
+[2025-09-22 08:43:53] [SUCCESS] Found workspace agent process (PID: 6440)
+[2025-09-22 08:43:53] [INFO] Saved agent PID 6440 to file
+[2025-09-22 08:43:53] [INFO] Agent state file found
+[2025-09-22 08:44:11] [INFO] Checking agent status...
+[2025-09-22 08:44:11] [SUCCESS] Found workspace agent process (PID: 6440)
+[2025-09-22 08:44:11] [INFO] Saved agent PID 6440 to file
+[2025-09-22 08:44:11] [INFO] Agent state file found
+[2025-09-22 08:44:17] [INFO] Stopping Monitoring agent...
+[2025-09-22 08:44:17] [INFO] Checking agent status...
+[2025-09-22 08:44:17] [SUCCESS] Found workspace agent process (PID: 6440)
+[2025-09-22 08:44:17] [INFO] Saved agent PID 6440 to file
+[2025-09-22 08:44:17] [INFO] Agent state file found
+[2025-09-22 08:44:22] [INFO] Attempting graceful shutdown using Windows termination signals...
+[2025-09-22 08:44:23] [INFO] Sending graceful shutdown signal to process 6440...
+[2025-09-22 08:44:28] [INFO] Checking agent status...
+[2025-09-22 08:44:28] [SUCCESS] Found workspace agent process (PID: 6440)
+[2025-09-22 08:44:28] [INFO] Saved agent PID 6440 to file
+[2025-09-22 08:44:28] [INFO] Agent state file found
+[2025-09-22 08:44:33] [WARN] Graceful shutdown failed, force terminating processes...
+[2025-09-22 08:44:33] [INFO] Force terminating workspace agent process (PID: 6440)
+[2025-09-22 08:44:33] [WARN] Force killing process 6440
+[2025-09-22 08:44:33] [SUCCESS] Process 6440 terminated
+[2025-09-22 08:44:33] [INFO] Removed PID file
+[2025-09-22 08:44:33] [INFO] Removed .agent_info file
+[2025-09-22 08:44:33] [INFO] Updated agent state to disconnected with immediate effect
+[2025-09-22 08:44:33] [INFO] Cleared any pending queue files
+[2025-09-22 08:44:35] [INFO] Checking agent status...
+[2025-09-22 08:44:35] [WARN] No monitoring-agent processes found from workspace
+[2025-09-22 08:44:41] [SUCCESS] Agent stopped successfully and should disconnect from manager
+[2025-09-22 08:44:41] [INFO] Stopping auto-startup tasks...
+[2025-09-22 08:44:41] [INFO] Stopping auto-startup tasks...
+[2025-09-22 08:44:46] [INFO] No running auto-startup tasks found to stop
+[2025-09-22 08:44:46] [INFO] Cleaning up agent database files...
+[2025-09-22 08:44:46] [INFO] Removing database file: C:\Users\ANANDHU\Downloads\monitoring-agent-windows\queue\fim\db\fim.db
+[2025-09-22 08:44:46] [INFO] Removing database file: C:\Users\ANANDHU\Downloads\monitoring-agent-windows\queue\fim\db\fim.db-journal
+[2025-09-22 08:44:46] [INFO] Removing database file: C:\Users\ANANDHU\Downloads\monitoring-agent-windows\queue\syscollector\db\local.db
+[2025-09-22 08:44:46] [INFO] Removing database file: C:\Users\ANANDHU\Downloads\monitoring-agent-windows\queue\syscollector\db\local.db-journal
+[2025-09-22 08:44:46] [SUCCESS] Database cleanup completed
+[2025-09-22 08:44:46] [INFO] Starting Monitoring agent...
+[2025-09-22 08:44:46] [INFO] Checking agent status...
+[2025-09-22 08:44:46] [WARN] No monitoring-agent processes found from workspace
+[2025-09-22 08:44:51] [INFO] Starting agent from workspace: C:\Users\ANANDHU\Downloads\monitoring-agent-windows\monitoring-agent.exe
+[2025-09-22 08:44:51] [INFO] Agent start command executed (Launcher PID: 21964)
+[2025-09-22 08:45:04] [INFO] Checking agent status...
+[2025-09-22 08:45:04] [SUCCESS] Found workspace agent process (PID: 21964)
+[2025-09-22 08:45:04] [INFO] Saved agent PID 21964 to file
+[2025-09-22 08:45:04] [INFO] Agent state file found
+[2025-09-22 08:45:07] [SUCCESS] Agent daemon started successfully (PID: 21964)
+[2025-09-22 08:45:07] [INFO] Configuring auto-startup...
+[2025-09-22 08:45:09] [INFO] Starting auto-startup tasks...
+[2025-09-22 08:45:11] [SUCCESS] Started startup task
+[2025-09-22 08:45:12] [SUCCESS] Started watchdog task
+[2025-09-22 08:45:26] [INFO] Checking agent status...
+[2025-09-22 08:45:26] [SUCCESS] Found workspace agent process (PID: 21964)
+[2025-09-22 08:45:26] [INFO] Saved agent PID 21964 to file
+[2025-09-22 08:45:26] [INFO] Agent state file found
+[2025-09-22 08:45:33] [INFO] Checking agent status...
+[2025-09-22 08:45:33] [SUCCESS] Found workspace agent process (PID: 21964)
+[2025-09-22 08:45:33] [INFO] Saved agent PID 21964 to file
+[2025-09-22 08:45:33] [INFO] Agent state file found
+[2025-09-22 08:45:39] [INFO] Stopping Monitoring agent...
+[2025-09-22 08:45:39] [INFO] Checking agent status...
+[2025-09-22 08:45:39] [SUCCESS] Found workspace agent process (PID: 21964)
+[2025-09-22 08:45:39] [INFO] Saved agent PID 21964 to file
+[2025-09-22 08:45:39] [INFO] Agent state file found
+[2025-09-22 08:45:44] [INFO] Attempting graceful shutdown using Windows termination signals...
+[2025-09-22 08:45:45] [INFO] Sending graceful shutdown signal to process 21964...
+[2025-09-22 08:45:50] [INFO] Checking agent status...
+[2025-09-22 08:45:50] [SUCCESS] Found workspace agent process (PID: 21964)
+[2025-09-22 08:45:50] [INFO] Saved agent PID 21964 to file
+[2025-09-22 08:45:50] [INFO] Agent state file found
+[2025-09-22 08:45:55] [WARN] Graceful shutdown failed, force terminating processes...
+[2025-09-22 08:45:55] [INFO] Force terminating workspace agent process (PID: 21964)
+[2025-09-22 08:45:55] [WARN] Force killing process 21964
+[2025-09-22 08:45:55] [SUCCESS] Process 21964 terminated
+[2025-09-22 08:45:55] [INFO] Removed PID file
+[2025-09-22 08:45:55] [INFO] Removed .agent_info file
+[2025-09-22 08:45:55] [INFO] Updated agent state to disconnected with immediate effect
+[2025-09-22 08:45:55] [INFO] Cleared any pending queue files
+[2025-09-22 08:45:57] [INFO] Checking agent status...
+[2025-09-22 08:45:57] [WARN] No monitoring-agent processes found from workspace
+[2025-09-22 08:46:03] [SUCCESS] Agent stopped successfully and should disconnect from manager
+[2025-09-22 08:46:03] [INFO] Stopping auto-startup tasks...
+[2025-09-22 08:46:03] [INFO] Stopping auto-startup tasks...
+[2025-09-22 08:46:08] [INFO] No running auto-startup tasks found to stop
+[2025-09-22 08:46:08] [INFO] Cleaning up agent database files...
+[2025-09-22 08:46:08] [INFO] Removing database file: C:\Users\ANANDHU\Downloads\monitoring-agent-windows\queue\fim\db\fim.db
+[2025-09-22 08:46:08] [INFO] Removing database file: C:\Users\ANANDHU\Downloads\monitoring-agent-windows\queue\fim\db\fim.db-journal
+[2025-09-22 08:46:08] [INFO] Removing database file: C:\Users\ANANDHU\Downloads\monitoring-agent-windows\queue\syscollector\db\local.db
+[2025-09-22 08:46:08] [INFO] Removing database file: C:\Users\ANANDHU\Downloads\monitoring-agent-windows\queue\syscollector\db\local.db-journal
+[2025-09-22 08:46:08] [SUCCESS] Database cleanup completed
+[2025-09-22 08:46:08] [INFO] Starting Monitoring agent...
+[2025-09-22 08:46:08] [INFO] Checking agent status...
+[2025-09-22 08:46:08] [WARN] No monitoring-agent processes found from workspace
+[2025-09-22 08:46:13] [INFO] Starting agent from workspace: C:\Users\ANANDHU\Downloads\monitoring-agent-windows\monitoring-agent.exe
+[2025-09-22 08:46:13] [INFO] Agent start command executed (Launcher PID: 14644)
+[2025-09-22 08:46:26] [INFO] Checking agent status...
+[2025-09-22 08:46:26] [SUCCESS] Found workspace agent process (PID: 14644)
+[2025-09-22 08:46:26] [INFO] Saved agent PID 14644 to file
+[2025-09-22 08:46:26] [INFO] Agent state file found
+[2025-09-22 08:46:29] [SUCCESS] Agent daemon started successfully (PID: 14644)
+[2025-09-22 08:46:29] [INFO] Configuring auto-startup...
+[2025-09-22 08:46:32] [INFO] Starting auto-startup tasks...
+[2025-09-22 08:46:33] [SUCCESS] Started startup task
+[2025-09-22 08:46:35] [SUCCESS] Started watchdog task
+[2025-09-22 08:46:41] [INFO] Checking agent status...
+[2025-09-22 08:46:41] [SUCCESS] Found workspace agent process (PID: 14644)
+[2025-09-22 08:46:41] [INFO] Saved agent PID 14644 to file
+[2025-09-22 08:46:41] [INFO] Agent state file found
+[2025-09-22 08:47:01] [INFO] Monitoring Agent Control Center started
+[2025-09-22 08:47:01] [INFO] Checking agent status...
+[2025-09-22 08:47:01] [SUCCESS] Found workspace agent process (PID: 14644)
+[2025-09-22 08:47:01] [INFO] Saved agent PID 14644 to file
+[2025-09-22 08:47:01] [INFO] Agent state file found
+[2025-09-22 08:53:16] [INFO] Monitoring Agent Control Center started
+[2025-09-22 08:53:16] [INFO] Checking agent status...
+[2025-09-22 08:53:17] [SUCCESS] Found workspace agent process (PID: 14644)
+[2025-09-22 08:53:17] [INFO] Saved agent PID 14644 to file
+[2025-09-22 08:53:17] [INFO] Agent state file found
+[2025-09-22 08:54:01] [INFO] Monitoring Agent Control Center started
+[2025-09-22 08:54:01] [INFO] Checking agent status...
+[2025-09-22 08:54:01] [SUCCESS] Found workspace agent process (PID: 14644)
+[2025-09-22 08:54:01] [INFO] Saved agent PID 14644 to file
+[2025-09-22 08:54:01] [INFO] Agent state file found
+[2025-09-22 08:54:20] [INFO] Checking agent status...
+[2025-09-22 08:54:21] [SUCCESS] Found workspace agent process (PID: 14644)
+[2025-09-22 08:54:21] [INFO] Saved agent PID 14644 to file
+[2025-09-22 08:54:21] [INFO] Agent state file found
+[2025-09-22 08:54:26] [INFO] Stopping Monitoring agent...
+[2025-09-22 08:54:26] [INFO] Checking agent status...
+[2025-09-22 08:54:26] [SUCCESS] Found workspace agent process (PID: 14644)
+[2025-09-22 08:54:26] [INFO] Saved agent PID 14644 to file
+[2025-09-22 08:54:26] [INFO] Agent state file found
+[2025-09-22 08:54:31] [INFO] Attempting graceful shutdown using Windows termination signals...
+[2025-09-22 08:54:32] [INFO] Sending graceful shutdown signal to process 14644...
+[2025-09-22 08:54:38] [INFO] Checking agent status...
+[2025-09-22 08:54:38] [SUCCESS] Found workspace agent process (PID: 14644)
+[2025-09-22 08:54:38] [INFO] Saved agent PID 14644 to file
+[2025-09-22 08:54:38] [INFO] Agent state file found
+[2025-09-22 08:54:43] [WARN] Graceful shutdown failed, force terminating processes...
+[2025-09-22 08:54:44] [INFO] Force terminating workspace agent process (PID: 14644)
+[2025-09-22 08:54:44] [WARN] Force killing process 14644
+[2025-09-22 08:54:44] [SUCCESS] Process 14644 terminated
+[2025-09-22 08:54:44] [INFO] Removed PID file
+[2025-09-22 08:54:44] [INFO] Removed .agent_info file
+[2025-09-22 08:54:44] [INFO] Updated agent state to disconnected with immediate effect
+[2025-09-22 08:54:44] [INFO] Cleared any pending queue files
+[2025-09-22 08:54:46] [INFO] Checking agent status...
+[2025-09-22 08:54:46] [WARN] No monitoring-agent processes found from workspace
+[2025-09-22 08:54:51] [SUCCESS] Agent stopped successfully and should disconnect from manager
+[2025-09-22 08:54:52] [INFO] Stopping auto-startup tasks...
+[2025-09-22 08:54:52] [INFO] Stopping auto-startup tasks...
+[2025-09-22 08:54:57] [INFO] No running auto-startup tasks found to stop
+[2025-09-22 08:54:57] [INFO] Cleaning up agent database files...
+[2025-09-22 08:54:57] [INFO] Removing database file: C:\Users\ANANDHU\Downloads\monitoring-agent-windows\queue\fim\db\fim.db
+[2025-09-22 08:54:57] [INFO] Removing database file: C:\Users\ANANDHU\Downloads\monitoring-agent-windows\queue\fim\db\fim.db-journal
+[2025-09-22 08:54:57] [INFO] Removing database file: C:\Users\ANANDHU\Downloads\monitoring-agent-windows\queue\syscollector\db\local.db
+[2025-09-22 08:54:57] [INFO] Removing database file: C:\Users\ANANDHU\Downloads\monitoring-agent-windows\queue\syscollector\db\local.db-journal
+[2025-09-22 08:54:57] [SUCCESS] Database cleanup completed
+[2025-09-22 08:54:57] [INFO] Starting Monitoring agent...
+[2025-09-22 08:54:57] [INFO] Checking agent status...
+[2025-09-22 08:54:57] [WARN] No monitoring-agent processes found from workspace
+[2025-09-22 08:55:02] [INFO] Starting agent from workspace: C:\Users\ANANDHU\Downloads\monitoring-agent-windows\monitoring-agent.exe
+[2025-09-22 08:55:02] [INFO] Agent start command executed (Launcher PID: 3544)
+[2025-09-22 08:55:15] [INFO] Checking agent status...
+[2025-09-22 08:55:16] [SUCCESS] Found workspace agent process (PID: 3544)
+[2025-09-22 08:55:16] [INFO] Saved agent PID 3544 to file
+[2025-09-22 08:55:16] [INFO] Agent state file found
+[2025-09-22 08:55:18] [SUCCESS] Agent daemon started successfully (PID: 3544)
+[2025-09-22 08:55:18] [INFO] Configuring auto-startup...
+[2025-09-22 08:55:21] [INFO] Starting auto-startup tasks...
+[2025-09-22 08:55:22] [SUCCESS] Started startup task
+[2025-09-22 08:55:24] [SUCCESS] Started watchdog task
+[2025-09-22 08:55:47] [INFO] Monitoring Agent Control Center started
+[2025-09-22 08:55:47] [INFO] Stopping Monitoring agent...
+[2025-09-22 08:55:47] [INFO] Checking agent status...
+[2025-09-22 08:55:48] [SUCCESS] Found workspace agent process (PID: 3544)
+[2025-09-22 08:55:48] [INFO] Saved agent PID 3544 to file
+[2025-09-22 08:55:48] [INFO] Agent state file found
+[2025-09-22 08:55:54] [INFO] Attempting graceful shutdown using Windows termination signals...
+[2025-09-22 08:55:54] [INFO] Sending graceful shutdown signal to process 3544...
+[2025-09-22 08:55:59] [INFO] Checking agent status...
+[2025-09-22 08:56:00] [SUCCESS] Found workspace agent process (PID: 3544)
+[2025-09-22 08:56:00] [INFO] Saved agent PID 3544 to file
+[2025-09-22 08:56:00] [INFO] Agent state file found
+[2025-09-22 08:56:05] [WARN] Graceful shutdown failed, force terminating processes...
+[2025-09-22 08:56:05] [INFO] Force terminating workspace agent process (PID: 3544)
+[2025-09-22 08:56:05] [WARN] Force killing process 3544
+[2025-09-22 08:56:05] [SUCCESS] Process 3544 terminated
+[2025-09-22 08:56:06] [INFO] Removed PID file
+[2025-09-22 08:56:06] [INFO] Removed .agent_info file
+[2025-09-22 08:56:06] [INFO] Updated agent state to disconnected with immediate effect
+[2025-09-22 08:56:06] [INFO] Cleared any pending queue files
+[2025-09-22 08:56:08] [INFO] Checking agent status...
+[2025-09-22 08:56:08] [WARN] No monitoring-agent processes found from workspace
+[2025-09-22 08:56:14] [SUCCESS] Agent stopped successfully and should disconnect from manager
+[2025-09-22 08:56:14] [INFO] Stopping auto-startup tasks...
+[2025-09-22 08:56:14] [INFO] Stopping auto-startup tasks...
+[2025-09-22 08:56:19] [INFO] No running auto-startup tasks found to stop
+[2025-09-22 08:57:04] [INFO] Monitoring Agent Control Center started
+[2025-09-22 08:57:04] [INFO] Checking agent status...
+[2025-09-22 08:57:05] [WARN] No monitoring-agent processes found from workspace
+[2025-09-22 08:57:16] [INFO] Checking agent status...
+[2025-09-22 08:57:16] [WARN] No monitoring-agent processes found from workspace
+[2025-09-22 08:57:22] [INFO] Cleaning up agent database files...
+[2025-09-22 08:57:22] [INFO] Removing database file: C:\Users\ANANDHU\Downloads\monitoring-agent-windows\queue\fim\db\fim.db
+[2025-09-22 08:57:22] [INFO] Removing database file: C:\Users\ANANDHU\Downloads\monitoring-agent-windows\queue\fim\db\fim.db-journal
+[2025-09-22 08:57:22] [INFO] Removing database file: C:\Users\ANANDHU\Downloads\monitoring-agent-windows\queue\syscollector\db\local.db
+[2025-09-22 08:57:22] [INFO] Removing database file: C:\Users\ANANDHU\Downloads\monitoring-agent-windows\queue\syscollector\db\local.db-journal
+[2025-09-22 08:57:22] [SUCCESS] Database cleanup completed
+[2025-09-22 08:57:27] [INFO] Checking agent status...
+[2025-09-22 08:57:27] [WARN] No monitoring-agent processes found from workspace
+[2025-09-22 08:57:38] [INFO] Exiting Monitoring Agent Control Center
+[2025-09-22 08:58:07] [INFO] Monitoring Agent Control Center started
+[2025-09-22 08:58:07] [INFO] Checking agent status...
+[2025-09-22 08:58:08] [WARN] No monitoring-agent processes found from workspace
+[2025-09-22 09:00:20] [INFO] Monitoring Agent Control Center started
+[2025-09-22 09:00:20] [INFO] Starting Monitoring agent...
+[2025-09-22 09:00:20] [INFO] Checking agent status...
+[2025-09-22 09:00:20] [WARN] No monitoring-agent processes found from workspace
+[2025-09-22 09:00:25] [INFO] Starting agent from workspace: C:\Users\ANANDHU\Downloads\monitoring-agent-windows\monitoring-agent.exe
+[2025-09-22 09:00:25] [INFO] Agent start command executed (Launcher PID: 23952)
+[2025-09-22 09:00:38] [INFO] Checking agent status...
+[2025-09-22 09:00:38] [SUCCESS] Found workspace agent process (PID: 23952)
+[2025-09-22 09:00:38] [INFO] Saved agent PID 23952 to file
+[2025-09-22 09:00:38] [INFO] Agent state file found
+[2025-09-22 09:00:41] [SUCCESS] Agent daemon started successfully (PID: 23952)
+[2025-09-22 09:00:41] [INFO] Configuring auto-startup...
+[2025-09-22 09:00:43] [INFO] Starting auto-startup tasks...
+[2025-09-22 09:00:45] [SUCCESS] Started startup task
+[2025-09-22 09:00:46] [SUCCESS] Started watchdog task
+[2025-09-22 09:02:03] [INFO] Monitoring Agent Control Center started
+[2025-09-22 09:02:03] [INFO] Checking agent status...
+[2025-09-22 09:02:03] [SUCCESS] Found workspace agent process (PID: 23952)
+[2025-09-22 09:02:03] [INFO] Saved agent PID 23952 to file
+[2025-09-22 09:02:03] [INFO] Agent state file found
+[2025-09-22 09:02:13] [INFO] Monitoring Agent Control Center started
+[2025-09-22 09:02:13] [INFO] Stopping Monitoring agent...
+[2025-09-22 09:02:13] [INFO] Checking agent status...
+[2025-09-22 09:02:14] [SUCCESS] Found workspace agent process (PID: 23952)
+[2025-09-22 09:02:14] [INFO] Saved agent PID 23952 to file
+[2025-09-22 09:02:14] [INFO] Agent state file found
+[2025-09-22 09:02:18] [INFO] Attempting graceful shutdown using Windows termination signals...
+[2025-09-22 09:02:19] [INFO] Sending graceful shutdown signal to process 23952...
+[2025-09-22 09:02:24] [INFO] Checking agent status...
+[2025-09-22 09:02:25] [SUCCESS] Found workspace agent process (PID: 23952)
+[2025-09-22 09:02:25] [INFO] Saved agent PID 23952 to file
+[2025-09-22 09:02:25] [INFO] Agent state file found
+[2025-09-22 09:02:29] [WARN] Graceful shutdown failed, force terminating processes...
+[2025-09-22 09:02:29] [INFO] Force terminating workspace agent process (PID: 23952)
+[2025-09-22 09:02:29] [WARN] Force killing process 23952
+[2025-09-22 09:02:29] [SUCCESS] Process 23952 terminated
+[2025-09-22 09:02:29] [INFO] Removed PID file
+[2025-09-22 09:02:29] [INFO] Removed .agent_info file
+[2025-09-22 09:02:29] [INFO] Updated agent state to disconnected with immediate effect
+[2025-09-22 09:02:29] [INFO] Cleared any pending queue files
+[2025-09-22 09:02:31] [INFO] Checking agent status...
+[2025-09-22 09:02:31] [WARN] No monitoring-agent processes found from workspace
+[2025-09-22 09:02:36] [SUCCESS] Agent stopped successfully and should disconnect from manager
+[2025-09-22 09:02:36] [INFO] Stopping auto-startup tasks...
+[2025-09-22 09:02:36] [INFO] Stopping auto-startup tasks...
+[2025-09-22 09:02:40] [INFO] No running auto-startup tasks found to stop
+[2025-09-22 09:02:47] [INFO] Monitoring Agent Control Center started
+[2025-09-22 09:02:47] [INFO] Starting Monitoring agent...
+[2025-09-22 09:02:47] [INFO] Checking agent status...
+[2025-09-22 09:02:48] [WARN] No monitoring-agent processes found from workspace
+[2025-09-22 09:02:52] [INFO] Starting agent from workspace: C:\Users\ANANDHU\Downloads\monitoring-agent-windows\monitoring-agent.exe
+[2025-09-22 09:02:52] [INFO] Agent start command executed (Launcher PID: 31456)
+[2025-09-22 09:03:05] [INFO] Checking agent status...
+[2025-09-22 09:03:05] [SUCCESS] Found workspace agent process (PID: 31456)
+[2025-09-22 09:03:05] [INFO] Saved agent PID 31456 to file
+[2025-09-22 09:03:05] [INFO] Agent state file found
+[2025-09-22 09:03:08] [SUCCESS] Agent daemon started successfully (PID: 31456)
+[2025-09-22 09:03:08] [INFO] Configuring auto-startup...
+[2025-09-22 09:03:10] [INFO] Starting auto-startup tasks...
+[2025-09-22 09:03:12] [SUCCESS] Started startup task
+[2025-09-22 09:03:13] [SUCCESS] Started watchdog task
+[2025-09-22 09:03:24] [INFO] Monitoring Agent Control Center started
+[2025-09-22 09:03:24] [INFO] Checking agent status...
+[2025-09-22 09:03:25] [SUCCESS] Found workspace agent process (PID: 31456)
+[2025-09-22 09:03:25] [INFO] Saved agent PID 31456 to file
+[2025-09-22 09:03:25] [INFO] Agent state file found
+[2025-09-22 09:16:19] [INFO] Monitoring Agent Control Center started
+[2025-09-22 09:16:19] [INFO] Checking agent status...
+[2025-09-22 09:16:20] [SUCCESS] Found workspace agent process (PID: 31456)
+[2025-09-22 09:16:20] [INFO] Saved agent PID 31456 to file
+[2025-09-22 09:16:20] [INFO] Agent state file found
+[2025-09-22 09:16:41] [INFO] Exiting Monitoring Agent Control Center
+[2025-09-22 09:17:00] [INFO] Monitoring Agent Control Center started
+[2025-09-22 09:17:00] [INFO] Checking agent status...
+[2025-09-22 09:17:00] [SUCCESS] Found workspace agent process (PID: 31456)
+[2025-09-22 09:17:00] [INFO] Saved agent PID 31456 to file
+[2025-09-22 09:17:00] [INFO] Agent state file found
+[2025-09-22 09:25:51] [INFO] Monitoring Agent Control Center started
+[2025-09-22 09:25:51] [INFO] Checking agent status...
+[2025-09-22 09:25:52] [SUCCESS] Found workspace agent process (PID: 31456)
+[2025-09-22 09:25:52] [INFO] Saved agent PID 31456 to file
+[2025-09-22 09:25:52] [INFO] Agent state file found
+[2025-09-22 09:26:23] [INFO] Exiting Monitoring Agent Control Center
+[2025-09-22 09:26:23] [INFO] Removing auto-startup task...
+[2025-09-22 09:26:29] [INFO] Removed startup task: MonitoringAgentAutoStart
+[2025-09-22 09:26:33] [SUCCESS] Auto-startup task removed successfully
+[2025-09-22 09:26:33] [INFO] Installing auto-startup tasks...
+[2025-09-22 09:26:33] [INFO] Removing auto-startup task...
+[2025-09-22 09:26:38] [INFO] No auto-startup task found to remove
+[2025-09-22 09:26:38] [INFO] Creating agent startup task...
+[2025-09-22 09:26:38] [SUCCESS] Agent startup task created successfully
+[2025-09-22 09:26:38] [SUCCESS] Auto-startup task installed successfully
+[2025-09-22 09:37:09] [INFO] Monitoring Agent Control Center started
+[2025-09-22 09:37:09] [INFO] Stopping Monitoring agent...
+[2025-09-22 09:37:09] [INFO] Checking agent status...
+[2025-09-22 09:37:09] [SUCCESS] Found workspace agent process (PID: 31456)
+[2025-09-22 09:37:09] [INFO] Saved agent PID 31456 to file
+[2025-09-22 09:37:09] [INFO] Agent state file found
+[2025-09-22 09:37:12] [INFO] Attempting graceful shutdown using Windows termination signals...
+[2025-09-22 09:37:12] [INFO] Sending graceful shutdown signal to process 31456...
+[2025-09-22 09:37:21] [INFO] Checking agent status...
+[2025-09-22 09:37:21] [SUCCESS] Found workspace agent process (PID: 31456)
+[2025-09-22 09:37:21] [INFO] Saved agent PID 31456 to file
+[2025-09-22 09:37:21] [INFO] Agent state file found
+[2025-09-22 09:37:24] [WARN] Graceful shutdown failed, force terminating processes...
+[2025-09-22 09:37:24] [INFO] Force terminating workspace agent process (PID: 31456)
+[2025-09-22 09:37:24] [WARN] Force killing process 31456
+[2025-09-22 09:37:24] [SUCCESS] Process 31456 terminated
+[2025-09-22 09:37:24] [INFO] Removed PID file
+[2025-09-22 09:37:24] [INFO] Removed .agent_info file
+[2025-09-22 09:37:24] [INFO] Updated agent state to disconnected with immediate effect
+[2025-09-22 09:37:24] [INFO] Cleared any pending queue files
+[2025-09-22 09:37:26] [INFO] Checking agent status...
+[2025-09-22 09:37:26] [WARN] No monitoring-agent processes found from workspace
+[2025-09-22 09:37:28] [SUCCESS] Agent stopped successfully and should disconnect from manager
+[2025-09-22 09:37:28] [INFO] Stopping auto-startup tasks...
+[2025-09-22 09:37:28] [INFO] Stopping auto-startup task...
+[2025-09-22 09:39:10] [INFO] Monitoring Agent Control Center started
+[2025-09-22 09:39:10] [INFO] Checking agent status...
+[2025-09-22 09:39:10] [WARN] No monitoring-agent processes found from workspace
+[2025-09-22 09:44:01] [INFO] Monitoring Agent Control Center started
+[2025-09-22 09:44:01] [INFO] Checking agent status...
+[2025-09-22 09:44:02] [WARN] No monitoring-agent processes found from workspace
+[2025-09-22 09:51:39] [INFO] Monitoring Agent Control Center started
+[2025-09-22 09:51:39] [INFO] Checking agent status...
+[2025-09-22 09:51:39] [WARN] No monitoring-agent processes found from workspace
+[2025-09-22 09:52:10] [INFO] Monitoring Agent Control Center started
+[2025-09-22 09:52:10] [INFO] Starting Monitoring agent...
+[2025-09-22 09:52:10] [INFO] Checking agent status...
+[2025-09-22 09:52:10] [WARN] No monitoring-agent processes found from workspace
+[2025-09-22 09:52:12] [INFO] Starting agent from workspace: C:\Users\ANANDHU\Downloads\monitoring-agent-windows\monitoring-agent.exe
+[2025-09-22 09:52:12] [INFO] Agent start command executed (Launcher PID: 20528)
+[2025-09-22 09:52:25] [INFO] Checking agent status...
+[2025-09-22 09:52:25] [WARN] PID file doesn't match any running process, using first workspace process
+[2025-09-22 09:52:25] [SUCCESS] Found workspace agent process (PID: 20528)
+[2025-09-22 09:52:25] [INFO] Updating PID file with current running process ID: 20528
+[2025-09-22 09:52:25] [INFO] Saved agent PID 20528 to file
+[2025-09-22 09:52:25] [INFO] Agent state file found
+[2025-09-22 09:52:25] [INFO] Agent appears to be connected based on state file
+[2025-09-22 09:52:27] [SUCCESS] Agent daemon started successfully (PID: 20528)
+[2025-09-22 09:52:27] [INFO] Configuring auto-startup...
+[2025-09-22 09:52:28] [INFO] Starting auto-startup task...
+[2025-09-22 09:52:30] [SUCCESS] Started startup task
+[2025-09-22 09:52:30] [SUCCESS] Auto-startup task started successfully
+[2025-09-22 09:55:05] [INFO] Monitoring Agent Control Center started
+[2025-09-22 09:55:05] [INFO] Starting Monitoring agent...
+[2025-09-22 09:55:05] [INFO] Checking agent status...
+[2025-09-22 09:55:06] [WARN] PID file refers to process 20528 but process is not running - PID file may be stale
+[2025-09-22 09:55:06] [WARN] No monitoring-agent processes found from workspace
+[2025-09-22 09:55:08] [INFO] Starting agent from workspace: C:\Users\ANANDHU\Downloads\monitoring-agent-windows\monitoring-agent.exe
+[2025-09-22 09:55:08] [INFO] Agent start command executed (Launcher PID: 25964)
+[2025-09-22 09:55:21] [INFO] Checking agent status...
+[2025-09-22 09:55:22] [WARN] PID file doesn't match any running process, using first workspace process
+[2025-09-22 09:55:22] [SUCCESS] Found workspace agent process (PID: 25964)
+[2025-09-22 09:55:22] [INFO] Updating PID file with current running process ID: 25964
+[2025-09-22 09:55:22] [INFO] Saved agent PID 25964 to file
+[2025-09-22 09:55:22] [INFO] Agent state file found
+[2025-09-22 09:55:22] [INFO] Agent appears to be connected based on state file
+[2025-09-22 09:55:23] [SUCCESS] Agent daemon started successfully (PID: 25964)
+[2025-09-22 09:55:23] [INFO] Configuring auto-startup...
+[2025-09-22 09:55:25] [INFO] Starting auto-startup task...
+[2025-09-22 09:55:26] [SUCCESS] Started startup task
+[2025-09-22 09:55:26] [SUCCESS] Auto-startup task started successfully
+[2025-09-22 10:02:18] [INFO] Monitoring Agent Control Center started
+[2025-09-22 10:02:18] [INFO] Checking agent status...
+[2025-09-22 10:02:19] [WARN] PID file refers to process 25964 but process is not running - PID file may be stale
+[2025-09-22 10:02:19] [WARN] No monitoring-agent processes found from workspace
+[2025-09-22 10:02:27] [INFO] Exiting Monitoring Agent Control Center
+[2025-09-22 10:02:27] [INFO] Removing auto-startup task...
+[2025-09-22 10:02:34] [INFO] Removed startup task: MonitoringAgentAutoStart
+[2025-09-22 10:02:37] [SUCCESS] Auto-startup task removed successfully
+[2025-09-22 10:02:37] [INFO] Installing auto-startup tasks...
+[2025-09-22 10:02:37] [INFO] Removing auto-startup task...
+[2025-09-22 10:02:43] [INFO] No auto-startup task found to remove
+[2025-09-22 10:02:43] [INFO] Creating agent startup task...
+[2025-09-22 10:02:43] [SUCCESS] Agent startup task created successfully
+[2025-09-22 10:02:43] [SUCCESS] Auto-startup task installed successfully
+[2025-09-22 10:04:51] [INFO] Monitoring Agent Control Center started
+[2025-09-22 10:04:51] [INFO] Starting Monitoring agent...
+[2025-09-22 10:04:51] [INFO] Checking agent status...
+[2025-09-22 10:04:52] [WARN] PID file refers to process 25964 but process is not running - PID file may be stale
+[2025-09-22 10:04:52] [WARN] No monitoring-agent processes found from workspace
+[2025-09-22 10:04:54] [INFO] Starting agent from workspace: C:\Users\ANANDHU\Downloads\monitoring-agent-windows\monitoring-agent.exe
+[2025-09-22 10:04:54] [INFO] Agent start command executed (Launcher PID: 25584)
+[2025-09-22 10:05:07] [INFO] Checking agent status...
+[2025-09-22 10:05:08] [WARN] PID file doesn't match any running process, using first workspace process
+[2025-09-22 10:05:08] [SUCCESS] Found workspace agent process (PID: 25584)
+[2025-09-22 10:05:08] [INFO] Updating PID file with current running process ID: 25584
+[2025-09-22 10:05:08] [INFO] Saved agent PID 25584 to file
+[2025-09-22 10:05:08] [INFO] Agent state file found
+[2025-09-22 10:05:08] [INFO] Agent appears to be connected based on state file
+[2025-09-22 10:05:09] [SUCCESS] Agent daemon started successfully (PID: 25584)
+[2025-09-22 10:05:09] [INFO] Configuring auto-startup...
+[2025-09-22 10:05:10] [INFO] Starting auto-startup task...
+[2025-09-22 10:05:12] [SUCCESS] Started startup task
+[2025-09-22 10:05:12] [SUCCESS] Auto-startup task started successfully
+[2025-09-22 10:06:19] [INFO] Monitoring Agent Control Center started
+[2025-09-22 10:06:19] [INFO] Checking agent status...
+[2025-09-22 10:06:20] [SUCCESS] PID file matches running process (PID: 25584)
+[2025-09-22 10:06:20] [SUCCESS] Found workspace agent process (PID: 25584)
+[2025-09-22 10:06:20] [INFO] Agent state file found
+[2025-09-22 10:06:20] [INFO] Agent appears to be connected based on state file
+[2025-09-22 10:06:33] [INFO] Exiting Monitoring Agent Control Center
+[2025-09-22 10:06:33] [INFO] Removing auto-startup task...
+[2025-09-22 10:06:39] [INFO] Removed startup task: MonitoringAgentAutoStart
+[2025-09-22 10:06:42] [SUCCESS] Auto-startup task removed successfully
+[2025-09-22 10:06:42] [INFO] Installing auto-startup tasks...
+[2025-09-22 10:06:42] [INFO] Removing auto-startup task...
+[2025-09-22 10:06:47] [INFO] No auto-startup task found to remove
+[2025-09-22 10:06:47] [INFO] Creating agent startup task...
+[2025-09-22 10:06:48] [SUCCESS] Agent startup task created successfully
+[2025-09-22 10:06:48] [SUCCESS] Auto-startup task installed successfully
+[2025-09-22 10:07:57] [INFO] Monitoring Agent Control Center started
+[2025-09-22 10:07:57] [INFO] Starting Monitoring agent...
+[2025-09-22 10:07:57] [INFO] Checking agent status...
+[2025-09-22 10:07:57] [WARN] PID file refers to process 25584 but process is not running - PID file may be stale
+[2025-09-22 10:07:57] [WARN] No monitoring-agent processes found from workspace
+[2025-09-22 10:08:00] [INFO] Starting agent from workspace: C:\Users\ANANDHU\Downloads\monitoring-agent-windows\monitoring-agent.exe
+[2025-09-22 10:08:00] [INFO] Agent start command executed (Launcher PID: 10964)
+[2025-09-22 10:08:13] [INFO] Checking agent status...
+[2025-09-22 10:08:13] [WARN] PID file doesn't match any running process, using first workspace process
+[2025-09-22 10:08:13] [SUCCESS] Found workspace agent process (PID: 10964)
+[2025-09-22 10:08:13] [INFO] Updating PID file with current running process ID: 10964
+[2025-09-22 10:08:13] [INFO] Saved agent PID 10964 to file
+[2025-09-22 10:08:13] [INFO] Agent state file found
+[2025-09-22 10:08:13] [INFO] Agent appears to be connected based on state file
+[2025-09-22 10:08:15] [SUCCESS] Agent daemon started successfully (PID: 10964)
+[2025-09-22 10:08:15] [INFO] Configuring auto-startup...
+[2025-09-22 10:08:16] [INFO] Starting auto-startup task...
+[2025-09-22 10:08:18] [SUCCESS] Started startup task
+[2025-09-22 10:08:18] [SUCCESS] Auto-startup task started successfully
+[2025-09-22 10:26:48] [INFO] Monitoring Agent Control Center started
+[2025-09-22 10:26:48] [INFO] Checking agent status...
+[2025-09-22 10:26:49] [SUCCESS] PID file matches running process (PID: 10964)
+[2025-09-22 10:26:49] [SUCCESS] Found workspace agent process (PID: 10964)
+[2025-09-22 10:26:49] [INFO] Agent state file found
+[2025-09-22 10:26:49] [INFO] Agent appears to be connected based on state file
+[2025-09-22 10:27:37] [INFO] Monitoring Agent Control Center started
+[2025-09-22 10:27:37] [INFO] Checking agent status...
+[2025-09-22 10:27:37] [WARN] PID file refers to process 10964 but process is not running - PID file may be stale
+[2025-09-22 10:27:38] [WARN] No monitoring-agent processes found from workspace
+[2025-09-22 10:33:49] [INFO] Monitoring Agent Control Center started
+[2025-09-22 10:33:49] [INFO] Starting Monitoring agent...
+[2025-09-22 10:33:49] [INFO] Checking agent status...
+[2025-09-22 10:33:50] [WARN] PID file refers to process 10964 but process is not running - PID file may be stale
+[2025-09-22 10:33:50] [WARN] No monitoring-agent processes found from workspace
+[2025-09-22 10:33:52] [INFO] Starting agent from workspace: C:\Users\ANANDHU\Downloads\monitoring-agent-windows\monitoring-agent.exe
+[2025-09-22 10:33:52] [INFO] Agent start command executed (Launcher PID: 18752)
+[2025-09-22 10:34:05] [INFO] Checking agent status...
+[2025-09-22 10:34:05] [WARN] PID file doesn't match any running process, using first workspace process
+[2025-09-22 10:34:05] [SUCCESS] Found workspace agent process (PID: 18752)
+[2025-09-22 10:34:05] [INFO] Updating PID file with current running process ID: 18752
+[2025-09-22 10:34:05] [INFO] Saved agent PID 18752 to file
+[2025-09-22 10:34:05] [INFO] Agent state file found
+[2025-09-22 10:34:05] [INFO] Agent appears to be connected based on state file
+[2025-09-22 10:34:07] [SUCCESS] Agent daemon started successfully (PID: 18752)
+[2025-09-22 10:34:07] [INFO] Configuring auto-startup...
+[2025-09-22 10:34:08] [INFO] Starting auto-startup task...
+[2025-09-22 10:34:10] [SUCCESS] Started startup task
+[2025-09-22 10:34:10] [SUCCESS] Auto-startup task started successfully
+[2025-09-22 10:35:15] [INFO] Monitoring Agent Control Center started
+[2025-09-22 10:35:15] [INFO] Checking agent status...
+[2025-09-22 10:35:16] [SUCCESS] PID file matches running process (PID: 18752)
+[2025-09-22 10:35:16] [SUCCESS] Found workspace agent process (PID: 18752)
+[2025-09-22 10:35:16] [INFO] Agent state file found
+[2025-09-22 10:35:16] [INFO] Agent appears to be connected based on state file
+[2025-09-22 10:39:11] [INFO] Monitoring Agent Control Center started
+[2025-09-22 10:39:11] [INFO] Starting Monitoring agent...
+[2025-09-22 10:39:11] [INFO] Checking agent status...
+[2025-09-22 10:39:11] [WARN] PID file refers to process 18752 but process is not running - PID file may be stale
+[2025-09-22 10:39:11] [WARN] No monitoring-agent processes found from workspace
+[2025-09-22 10:39:13] [INFO] Starting agent from workspace: C:\Users\ANANDHU\Downloads\monitoring-agent-windows\monitoring-agent.exe
+[2025-09-22 10:39:13] [INFO] Agent start command executed (Launcher PID: 14384)
+[2025-09-22 10:39:26] [INFO] Checking agent status...
+[2025-09-22 10:39:27] [WARN] PID file doesn't match any running process, using first workspace process
+[2025-09-22 10:39:27] [SUCCESS] Found workspace agent process (PID: 14384)
+[2025-09-22 10:39:27] [INFO] Updating PID file with current running process ID: 14384
+[2025-09-22 10:39:27] [INFO] Saved agent PID 14384 to file
+[2025-09-22 10:39:27] [INFO] Agent state file found
+[2025-09-22 10:39:27] [INFO] Agent appears to be connected based on state file
+[2025-09-22 10:39:28] [SUCCESS] Agent daemon started successfully (PID: 14384)
+[2025-09-22 10:39:28] [INFO] Configuring auto-startup...
+[2025-09-22 10:39:30] [INFO] Starting auto-startup task...
+[2025-09-22 10:39:31] [SUCCESS] Started startup task
+[2025-09-22 10:39:31] [SUCCESS] Auto-startup task started successfully
+[2025-09-22 10:39:55] [INFO] Monitoring Agent Control Center started
+[2025-09-22 10:39:55] [INFO] Checking agent status...
+[2025-09-22 10:39:55] [SUCCESS] PID file matches running process (PID: 14384)
+[2025-09-22 10:39:55] [SUCCESS] Found workspace agent process (PID: 14384)
+[2025-09-22 10:39:55] [INFO] Agent state file found
+[2025-09-22 10:39:55] [INFO] Agent appears to be connected based on state file
+[2025-09-22 10:44:19] [INFO] Monitoring Agent Control Center started
+[2025-09-22 10:44:19] [INFO] Checking agent status...
+[2025-09-22 10:44:19] [SUCCESS] PID file matches running process (PID: 14384)
+[2025-09-22 10:44:19] [SUCCESS] Found workspace agent process (PID: 14384)
+[2025-09-22 10:44:19] [INFO] Agent state file found
+[2025-09-22 10:44:19] [INFO] Agent appears to be connected based on state file
+[2025-09-22 10:44:26] [INFO] Exiting Monitoring Agent Control Center
+[2025-09-22 10:44:26] [INFO] Removing auto-startup task...
+[2025-09-22 10:44:33] [INFO] Removed startup task: MonitoringAgentAutoStart
+[2025-09-22 10:44:36] [SUCCESS] Auto-startup task removed successfully
+[2025-09-22 10:44:36] [INFO] Installing auto-startup tasks...
+[2025-09-22 10:44:36] [INFO] Removing auto-startup task...
+[2025-09-22 10:44:41] [INFO] No auto-startup task found to remove
+[2025-09-22 10:44:41] [INFO] Creating agent startup task...
+[2025-09-22 10:44:41] [SUCCESS] Agent startup task created successfully
+[2025-09-22 10:44:41] [SUCCESS] Auto-startup task installed successfully
+[2025-09-22 10:44:54] [INFO] Monitoring Agent Control Center started
+[2025-09-22 10:44:54] [INFO] Starting Monitoring agent...
+[2025-09-22 10:44:54] [INFO] Checking agent status...
+[2025-09-22 10:44:54] [WARN] PID file refers to process 14384 but process is not running - PID file may be stale
+[2025-09-22 10:44:54] [WARN] No monitoring-agent processes found from workspace
+[2025-09-22 10:44:57] [INFO] Starting agent from workspace: C:\Users\ANANDHU\Downloads\monitoring-agent-windows\monitoring-agent.exe
+[2025-09-22 10:44:57] [INFO] Agent start command executed (Launcher PID: 9292)
+[2025-09-22 10:45:10] [INFO] Checking agent status...
+[2025-09-22 10:45:10] [WARN] PID file doesn't match any running process, using first workspace process
+[2025-09-22 10:45:10] [SUCCESS] Found workspace agent process (PID: 9292)
+[2025-09-22 10:45:10] [INFO] Updating PID file with current running process ID: 9292
+[2025-09-22 10:45:10] [INFO] Saved agent PID 9292 to file
+[2025-09-22 10:45:10] [INFO] Agent state file found
+[2025-09-22 10:45:10] [INFO] Agent appears to be connected based on state file
+[2025-09-22 10:45:12] [SUCCESS] Agent daemon started successfully (PID: 9292)
+[2025-09-22 10:45:12] [INFO] Configuring auto-startup...
+[2025-09-22 10:45:13] [INFO] Starting auto-startup task...
+[2025-09-22 10:45:14] [SUCCESS] Started startup task
+[2025-09-22 10:45:14] [SUCCESS] Auto-startup task started successfully
+[2025-09-22 10:45:29] [INFO] Monitoring Agent Control Center started
+[2025-09-22 10:45:29] [INFO] Starting Monitoring agent...
+[2025-09-22 10:45:29] [INFO] Checking agent status...
+[2025-09-22 10:45:30] [SUCCESS] PID file matches running process (PID: 9292)
+[2025-09-22 10:45:30] [SUCCESS] Found workspace agent process (PID: 9292)
+[2025-09-22 10:45:30] [INFO] Agent state file found
+[2025-09-22 10:45:30] [INFO] Agent appears to be connected based on state file
+[2025-09-22 10:45:33] [WARN] Agent is already running (PID: 9292)
