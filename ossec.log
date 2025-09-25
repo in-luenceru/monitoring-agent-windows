@@ -19948,3 +19948,469 @@
 2025/09/25 20:40:22 wazuh-agent: ERROR: (1216): Unable to connect to '[127.0.0.1]:1514/tcp': 'No connection could be made because the target machine actively refused it.'.
 2025/09/25 20:40:32 wazuh-agent: INFO: Trying to connect to server ([127.0.0.1]:1514/tcp).
 2025/09/25 20:40:34 wazuh-agent: ERROR: (1216): Unable to connect to '[127.0.0.1]:1514/tcp': 'No connection could be made because the target machine actively refused it.'.
+2025/09/25 21:03:36 wazuh-agent: INFO: Trust verification of a module failed by using the signature method. The file 'C:\Users\ANANDHU\Downloads\monitoring-agent-windows\monitoring-agent.exe' or its signature is corrupt.
+2025/09/25 21:03:36 wazuh-agent: INFO: Trust verification of a module failed by using the hash method. CryptCATAdminEnumCatalogFromHash failed with error 1168 for 'C:\Users\ANANDHU\Downloads\monitoring-agent-windows\monitoring-agent.exe': Element not found.
+2025/09/25 21:03:36 wazuh-agent: WARNING: The file 'C:\Users\ANANDHU\Downloads\monitoring-agent-windows\monitoring-agent.exe' is not signed or its signature is invalid.
+2025/09/25 21:03:37 wazuh-agent: INFO: (1410): Reading authentication keys file.
+2025/09/25 21:03:37 wazuh-agent: INFO: Using notify time: 20 and max time to reconnect: 60
+2025/09/25 21:03:37 wazuh-agent: INFO: Started (pid: 21892).
+2025/09/25 21:03:37 rootcheck: INFO: Started (pid: 21892).
+2025/09/25 21:03:37 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Classes\batfile', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 21:03:37 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Classes\cmdfile', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 21:03:37 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Classes\comfile', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 21:03:37 wazuh-modulesd:agent-upgrade: INFO: (8153): Module Agent Upgrade started.
+2025/09/25 21:03:37 sca: INFO: Module started.
+2025/09/25 21:03:37 wazuh-modulesd:ciscat: INFO: Module disabled. Exiting...
+2025/09/25 21:03:37 wazuh-modulesd:osquery: INFO: Module disabled. Exiting...
+2025/09/25 21:03:37 wazuh-agent: INFO: Using AES as encryption method.
+2025/09/25 21:03:37 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Classes\exefile', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 21:03:37 sca: INFO: Loaded policy 'C:\Users\ANANDHU\Downloads\monitoring-agent-windows\ruleset\sca\cis_win11_enterprise.yml'
+2025/09/25 21:03:37 wazuh-agent: INFO: Trying to connect to server ([127.0.0.1]:1514/tcp).
+2025/09/25 21:03:37 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Classes\piffile', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 21:03:37 sca: INFO: Starting Security Configuration Assessment scan.
+2025/09/25 21:03:37 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Classes\AllFilesystemObjects', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 21:03:37 wazuh-modulesd:syscollector: INFO: Module started.
+2025/09/25 21:03:37 wazuh-modulesd:syscollector: INFO: Starting evaluation.
+2025/09/25 21:03:37 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Classes\Directory', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 21:03:37 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Classes\Folder', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 21:03:37 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Classes\Protocols [x64]', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 21:03:37 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Classes\Protocols', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 21:03:37 sca: INFO: Starting evaluation of policy: 'C:\Users\ANANDHU\Downloads\monitoring-agent-windows\ruleset\sca\cis_win11_enterprise.yml'
+2025/09/25 21:03:37 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Policies [x64]', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 21:03:37 wazuh-agent: INFO: Windows version is 6.0 or newer. (Microsoft Windows 11 Home Single Language [Ver: 10.0.26100.6584] - Wazuh v4.13.0).
+2025/09/25 21:03:37 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Policies', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 21:03:37 wazuh-agent: INFO: (1951): Analyzing event log: 'Application'.
+2025/09/25 21:03:37 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Security', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 21:03:37 wazuh-agent: INFO: (1951): Analyzing event log: 'Security'.
+2025/09/25 21:03:37 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Microsoft\Internet Explorer [x64]', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 21:03:37 wazuh-agent: INFO: (1951): Analyzing event log: 'System'.
+2025/09/25 21:03:37 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Microsoft\Internet Explorer', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 21:03:37 wazuh-agent: INFO: (1950): Analyzing file: 'active-response\active-responses.log'.
+2025/09/25 21:03:37 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 21:03:37 wazuh-agent: INFO: (1950): Analyzing file: 'suricata\log\eve.json'.
+2025/09/25 21:03:37 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\Session Manager\KnownDLLs', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 21:03:37 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\SecurePipeServers\winreg', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 21:03:37 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Run [x64]', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 21:03:37 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Run', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 21:03:37 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\RunOnce [x64]', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 21:03:38 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\RunOnce', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 21:03:38 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\RunOnceEx', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 21:03:38 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\URL [x64]', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 21:03:38 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\URL', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 21:03:38 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Policies [x64]', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 21:03:38 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Policies', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 21:03:38 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Windows [x64]', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 21:03:38 wazuh-agent: INFO: Started (pid: 21892).
+2025/09/25 21:03:38 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Windows', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 21:03:38 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Winlogon [x64]', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 21:03:38 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Winlogon', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 21:03:38 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Microsoft\Active Setup\Installed Components [x64]', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 21:03:38 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Microsoft\Active Setup\Installed Components', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 21:03:38 wazuh-agent: INFO: (6003): Monitoring path: 'c:\programdata\microsoft\windows\start menu\programs\startup', with options 'size | permissions | owner | group | mtime | inode | hash_md5 | hash_sha1 | hash_sha256 | attributes | realtime'.
+2025/09/25 21:03:38 wazuh-agent: INFO: (6003): Monitoring path: 'c:\windows', with options 'size | permissions | owner | group | mtime | inode | hash_md5 | hash_sha1 | hash_sha256 | attributes | scheduled'.
+2025/09/25 21:03:38 wazuh-agent: INFO: (6003): Monitoring path: 'c:\windows\system32', with options 'size | permissions | owner | group | mtime | inode | hash_md5 | hash_sha1 | hash_sha256 | attributes | scheduled'.
+2025/09/25 21:03:38 wazuh-agent: INFO: (6003): Monitoring path: 'c:\windows\system32\drivers\etc', with options 'size | permissions | owner | group | mtime | inode | hash_md5 | hash_sha1 | hash_sha256 | attributes | scheduled'.
+2025/09/25 21:03:38 wazuh-agent: INFO: (6003): Monitoring path: 'c:\windows\system32\wbem', with options 'size | permissions | owner | group | mtime | inode | hash_md5 | hash_sha1 | hash_sha256 | attributes | scheduled'.
+2025/09/25 21:03:38 wazuh-agent: INFO: (6003): Monitoring path: 'c:\windows\system32\windowspowershell\v1.0', with options 'size | permissions | owner | group | mtime | inode | hash_md5 | hash_sha1 | hash_sha256 | attributes | scheduled'.
+2025/09/25 21:03:38 wazuh-agent: INFO: (6206): Ignore 'file' entry 'c:\programdata\microsoft\windows\start menu\programs\startup\desktop.ini'
+2025/09/25 21:03:38 wazuh-agent: INFO: (6207): Ignore 'file' sregex '.log$|.htm$|.jpg$|.png$|.chm$|.pnf$|.evtx$'
+2025/09/25 21:03:38 wazuh-agent: INFO: (6206): Ignore 'registry' entry 'HKEY_LOCAL_MACHINE\Security\Policy\Secrets'
+2025/09/25 21:03:38 wazuh-agent: INFO: (6206): Ignore 'registry' entry 'HKEY_LOCAL_MACHINE\Security\SAM\Domains\Account\Users'
+2025/09/25 21:03:38 wazuh-agent: INFO: (6206): Ignore 'registry' entry 'HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\MpsSvc\Parameters\AppCs'
+2025/09/25 21:03:38 wazuh-agent: INFO: (6206): Ignore 'registry' entry 'HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\MpsSvc\Parameters\PortKeywords\DHCP'
+2025/09/25 21:03:38 wazuh-agent: INFO: (6206): Ignore 'registry' entry 'HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\MpsSvc\Parameters\PortKeywords\IPTLSIn'
+2025/09/25 21:03:38 wazuh-agent: INFO: (6206): Ignore 'registry' entry 'HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\MpsSvc\Parameters\PortKeywords\IPTLSOut'
+2025/09/25 21:03:38 wazuh-agent: INFO: (6206): Ignore 'registry' entry 'HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\MpsSvc\Parameters\PortKeywords\RPC-EPMap'
+2025/09/25 21:03:38 wazuh-agent: INFO: (6206): Ignore 'registry' entry 'HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\MpsSvc\Parameters\PortKeywords\Teredo'
+2025/09/25 21:03:38 wazuh-agent: INFO: (6206): Ignore 'registry' entry 'HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\PolicyAgent\Parameters\Cache'
+2025/09/25 21:03:38 wazuh-agent: INFO: (6206): Ignore 'registry' entry 'HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\RunOnceEx'
+2025/09/25 21:03:38 wazuh-agent: INFO: (6206): Ignore 'registry' entry 'HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\ADOVMPPackage\Final'
+2025/09/25 21:03:38 wazuh-agent: INFO: (6207): Ignore 'registry' sregex '\Enum$'
+2025/09/25 21:03:38 wazuh-agent: INFO: Started (pid: 21892).
+2025/09/25 21:03:38 wazuh-agent: INFO: (6000): Starting daemon...
+2025/09/25 21:03:38 wazuh-agent: INFO: (6010): File integrity monitoring scan frequency: 43200 seconds
+2025/09/25 21:03:38 wazuh-agent: INFO: (6008): File integrity monitoring scan started.
+2025/09/25 21:03:39 wazuh-agent: ERROR: (1216): Unable to connect to '[127.0.0.1]:1514/tcp': 'No connection could be made because the target machine actively refused it.'.
+2025/09/25 21:03:41 wazuh-modulesd:syscollector: INFO: Evaluation finished.
+2025/09/25 21:03:49 wazuh-agent: INFO: Trying to connect to server ([127.0.0.1]:1514/tcp).
+2025/09/25 21:03:51 wazuh-agent: ERROR: (1216): Unable to connect to '[127.0.0.1]:1514/tcp': 'No connection could be made because the target machine actively refused it.'.
+2025/09/25 21:04:01 wazuh-agent: INFO: Trying to connect to server ([127.0.0.1]:1514/tcp).
+2025/09/25 21:04:03 wazuh-agent: ERROR: (1216): Unable to connect to '[127.0.0.1]:1514/tcp': 'No connection could be made because the target machine actively refused it.'.
+2025/09/25 21:04:13 wazuh-agent: INFO: Trying to connect to server ([127.0.0.1]:1514/tcp).
+2025/09/25 21:04:15 wazuh-agent: ERROR: (1216): Unable to connect to '[127.0.0.1]:1514/tcp': 'No connection could be made because the target machine actively refused it.'.
+2025/09/25 21:04:25 wazuh-agent: INFO: Trying to connect to server ([127.0.0.1]:1514/tcp).
+2025/09/25 21:04:27 wazuh-agent: ERROR: (1216): Unable to connect to '[127.0.0.1]:1514/tcp': 'No connection could be made because the target machine actively refused it.'.
+2025/09/25 21:04:27 wazuh-agent: INFO: Requesting a key from server: 127.0.0.1
+2025/09/25 21:04:30 wazuh-agent: ERROR: (1208): Unable to connect to enrollment service at '[127.0.0.1]:1515'
+2025/09/25 21:04:40 wazuh-agent: WARNING: (4101): Waiting for server reply (not started). Tried: '127.0.0.1'. Ensure that the manager version is 'v4.13.0' or higher.
+2025/09/25 21:04:40 wazuh-agent: WARNING: Unable to connect to any server.
+2025/09/25 21:04:40 wazuh-agent: INFO: Trying to connect to server ([127.0.0.1]:1514/tcp).
+2025/09/25 21:04:42 wazuh-agent: ERROR: (1216): Unable to connect to '[127.0.0.1]:1514/tcp': 'No connection could be made because the target machine actively refused it.'.
+2025/09/25 21:04:52 wazuh-agent: INFO: Trying to connect to server ([127.0.0.1]:1514/tcp).
+2025/09/25 21:04:54 wazuh-agent: ERROR: (1216): Unable to connect to '[127.0.0.1]:1514/tcp': 'No connection could be made because the target machine actively refused it.'.
+2025/09/25 21:05:04 wazuh-agent: INFO: Trying to connect to server ([127.0.0.1]:1514/tcp).
+2025/09/25 21:05:06 wazuh-agent: ERROR: (1216): Unable to connect to '[127.0.0.1]:1514/tcp': 'No connection could be made because the target machine actively refused it.'.
+2025/09/25 21:05:16 wazuh-agent: INFO: Trying to connect to server ([127.0.0.1]:1514/tcp).
+2025/09/25 21:05:18 wazuh-agent: ERROR: (1216): Unable to connect to '[127.0.0.1]:1514/tcp': 'No connection could be made because the target machine actively refused it.'.
+2025/09/25 21:05:28 wazuh-agent: INFO: Trying to connect to server ([127.0.0.1]:1514/tcp).
+2025/09/25 21:05:30 wazuh-agent: ERROR: (1216): Unable to connect to '[127.0.0.1]:1514/tcp': 'No connection could be made because the target machine actively refused it.'.
+2025/09/25 21:05:30 wazuh-agent: INFO: Requesting a key from server: 127.0.0.1
+2025/09/25 21:05:32 wazuh-agent: ERROR: (1208): Unable to connect to enrollment service at '[127.0.0.1]:1515'
+2025/09/25 21:05:42 wazuh-agent: WARNING: (4101): Waiting for server reply (not started). Tried: '127.0.0.1'. Ensure that the manager version is 'v4.13.0' or higher.
+2025/09/25 21:05:42 wazuh-agent: WARNING: Unable to connect to any server.
+2025/09/25 21:05:42 wazuh-agent: INFO: Trying to connect to server ([127.0.0.1]:1514/tcp).
+2025/09/25 21:05:44 wazuh-agent: ERROR: (1216): Unable to connect to '[127.0.0.1]:1514/tcp': 'No connection could be made because the target machine actively refused it.'.
+2025/09/25 21:05:54 wazuh-agent: INFO: Trying to connect to server ([127.0.0.1]:1514/tcp).
+2025/09/25 21:05:56 wazuh-agent: ERROR: (1216): Unable to connect to '[127.0.0.1]:1514/tcp': 'No connection could be made because the target machine actively refused it.'.
+2025/09/25 21:06:06 wazuh-agent: INFO: Trying to connect to server ([127.0.0.1]:1514/tcp).
+2025/09/25 21:06:08 wazuh-agent: ERROR: (1216): Unable to connect to '[127.0.0.1]:1514/tcp': 'No connection could be made because the target machine actively refused it.'.
+2025/09/25 21:06:18 wazuh-agent: INFO: Trying to connect to server ([127.0.0.1]:1514/tcp).
+2025/09/25 21:06:20 wazuh-agent: ERROR: (1216): Unable to connect to '[127.0.0.1]:1514/tcp': 'No connection could be made because the target machine actively refused it.'.
+2025/09/25 21:06:31 wazuh-agent: INFO: Trying to connect to server ([127.0.0.1]:1514/tcp).
+2025/09/25 21:06:33 wazuh-agent: ERROR: (1216): Unable to connect to '[127.0.0.1]:1514/tcp': 'No connection could be made because the target machine actively refused it.'.
+2025/09/25 21:06:33 wazuh-agent: INFO: Requesting a key from server: 127.0.0.1
+2025/09/25 21:06:35 wazuh-agent: ERROR: (1208): Unable to connect to enrollment service at '[127.0.0.1]:1515'
+2025/09/25 21:07:05 wazuh-agent: INFO: Trust verification of a module failed by using the signature method. The file 'C:\Users\ANANDHU\Downloads\monitoring-agent-windows\monitoring-agent.exe' or its signature is corrupt.
+2025/09/25 21:07:05 wazuh-agent: INFO: Trust verification of a module failed by using the hash method. CryptCATAdminEnumCatalogFromHash failed with error 1168 for 'C:\Users\ANANDHU\Downloads\monitoring-agent-windows\monitoring-agent.exe': Element not found.
+2025/09/25 21:07:05 wazuh-agent: WARNING: The file 'C:\Users\ANANDHU\Downloads\monitoring-agent-windows\monitoring-agent.exe' is not signed or its signature is invalid.
+2025/09/25 21:07:05 wazuh-agent: ERROR: (1103): Could not open file '.agent_info' due to [(2)-(No such file or directory)].
+2025/09/25 21:07:05 wazuh-agent: ERROR: (1103): Could not open file '.agent_info' due to [(2)-(No such file or directory)].
+2025/09/25 21:07:05 wazuh-agent: INFO: (1410): Reading authentication keys file.
+2025/09/25 21:07:05 wazuh-agent: INFO: Using notify time: 20 and max time to reconnect: 60
+2025/09/25 21:07:05 wazuh-agent: INFO: Started (pid: 17820).
+2025/09/25 21:07:05 wazuh-agent: ERROR: (1103): Could not open file '.agent_info' due to [(2)-(No such file or directory)].
+2025/09/25 21:07:05 wazuh-agent: ERROR: (1103): Could not open file '.agent_info' due to [(2)-(No such file or directory)].
+2025/09/25 21:07:06 wazuh-agent: ERROR: (1103): Could not open file '.agent_info' due to [(2)-(No such file or directory)].
+2025/09/25 21:07:06 rootcheck: INFO: Started (pid: 17820).
+2025/09/25 21:07:06 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Classes\batfile', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 21:07:06 wazuh-agent: ERROR: (1103): Could not open file '.agent_info' due to [(2)-(No such file or directory)].
+2025/09/25 21:07:06 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Classes\cmdfile', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 21:07:06 wazuh-modulesd:agent-upgrade: INFO: (8153): Module Agent Upgrade started.
+2025/09/25 21:07:06 sca: INFO: Module started.
+2025/09/25 21:07:06 wazuh-modulesd:osquery: INFO: Module disabled. Exiting...
+2025/09/25 21:07:06 wazuh-modulesd:ciscat: INFO: Module disabled. Exiting...
+2025/09/25 21:07:06 wazuh-agent: INFO: Using AES as encryption method.
+2025/09/25 21:07:06 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Classes\comfile', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 21:07:06 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Classes\exefile', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 21:07:06 wazuh-modulesd:syscollector: INFO: Module started.
+2025/09/25 21:07:06 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Classes\piffile', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 21:07:06 wazuh-modulesd:syscollector: INFO: Starting evaluation.
+2025/09/25 21:07:06 wazuh-agent: INFO: Windows version is 6.0 or newer. (Microsoft Windows 11 Home Single Language [Ver: 10.0.26100.6584] - Wazuh v4.13.0).
+2025/09/25 21:07:06 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Classes\AllFilesystemObjects', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 21:07:06 wazuh-agent: INFO: Trying to connect to server ([127.0.0.1]:1514/tcp).
+2025/09/25 21:07:06 sca: INFO: Loaded policy 'C:\Users\ANANDHU\Downloads\monitoring-agent-windows\ruleset\sca\cis_win11_enterprise.yml'
+2025/09/25 21:07:06 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Classes\Directory', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 21:07:06 wazuh-agent: INFO: (1951): Analyzing event log: 'Application'.
+2025/09/25 21:07:06 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Classes\Folder', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 21:07:06 wazuh-agent: INFO: (1951): Analyzing event log: 'Security'.
+2025/09/25 21:07:06 sca: INFO: Starting Security Configuration Assessment scan.
+2025/09/25 21:07:06 wazuh-agent: INFO: (1951): Analyzing event log: 'System'.
+2025/09/25 21:07:06 wazuh-agent: INFO: (1950): Analyzing file: 'active-response\active-responses.log'.
+2025/09/25 21:07:06 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Classes\Protocols [x64]', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 21:07:06 wazuh-agent: INFO: (1950): Analyzing file: 'suricata\log\eve.json'.
+2025/09/25 21:07:06 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Classes\Protocols', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 21:07:06 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Policies [x64]', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 21:07:06 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Policies', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 21:07:06 sca: INFO: Starting evaluation of policy: 'C:\Users\ANANDHU\Downloads\monitoring-agent-windows\ruleset\sca\cis_win11_enterprise.yml'
+2025/09/25 21:07:06 wazuh-agent: INFO: Started (pid: 17820).
+2025/09/25 21:07:06 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Security', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 21:07:06 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Microsoft\Internet Explorer [x64]', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 21:07:06 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Microsoft\Internet Explorer', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 21:07:06 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 21:07:06 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\Session Manager\KnownDLLs', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 21:07:06 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\SecurePipeServers\winreg', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 21:07:06 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Run [x64]', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 21:07:06 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Run', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 21:07:06 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\RunOnce [x64]', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 21:07:06 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\RunOnce', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 21:07:06 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\RunOnceEx', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 21:07:06 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\URL [x64]', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 21:07:06 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\URL', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 21:07:06 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Policies [x64]', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 21:07:06 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Policies', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 21:07:06 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Windows [x64]', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 21:07:06 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Windows', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 21:07:06 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Winlogon [x64]', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 21:07:06 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Winlogon', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 21:07:06 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Microsoft\Active Setup\Installed Components [x64]', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 21:07:06 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Microsoft\Active Setup\Installed Components', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 21:07:06 wazuh-agent: INFO: (6003): Monitoring path: 'c:\programdata\microsoft\windows\start menu\programs\startup', with options 'size | permissions | owner | group | mtime | inode | hash_md5 | hash_sha1 | hash_sha256 | attributes | realtime'.
+2025/09/25 21:07:06 wazuh-agent: INFO: (6003): Monitoring path: 'c:\windows', with options 'size | permissions | owner | group | mtime | inode | hash_md5 | hash_sha1 | hash_sha256 | attributes | scheduled'.
+2025/09/25 21:07:06 wazuh-agent: INFO: (6003): Monitoring path: 'c:\windows\system32', with options 'size | permissions | owner | group | mtime | inode | hash_md5 | hash_sha1 | hash_sha256 | attributes | scheduled'.
+2025/09/25 21:07:06 wazuh-agent: INFO: (6003): Monitoring path: 'c:\windows\system32\drivers\etc', with options 'size | permissions | owner | group | mtime | inode | hash_md5 | hash_sha1 | hash_sha256 | attributes | scheduled'.
+2025/09/25 21:07:06 wazuh-agent: INFO: (6003): Monitoring path: 'c:\windows\system32\wbem', with options 'size | permissions | owner | group | mtime | inode | hash_md5 | hash_sha1 | hash_sha256 | attributes | scheduled'.
+2025/09/25 21:07:06 wazuh-agent: INFO: (6003): Monitoring path: 'c:\windows\system32\windowspowershell\v1.0', with options 'size | permissions | owner | group | mtime | inode | hash_md5 | hash_sha1 | hash_sha256 | attributes | scheduled'.
+2025/09/25 21:07:06 wazuh-agent: INFO: (6206): Ignore 'file' entry 'c:\programdata\microsoft\windows\start menu\programs\startup\desktop.ini'
+2025/09/25 21:07:06 wazuh-agent: INFO: (6207): Ignore 'file' sregex '.log$|.htm$|.jpg$|.png$|.chm$|.pnf$|.evtx$'
+2025/09/25 21:07:06 wazuh-agent: INFO: (6206): Ignore 'registry' entry 'HKEY_LOCAL_MACHINE\Security\Policy\Secrets'
+2025/09/25 21:07:06 wazuh-agent: INFO: (6206): Ignore 'registry' entry 'HKEY_LOCAL_MACHINE\Security\SAM\Domains\Account\Users'
+2025/09/25 21:07:06 wazuh-agent: INFO: (6206): Ignore 'registry' entry 'HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\MpsSvc\Parameters\AppCs'
+2025/09/25 21:07:06 wazuh-agent: INFO: (6206): Ignore 'registry' entry 'HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\MpsSvc\Parameters\PortKeywords\DHCP'
+2025/09/25 21:07:06 wazuh-agent: INFO: (6206): Ignore 'registry' entry 'HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\MpsSvc\Parameters\PortKeywords\IPTLSIn'
+2025/09/25 21:07:06 wazuh-agent: INFO: (6206): Ignore 'registry' entry 'HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\MpsSvc\Parameters\PortKeywords\IPTLSOut'
+2025/09/25 21:07:07 wazuh-agent: INFO: (6206): Ignore 'registry' entry 'HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\MpsSvc\Parameters\PortKeywords\RPC-EPMap'
+2025/09/25 21:07:07 wazuh-agent: INFO: (6206): Ignore 'registry' entry 'HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\MpsSvc\Parameters\PortKeywords\Teredo'
+2025/09/25 21:07:07 wazuh-agent: INFO: (6206): Ignore 'registry' entry 'HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\PolicyAgent\Parameters\Cache'
+2025/09/25 21:07:07 wazuh-agent: INFO: (6206): Ignore 'registry' entry 'HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\RunOnceEx'
+2025/09/25 21:07:07 wazuh-agent: INFO: (6206): Ignore 'registry' entry 'HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\ADOVMPPackage\Final'
+2025/09/25 21:07:07 wazuh-agent: INFO: (6207): Ignore 'registry' sregex '\Enum$'
+2025/09/25 21:07:07 wazuh-agent: INFO: Started (pid: 17820).
+2025/09/25 21:07:07 wazuh-agent: INFO: (6000): Starting daemon...
+2025/09/25 21:07:07 wazuh-agent: INFO: (6010): File integrity monitoring scan frequency: 43200 seconds
+2025/09/25 21:07:07 wazuh-agent: INFO: (6008): File integrity monitoring scan started.
+2025/09/25 21:07:08 wazuh-agent: ERROR: (1216): Unable to connect to '[127.0.0.1]:1514/tcp': 'No connection could be made because the target machine actively refused it.'.
+2025/09/25 21:07:09 wazuh-modulesd:syscollector: INFO: Evaluation finished.
+2025/09/25 21:07:18 wazuh-agent: INFO: Trying to connect to server ([127.0.0.1]:1514/tcp).
+2025/09/25 21:07:20 wazuh-agent: ERROR: (1216): Unable to connect to '[127.0.0.1]:1514/tcp': 'No connection could be made because the target machine actively refused it.'.
+2025/09/25 21:07:30 wazuh-agent: INFO: Trying to connect to server ([127.0.0.1]:1514/tcp).
+2025/09/25 21:07:32 wazuh-agent: ERROR: (1216): Unable to connect to '[127.0.0.1]:1514/tcp': 'No connection could be made because the target machine actively refused it.'.
+2025/09/25 21:07:42 wazuh-agent: INFO: Trying to connect to server ([127.0.0.1]:1514/tcp).
+2025/09/25 21:07:44 wazuh-agent: ERROR: (1216): Unable to connect to '[127.0.0.1]:1514/tcp': 'No connection could be made because the target machine actively refused it.'.
+2025/09/25 21:07:54 wazuh-agent: INFO: Trying to connect to server ([127.0.0.1]:1514/tcp).
+2025/09/25 21:07:56 wazuh-agent: ERROR: (1216): Unable to connect to '[127.0.0.1]:1514/tcp': 'No connection could be made because the target machine actively refused it.'.
+2025/09/25 21:07:56 wazuh-agent: INFO: Requesting a key from server: 127.0.0.1
+2025/09/25 21:07:58 wazuh-agent: ERROR: (1208): Unable to connect to enrollment service at '[127.0.0.1]:1515'
+2025/09/25 21:08:08 wazuh-agent: WARNING: (4101): Waiting for server reply (not started). Tried: '127.0.0.1'. Ensure that the manager version is 'v4.13.0' or higher.
+2025/09/25 21:08:08 wazuh-agent: WARNING: Unable to connect to any server.
+2025/09/25 21:08:08 wazuh-agent: INFO: Trying to connect to server ([127.0.0.1]:1514/tcp).
+2025/09/25 21:08:10 wazuh-agent: ERROR: (1216): Unable to connect to '[127.0.0.1]:1514/tcp': 'No connection could be made because the target machine actively refused it.'.
+2025/09/25 21:08:20 wazuh-agent: INFO: Trying to connect to server ([127.0.0.1]:1514/tcp).
+2025/09/25 21:08:22 wazuh-agent: ERROR: (1216): Unable to connect to '[127.0.0.1]:1514/tcp': 'No connection could be made because the target machine actively refused it.'.
+2025/09/25 21:08:32 wazuh-agent: INFO: Trying to connect to server ([127.0.0.1]:1514/tcp).
+2025/09/25 21:08:34 wazuh-agent: ERROR: (1216): Unable to connect to '[127.0.0.1]:1514/tcp': 'No connection could be made because the target machine actively refused it.'.
+2025/09/25 21:08:44 wazuh-agent: INFO: Trying to connect to server ([127.0.0.1]:1514/tcp).
+2025/09/25 21:08:46 wazuh-agent: ERROR: (1216): Unable to connect to '[127.0.0.1]:1514/tcp': 'No connection could be made because the target machine actively refused it.'.
+2025/09/25 21:08:56 wazuh-agent: INFO: Trying to connect to server ([127.0.0.1]:1514/tcp).
+2025/09/25 21:08:58 wazuh-agent: ERROR: (1216): Unable to connect to '[127.0.0.1]:1514/tcp': 'No connection could be made because the target machine actively refused it.'.
+2025/09/25 21:08:58 wazuh-agent: INFO: Requesting a key from server: 127.0.0.1
+2025/09/25 21:09:00 wazuh-agent: ERROR: (1208): Unable to connect to enrollment service at '[127.0.0.1]:1515'
+2025/09/25 21:09:10 wazuh-agent: WARNING: (4101): Waiting for server reply (not started). Tried: '127.0.0.1'. Ensure that the manager version is 'v4.13.0' or higher.
+2025/09/25 21:09:11 wazuh-agent: WARNING: Unable to connect to any server.
+2025/09/25 21:09:11 wazuh-agent: INFO: Trying to connect to server ([127.0.0.1]:1514/tcp).
+2025/09/25 21:09:13 wazuh-agent: ERROR: (1216): Unable to connect to '[127.0.0.1]:1514/tcp': 'No connection could be made because the target machine actively refused it.'.
+2025/09/25 21:09:23 wazuh-agent: INFO: Trying to connect to server ([127.0.0.1]:1514/tcp).
+2025/09/25 21:09:25 wazuh-agent: ERROR: (1216): Unable to connect to '[127.0.0.1]:1514/tcp': 'No connection could be made because the target machine actively refused it.'.
+2025/09/25 21:09:35 wazuh-agent: INFO: Trying to connect to server ([127.0.0.1]:1514/tcp).
+2025/09/25 21:09:37 wazuh-agent: ERROR: (1216): Unable to connect to '[127.0.0.1]:1514/tcp': 'No connection could be made because the target machine actively refused it.'.
+2025/09/25 21:09:47 wazuh-agent: INFO: Trying to connect to server ([127.0.0.1]:1514/tcp).
+2025/09/25 21:09:49 wazuh-agent: ERROR: (1216): Unable to connect to '[127.0.0.1]:1514/tcp': 'No connection could be made because the target machine actively refused it.'.
+2025/09/25 21:09:59 wazuh-agent: INFO: Trying to connect to server ([127.0.0.1]:1514/tcp).
+2025/09/25 21:10:01 wazuh-agent: ERROR: (1216): Unable to connect to '[127.0.0.1]:1514/tcp': 'No connection could be made because the target machine actively refused it.'.
+2025/09/25 21:10:01 wazuh-agent: INFO: Requesting a key from server: 127.0.0.1
+2025/09/25 21:10:03 wazuh-agent: ERROR: (1208): Unable to connect to enrollment service at '[127.0.0.1]:1515'
+2025/09/25 21:10:13 wazuh-agent: WARNING: (4101): Waiting for server reply (not started). Tried: '127.0.0.1'. Ensure that the manager version is 'v4.13.0' or higher.
+2025/09/25 21:10:13 wazuh-agent: WARNING: Unable to connect to any server.
+2025/09/25 21:10:13 wazuh-agent: INFO: Trying to connect to server ([127.0.0.1]:1514/tcp).
+2025/09/25 21:10:15 wazuh-agent: ERROR: (1216): Unable to connect to '[127.0.0.1]:1514/tcp': 'No connection could be made because the target machine actively refused it.'.
+2025/09/25 21:10:25 wazuh-agent: INFO: Trying to connect to server ([127.0.0.1]:1514/tcp).
+2025/09/25 21:10:27 wazuh-agent: ERROR: (1216): Unable to connect to '[127.0.0.1]:1514/tcp': 'No connection could be made because the target machine actively refused it.'.
+2025/09/25 21:10:37 wazuh-agent: INFO: Trying to connect to server ([127.0.0.1]:1514/tcp).
+2025/09/25 21:10:39 wazuh-agent: ERROR: (1216): Unable to connect to '[127.0.0.1]:1514/tcp': 'No connection could be made because the target machine actively refused it.'.
+2025/09/25 21:10:49 wazuh-agent: INFO: Trying to connect to server ([127.0.0.1]:1514/tcp).
+2025/09/25 21:10:51 wazuh-agent: ERROR: (1216): Unable to connect to '[127.0.0.1]:1514/tcp': 'No connection could be made because the target machine actively refused it.'.
+2025/09/25 21:11:02 wazuh-agent: INFO: Trying to connect to server ([127.0.0.1]:1514/tcp).
+2025/09/25 21:11:04 wazuh-agent: ERROR: (1216): Unable to connect to '[127.0.0.1]:1514/tcp': 'No connection could be made because the target machine actively refused it.'.
+2025/09/25 21:11:04 wazuh-agent: INFO: Requesting a key from server: 127.0.0.1
+2025/09/25 21:11:06 wazuh-agent: ERROR: (1208): Unable to connect to enrollment service at '[127.0.0.1]:1515'
+2025/09/25 21:11:16 wazuh-agent: WARNING: (4101): Waiting for server reply (not started). Tried: '127.0.0.1'. Ensure that the manager version is 'v4.13.0' or higher.
+2025/09/25 21:11:16 wazuh-agent: WARNING: Unable to connect to any server.
+2025/09/25 21:11:16 wazuh-agent: INFO: Trying to connect to server ([127.0.0.1]:1514/tcp).
+2025/09/25 21:11:18 wazuh-agent: ERROR: (1216): Unable to connect to '[127.0.0.1]:1514/tcp': 'No connection could be made because the target machine actively refused it.'.
+2025/09/25 21:11:28 wazuh-agent: INFO: Trying to connect to server ([127.0.0.1]:1514/tcp).
+2025/09/25 21:11:30 wazuh-agent: ERROR: (1216): Unable to connect to '[127.0.0.1]:1514/tcp': 'No connection could be made because the target machine actively refused it.'.
+2025/09/25 21:11:40 wazuh-agent: INFO: Trying to connect to server ([127.0.0.1]:1514/tcp).
+2025/09/25 21:11:42 wazuh-agent: ERROR: (1216): Unable to connect to '[127.0.0.1]:1514/tcp': 'No connection could be made because the target machine actively refused it.'.
+2025/09/25 21:11:52 wazuh-agent: INFO: Trying to connect to server ([127.0.0.1]:1514/tcp).
+2025/09/25 21:11:54 wazuh-agent: ERROR: (1216): Unable to connect to '[127.0.0.1]:1514/tcp': 'No connection could be made because the target machine actively refused it.'.
+2025/09/25 21:12:04 wazuh-agent: INFO: Trying to connect to server ([127.0.0.1]:1514/tcp).
+2025/09/25 21:12:06 wazuh-agent: ERROR: (1216): Unable to connect to '[127.0.0.1]:1514/tcp': 'No connection could be made because the target machine actively refused it.'.
+2025/09/25 21:12:06 wazuh-agent: INFO: Requesting a key from server: 127.0.0.1
+2025/09/25 21:12:08 wazuh-agent: ERROR: (1208): Unable to connect to enrollment service at '[127.0.0.1]:1515'
+2025/09/25 21:12:18 wazuh-agent: WARNING: (4101): Waiting for server reply (not started). Tried: '127.0.0.1'. Ensure that the manager version is 'v4.13.0' or higher.
+2025/09/25 21:12:18 wazuh-agent: WARNING: Unable to connect to any server.
+2025/09/25 21:12:18 wazuh-agent: INFO: Trying to connect to server ([127.0.0.1]:1514/tcp).
+2025/09/25 21:12:20 wazuh-agent: ERROR: (1216): Unable to connect to '[127.0.0.1]:1514/tcp': 'No connection could be made because the target machine actively refused it.'.
+2025/09/25 21:12:30 wazuh-agent: INFO: Trying to connect to server ([127.0.0.1]:1514/tcp).
+2025/09/25 21:12:32 wazuh-agent: ERROR: (1216): Unable to connect to '[127.0.0.1]:1514/tcp': 'No connection could be made because the target machine actively refused it.'.
+2025/09/25 21:12:42 wazuh-agent: INFO: Trying to connect to server ([127.0.0.1]:1514/tcp).
+2025/09/25 21:12:44 wazuh-agent: ERROR: (1216): Unable to connect to '[127.0.0.1]:1514/tcp': 'No connection could be made because the target machine actively refused it.'.
+2025/09/25 21:12:54 wazuh-agent: INFO: Trying to connect to server ([127.0.0.1]:1514/tcp).
+2025/09/25 21:12:56 wazuh-agent: ERROR: (1216): Unable to connect to '[127.0.0.1]:1514/tcp': 'No connection could be made because the target machine actively refused it.'.
+2025/09/25 21:13:06 wazuh-agent: INFO: Trying to connect to server ([127.0.0.1]:1514/tcp).
+2025/09/25 21:13:08 wazuh-agent: ERROR: (1216): Unable to connect to '[127.0.0.1]:1514/tcp': 'No connection could be made because the target machine actively refused it.'.
+2025/09/25 21:13:08 wazuh-agent: INFO: Requesting a key from server: 127.0.0.1
+2025/09/25 21:13:11 wazuh-agent: ERROR: (1208): Unable to connect to enrollment service at '[127.0.0.1]:1515'
+2025/09/25 21:13:21 wazuh-agent: WARNING: (4101): Waiting for server reply (not started). Tried: '127.0.0.1'. Ensure that the manager version is 'v4.13.0' or higher.
+2025/09/25 21:13:21 wazuh-agent: WARNING: Unable to connect to any server.
+2025/09/25 21:13:21 wazuh-agent: INFO: Trying to connect to server ([127.0.0.1]:1514/tcp).
+2025/09/25 21:13:23 wazuh-agent: ERROR: (1216): Unable to connect to '[127.0.0.1]:1514/tcp': 'No connection could be made because the target machine actively refused it.'.
+2025/09/25 21:13:33 wazuh-agent: INFO: Trying to connect to server ([127.0.0.1]:1514/tcp).
+2025/09/25 21:13:35 wazuh-agent: ERROR: (1216): Unable to connect to '[127.0.0.1]:1514/tcp': 'No connection could be made because the target machine actively refused it.'.
+2025/09/25 21:13:45 wazuh-agent: INFO: Trying to connect to server ([127.0.0.1]:1514/tcp).
+2025/09/25 21:13:47 wazuh-agent: ERROR: (1216): Unable to connect to '[127.0.0.1]:1514/tcp': 'No connection could be made because the target machine actively refused it.'.
+2025/09/25 21:13:57 wazuh-agent: INFO: Trying to connect to server ([127.0.0.1]:1514/tcp).
+2025/09/25 21:13:59 wazuh-agent: ERROR: (1216): Unable to connect to '[127.0.0.1]:1514/tcp': 'No connection could be made because the target machine actively refused it.'.
+2025/09/25 21:14:09 wazuh-agent: INFO: Trying to connect to server ([127.0.0.1]:1514/tcp).
+2025/09/25 21:14:11 wazuh-agent: ERROR: (1216): Unable to connect to '[127.0.0.1]:1514/tcp': 'No connection could be made because the target machine actively refused it.'.
+2025/09/25 21:14:11 wazuh-agent: INFO: Requesting a key from server: 127.0.0.1
+2025/09/25 21:14:13 wazuh-agent: ERROR: (1208): Unable to connect to enrollment service at '[127.0.0.1]:1515'
+2025/09/25 21:14:23 wazuh-agent: WARNING: (4101): Waiting for server reply (not started). Tried: '127.0.0.1'. Ensure that the manager version is 'v4.13.0' or higher.
+2025/09/25 21:14:23 wazuh-agent: WARNING: Unable to connect to any server.
+2025/09/25 21:14:23 wazuh-agent: INFO: Trying to connect to server ([127.0.0.1]:1514/tcp).
+2025/09/25 21:14:25 wazuh-agent: ERROR: (1216): Unable to connect to '[127.0.0.1]:1514/tcp': 'No connection could be made because the target machine actively refused it.'.
+2025/09/25 21:14:35 wazuh-agent: INFO: Trying to connect to server ([127.0.0.1]:1514/tcp).
+2025/09/25 21:14:37 wazuh-agent: ERROR: (1216): Unable to connect to '[127.0.0.1]:1514/tcp': 'No connection could be made because the target machine actively refused it.'.
+2025/09/25 21:14:47 wazuh-agent: INFO: Trying to connect to server ([127.0.0.1]:1514/tcp).
+2025/09/25 21:14:49 wazuh-agent: ERROR: (1216): Unable to connect to '[127.0.0.1]:1514/tcp': 'No connection could be made because the target machine actively refused it.'.
+2025/09/25 21:14:59 wazuh-agent: INFO: Trying to connect to server ([127.0.0.1]:1514/tcp).
+2025/09/25 21:15:01 wazuh-agent: ERROR: (1216): Unable to connect to '[127.0.0.1]:1514/tcp': 'No connection could be made because the target machine actively refused it.'.
+2025/09/25 21:15:11 wazuh-agent: INFO: Trying to connect to server ([127.0.0.1]:1514/tcp).
+2025/09/25 21:15:13 wazuh-agent: ERROR: (1216): Unable to connect to '[127.0.0.1]:1514/tcp': 'No connection could be made because the target machine actively refused it.'.
+2025/09/25 21:15:13 wazuh-agent: INFO: Requesting a key from server: 127.0.0.1
+2025/09/25 21:15:15 wazuh-agent: ERROR: (1208): Unable to connect to enrollment service at '[127.0.0.1]:1515'
+2025/09/25 21:15:26 wazuh-agent: WARNING: (4101): Waiting for server reply (not started). Tried: '127.0.0.1'. Ensure that the manager version is 'v4.13.0' or higher.
+2025/09/25 21:15:26 wazuh-agent: WARNING: Unable to connect to any server.
+2025/09/25 21:15:26 wazuh-agent: INFO: Trying to connect to server ([127.0.0.1]:1514/tcp).
+2025/09/25 21:15:28 wazuh-agent: ERROR: (1216): Unable to connect to '[127.0.0.1]:1514/tcp': 'No connection could be made because the target machine actively refused it.'.
+2025/09/25 21:15:38 wazuh-agent: INFO: Trying to connect to server ([127.0.0.1]:1514/tcp).
+2025/09/25 21:15:40 wazuh-agent: ERROR: (1216): Unable to connect to '[127.0.0.1]:1514/tcp': 'No connection could be made because the target machine actively refused it.'.
+2025/09/25 21:15:50 wazuh-agent: INFO: Trying to connect to server ([127.0.0.1]:1514/tcp).
+2025/09/25 21:15:52 wazuh-agent: ERROR: (1216): Unable to connect to '[127.0.0.1]:1514/tcp': 'No connection could be made because the target machine actively refused it.'.
+2025/09/25 21:16:02 wazuh-agent: INFO: Trying to connect to server ([127.0.0.1]:1514/tcp).
+2025/09/25 21:16:04 wazuh-agent: ERROR: (1216): Unable to connect to '[127.0.0.1]:1514/tcp': 'No connection could be made because the target machine actively refused it.'.
+2025/09/25 21:16:14 wazuh-agent: INFO: Trying to connect to server ([127.0.0.1]:1514/tcp).
+2025/09/25 21:16:16 wazuh-agent: ERROR: (1216): Unable to connect to '[127.0.0.1]:1514/tcp': 'No connection could be made because the target machine actively refused it.'.
+2025/09/25 21:16:16 wazuh-agent: INFO: Requesting a key from server: 127.0.0.1
+2025/09/25 21:16:18 wazuh-agent: ERROR: (1208): Unable to connect to enrollment service at '[127.0.0.1]:1515'
+2025/09/25 21:16:28 wazuh-agent: WARNING: (4101): Waiting for server reply (not started). Tried: '127.0.0.1'. Ensure that the manager version is 'v4.13.0' or higher.
+2025/09/25 21:16:28 wazuh-agent: WARNING: Unable to connect to any server.
+2025/09/25 21:16:28 wazuh-agent: INFO: Trying to connect to server ([127.0.0.1]:1514/tcp).
+2025/09/25 21:16:28 wazuh-agent: WARNING: Target 'agent' message queue is full (1024). Log lines may be lost.
+2025/09/25 21:16:30 wazuh-agent: ERROR: (1216): Unable to connect to '[127.0.0.1]:1514/tcp': 'No connection could be made because the target machine actively refused it.'.
+2025/09/25 21:16:40 wazuh-agent: INFO: Trying to connect to server ([127.0.0.1]:1514/tcp).
+2025/09/25 21:16:42 wazuh-agent: ERROR: (1216): Unable to connect to '[127.0.0.1]:1514/tcp': 'No connection could be made because the target machine actively refused it.'.
+2025/09/25 21:16:52 wazuh-agent: INFO: Trying to connect to server ([127.0.0.1]:1514/tcp).
+2025/09/25 21:16:54 wazuh-agent: ERROR: (1216): Unable to connect to '[127.0.0.1]:1514/tcp': 'No connection could be made because the target machine actively refused it.'.
+2025/09/25 21:17:04 wazuh-agent: INFO: Trying to connect to server ([127.0.0.1]:1514/tcp).
+2025/09/25 21:17:06 wazuh-agent: ERROR: (1216): Unable to connect to '[127.0.0.1]:1514/tcp': 'No connection could be made because the target machine actively refused it.'.
+2025/09/25 21:17:57 wazuh-agent: INFO: Trust verification of a module failed by using the signature method. The file 'C:\Users\ANANDHU\Downloads\monitoring-agent-windows\monitoring-agent.exe' or its signature is corrupt.
+2025/09/25 21:17:57 wazuh-agent: INFO: Trust verification of a module failed by using the hash method. CryptCATAdminEnumCatalogFromHash failed with error 1168 for 'C:\Users\ANANDHU\Downloads\monitoring-agent-windows\monitoring-agent.exe': Element not found.
+2025/09/25 21:17:57 wazuh-agent: WARNING: The file 'C:\Users\ANANDHU\Downloads\monitoring-agent-windows\monitoring-agent.exe' is not signed or its signature is invalid.
+2025/09/25 21:17:58 wazuh-agent: ERROR: (1103): Could not open file '.agent_info' due to [(2)-(No such file or directory)].
+2025/09/25 21:17:58 wazuh-agent: ERROR: (1103): Could not open file '.agent_info' due to [(2)-(No such file or directory)].
+2025/09/25 21:17:58 wazuh-agent: INFO: (1410): Reading authentication keys file.
+2025/09/25 21:17:58 wazuh-agent: INFO: Using notify time: 20 and max time to reconnect: 60
+2025/09/25 21:17:58 wazuh-agent: INFO: Started (pid: 15300).
+2025/09/25 21:17:58 wazuh-agent: ERROR: (1103): Could not open file '.agent_info' due to [(2)-(No such file or directory)].
+2025/09/25 21:17:58 wazuh-agent: ERROR: (1103): Could not open file '.agent_info' due to [(2)-(No such file or directory)].
+2025/09/25 21:17:58 rootcheck: INFO: Started (pid: 15300).
+2025/09/25 21:17:58 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Classes\batfile', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 21:17:58 wazuh-agent: ERROR: (1103): Could not open file '.agent_info' due to [(2)-(No such file or directory)].
+2025/09/25 21:17:58 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Classes\cmdfile', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 21:17:58 wazuh-agent: INFO: Windows version is 6.0 or newer. (Microsoft Windows 11 Home Single Language [Ver: 10.0.26100.6584] - Wazuh v4.13.0).
+2025/09/25 21:17:58 wazuh-agent: ERROR: (1103): Could not open file '.agent_info' due to [(2)-(No such file or directory)].
+2025/09/25 21:17:58 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Classes\comfile', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 21:17:58 sca: INFO: Module started.
+2025/09/25 21:17:58 wazuh-modulesd:agent-upgrade: INFO: (8153): Module Agent Upgrade started.
+2025/09/25 21:17:58 wazuh-modulesd:osquery: INFO: Module disabled. Exiting...
+2025/09/25 21:17:58 wazuh-modulesd:ciscat: INFO: Module disabled. Exiting...
+2025/09/25 21:17:58 wazuh-agent: INFO: Using AES as encryption method.
+2025/09/25 21:17:58 wazuh-agent: INFO: (1951): Analyzing event log: 'Application'.
+2025/09/25 21:17:58 wazuh-agent: INFO: Trying to connect to server ([127.0.0.1]:1514/tcp).
+2025/09/25 21:17:58 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Classes\exefile', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 21:17:58 sca: INFO: Loaded policy 'C:\Users\ANANDHU\Downloads\monitoring-agent-windows\ruleset\sca\cis_win11_enterprise.yml'
+2025/09/25 21:17:58 wazuh-agent: INFO: (1951): Analyzing event log: 'Security'.
+2025/09/25 21:17:58 wazuh-modulesd:syscollector: INFO: Module started.
+2025/09/25 21:17:58 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Classes\piffile', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 21:17:58 wazuh-agent: INFO: (1951): Analyzing event log: 'System'.
+2025/09/25 21:17:58 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Classes\AllFilesystemObjects', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 21:17:58 sca: INFO: Starting Security Configuration Assessment scan.
+2025/09/25 21:17:58 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Classes\Directory', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 21:17:58 wazuh-modulesd:syscollector: INFO: Starting evaluation.
+2025/09/25 21:17:58 wazuh-agent: INFO: (1950): Analyzing file: 'active-response\active-responses.log'.
+2025/09/25 21:17:58 wazuh-agent: INFO: (1950): Analyzing file: 'suricata\log\eve.json'.
+2025/09/25 21:17:58 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Classes\Folder', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 21:17:58 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Classes\Protocols [x64]', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 21:17:58 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Classes\Protocols', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 21:17:58 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Policies [x64]', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 21:17:58 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Policies', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 21:17:58 sca: INFO: Starting evaluation of policy: 'C:\Users\ANANDHU\Downloads\monitoring-agent-windows\ruleset\sca\cis_win11_enterprise.yml'
+2025/09/25 21:17:58 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Security', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 21:17:58 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Microsoft\Internet Explorer [x64]', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 21:17:58 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Microsoft\Internet Explorer', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 21:17:58 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 21:17:58 wazuh-agent: INFO: Started (pid: 15300).
+2025/09/25 21:17:58 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\Session Manager\KnownDLLs', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 21:17:58 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\SecurePipeServers\winreg', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 21:17:58 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Run [x64]', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 21:17:58 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Run', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 21:17:58 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\RunOnce [x64]', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 21:17:58 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\RunOnce', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 21:17:58 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\RunOnceEx', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 21:17:58 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\URL [x64]', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 21:17:58 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\URL', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 21:17:58 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Policies [x64]', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 21:17:58 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Policies', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 21:17:58 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Windows [x64]', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 21:17:58 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Windows', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 21:17:58 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Winlogon [x64]', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 21:17:58 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Winlogon', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 21:17:58 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Microsoft\Active Setup\Installed Components [x64]', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 21:17:58 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Microsoft\Active Setup\Installed Components', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 21:17:59 wazuh-agent: INFO: (6003): Monitoring path: 'c:\programdata\microsoft\windows\start menu\programs\startup', with options 'size | permissions | owner | group | mtime | inode | hash_md5 | hash_sha1 | hash_sha256 | attributes | realtime'.
+2025/09/25 21:17:59 wazuh-agent: INFO: (6003): Monitoring path: 'c:\windows', with options 'size | permissions | owner | group | mtime | inode | hash_md5 | hash_sha1 | hash_sha256 | attributes | scheduled'.
+2025/09/25 21:17:59 wazuh-agent: INFO: (6003): Monitoring path: 'c:\windows\system32', with options 'size | permissions | owner | group | mtime | inode | hash_md5 | hash_sha1 | hash_sha256 | attributes | scheduled'.
+2025/09/25 21:17:59 wazuh-agent: INFO: (6003): Monitoring path: 'c:\windows\system32\drivers\etc', with options 'size | permissions | owner | group | mtime | inode | hash_md5 | hash_sha1 | hash_sha256 | attributes | scheduled'.
+2025/09/25 21:17:59 wazuh-agent: INFO: (6003): Monitoring path: 'c:\windows\system32\wbem', with options 'size | permissions | owner | group | mtime | inode | hash_md5 | hash_sha1 | hash_sha256 | attributes | scheduled'.
+2025/09/25 21:17:59 wazuh-agent: INFO: (6003): Monitoring path: 'c:\windows\system32\windowspowershell\v1.0', with options 'size | permissions | owner | group | mtime | inode | hash_md5 | hash_sha1 | hash_sha256 | attributes | scheduled'.
+2025/09/25 21:17:59 wazuh-agent: INFO: (6206): Ignore 'file' entry 'c:\programdata\microsoft\windows\start menu\programs\startup\desktop.ini'
+2025/09/25 21:17:59 wazuh-agent: INFO: (6207): Ignore 'file' sregex '.log$|.htm$|.jpg$|.png$|.chm$|.pnf$|.evtx$'
+2025/09/25 21:17:59 wazuh-agent: INFO: (6206): Ignore 'registry' entry 'HKEY_LOCAL_MACHINE\Security\Policy\Secrets'
+2025/09/25 21:17:59 wazuh-agent: INFO: (6206): Ignore 'registry' entry 'HKEY_LOCAL_MACHINE\Security\SAM\Domains\Account\Users'
+2025/09/25 21:17:59 wazuh-agent: INFO: (6206): Ignore 'registry' entry 'HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\MpsSvc\Parameters\AppCs'
+2025/09/25 21:17:59 wazuh-agent: INFO: (6206): Ignore 'registry' entry 'HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\MpsSvc\Parameters\PortKeywords\DHCP'
+2025/09/25 21:17:59 wazuh-agent: INFO: (6206): Ignore 'registry' entry 'HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\MpsSvc\Parameters\PortKeywords\IPTLSIn'
+2025/09/25 21:17:59 wazuh-agent: INFO: (6206): Ignore 'registry' entry 'HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\MpsSvc\Parameters\PortKeywords\IPTLSOut'
+2025/09/25 21:17:59 wazuh-agent: INFO: (6206): Ignore 'registry' entry 'HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\MpsSvc\Parameters\PortKeywords\RPC-EPMap'
+2025/09/25 21:17:59 wazuh-agent: INFO: (6206): Ignore 'registry' entry 'HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\MpsSvc\Parameters\PortKeywords\Teredo'
+2025/09/25 21:17:59 wazuh-agent: INFO: (6206): Ignore 'registry' entry 'HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\PolicyAgent\Parameters\Cache'
+2025/09/25 21:17:59 wazuh-agent: INFO: (6206): Ignore 'registry' entry 'HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\RunOnceEx'
+2025/09/25 21:17:59 wazuh-agent: INFO: (6206): Ignore 'registry' entry 'HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\ADOVMPPackage\Final'
+2025/09/25 21:17:59 wazuh-agent: INFO: (6207): Ignore 'registry' sregex '\Enum$'
+2025/09/25 21:17:59 wazuh-agent: INFO: Started (pid: 15300).
+2025/09/25 21:17:59 wazuh-agent: INFO: (6000): Starting daemon...
+2025/09/25 21:17:59 wazuh-agent: INFO: (6010): File integrity monitoring scan frequency: 43200 seconds
+2025/09/25 21:17:59 wazuh-agent: INFO: (6008): File integrity monitoring scan started.
+2025/09/25 21:18:00 wazuh-agent: ERROR: (1216): Unable to connect to '[127.0.0.1]:1514/tcp': 'No connection could be made because the target machine actively refused it.'.
+2025/09/25 21:18:02 wazuh-modulesd:syscollector: INFO: Evaluation finished.
+2025/09/25 21:18:10 wazuh-agent: INFO: Trying to connect to server ([127.0.0.1]:1514/tcp).
+2025/09/25 21:18:12 wazuh-agent: ERROR: (1216): Unable to connect to '[127.0.0.1]:1514/tcp': 'No connection could be made because the target machine actively refused it.'.
+2025/09/25 21:18:22 wazuh-agent: INFO: Trying to connect to server ([127.0.0.1]:1514/tcp).
+2025/09/25 21:18:24 wazuh-agent: ERROR: (1216): Unable to connect to '[127.0.0.1]:1514/tcp': 'No connection could be made because the target machine actively refused it.'.
+2025/09/25 21:18:34 wazuh-agent: INFO: Trying to connect to server ([127.0.0.1]:1514/tcp).
+2025/09/25 21:18:36 wazuh-agent: ERROR: (1216): Unable to connect to '[127.0.0.1]:1514/tcp': 'No connection could be made because the target machine actively refused it.'.
+2025/09/25 21:18:46 wazuh-agent: INFO: Trying to connect to server ([127.0.0.1]:1514/tcp).
+2025/09/25 21:18:48 wazuh-agent: ERROR: (1216): Unable to connect to '[127.0.0.1]:1514/tcp': 'No connection could be made because the target machine actively refused it.'.
+2025/09/25 21:18:48 wazuh-agent: INFO: Requesting a key from server: 127.0.0.1
+2025/09/25 21:18:49 wazuh-agent: WARNING: Target 'agent' message queue is full (1024). Log lines may be lost.
+2025/09/25 21:18:50 wazuh-agent: ERROR: (1208): Unable to connect to enrollment service at '[127.0.0.1]:1515'
+2025/09/25 21:19:00 wazuh-agent: WARNING: (4101): Waiting for server reply (not started). Tried: '127.0.0.1'. Ensure that the manager version is 'v4.13.0' or higher.
+2025/09/25 21:19:00 wazuh-agent: WARNING: Unable to connect to any server.
+2025/09/25 21:19:00 wazuh-agent: INFO: Trying to connect to server ([127.0.0.1]:1514/tcp).
+2025/09/25 21:19:02 wazuh-agent: ERROR: (1216): Unable to connect to '[127.0.0.1]:1514/tcp': 'No connection could be made because the target machine actively refused it.'.
+2025/09/25 21:19:12 wazuh-agent: INFO: Trying to connect to server ([127.0.0.1]:1514/tcp).
+2025/09/25 21:19:14 wazuh-agent: ERROR: (1216): Unable to connect to '[127.0.0.1]:1514/tcp': 'No connection could be made because the target machine actively refused it.'.
+2025/09/25 21:19:24 wazuh-agent: INFO: Trying to connect to server ([127.0.0.1]:1514/tcp).
+2025/09/25 21:19:27 wazuh-agent: ERROR: (1216): Unable to connect to '[127.0.0.1]:1514/tcp': 'No connection could be made because the target machine actively refused it.'.
+2025/09/25 21:19:37 wazuh-agent: INFO: Trying to connect to server ([127.0.0.1]:1514/tcp).
+2025/09/25 21:19:39 wazuh-agent: ERROR: (1216): Unable to connect to '[127.0.0.1]:1514/tcp': 'No connection could be made because the target machine actively refused it.'.
+2025/09/25 21:19:49 wazuh-agent: INFO: Trying to connect to server ([127.0.0.1]:1514/tcp).
+2025/09/25 21:19:51 wazuh-agent: ERROR: (1216): Unable to connect to '[127.0.0.1]:1514/tcp': 'No connection could be made because the target machine actively refused it.'.
+2025/09/25 21:19:51 wazuh-agent: INFO: Requesting a key from server: 127.0.0.1
+2025/09/25 21:19:53 wazuh-agent: ERROR: (1208): Unable to connect to enrollment service at '[127.0.0.1]:1515'
+2025/09/25 21:20:03 wazuh-agent: WARNING: (4101): Waiting for server reply (not started). Tried: '127.0.0.1'. Ensure that the manager version is 'v4.13.0' or higher.
+2025/09/25 21:20:03 wazuh-agent: WARNING: Unable to connect to any server.
+2025/09/25 21:20:03 wazuh-agent: INFO: Trying to connect to server ([127.0.0.1]:1514/tcp).
+2025/09/25 21:20:05 wazuh-agent: ERROR: (1216): Unable to connect to '[127.0.0.1]:1514/tcp': 'No connection could be made because the target machine actively refused it.'.
+2025/09/25 21:20:15 wazuh-agent: INFO: Trying to connect to server ([127.0.0.1]:1514/tcp).
+2025/09/25 21:20:17 wazuh-agent: ERROR: (1216): Unable to connect to '[127.0.0.1]:1514/tcp': 'No connection could be made because the target machine actively refused it.'.

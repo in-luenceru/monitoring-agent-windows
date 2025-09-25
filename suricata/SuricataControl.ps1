@@ -267,7 +267,7 @@ function Start-SuricataService {
             $StartInfo.CreateNoWindow = $false
             $StartInfo.RedirectStandardOutput = $false
             $StartInfo.RedirectStandardError = $false
-            $StartInfo.WorkingDirectory = (Split-Path $Script:SuricataBin -Parent)
+            $StartInfo.WorkingDirectory = $Script:WorkspacePath
             
             # Start the process
             $Process = [System.Diagnostics.Process]::Start($StartInfo)

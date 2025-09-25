@@ -4,20 +4,20 @@
 # - pending:      waiting to get connected.
 # - connected:    connection established with manager in the last 20 seconds.
 # - disconnected: connection lost or no ACK received in the last 60 seconds.
-status='connected'
+status='pending'
 
 # Last time a keepalive was sent
-last_keepalive='2025-09-25 18:41:21'
+last_keepalive=''
 
 # Last time a control message was received
-last_ack='2025-09-25 18:41:22'
+last_ack=''
 
 # Number of generated events
-msg_count='63615'
+msg_count='0'
 
 # Number of messages (events + control messages) sent to the manager
-msg_sent='24770'
+msg_sent='0'
 
 # Number of events currently buffered
 # Empty if anti-flooding mechanism is disabled
-msg_buffer='4985'
+msg_buffer='0'

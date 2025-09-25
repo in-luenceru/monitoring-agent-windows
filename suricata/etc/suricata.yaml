@@ -59,7 +59,7 @@ vars:
 # The default logging directory.  Any log or output file will be
 # placed here if it's not specified with a full path name. This can be
 # overridden with the -l command line parameter.
-default-log-dir: C:\Users\ANANDHU\Downloads\monitoring-agent-windows\suricata\log
+default-log-dir: suricata\log
 
 # Global stats configuration
 stats:
@@ -98,7 +98,7 @@ outputs:
   - eve-log:
       enabled: yes
       filetype: regular #regular|syslog|unix_dgram|unix_stream|redis
-      filename: C:\Users\ANANDHU\Downloads\monitoring-agent-windows\suricata\log\eve.json
+      filename: eve.json
       # Enable for multi-threaded eve.json output; output files are amended with
       # an identifier, e.g., eve.9.json
       #threaded: false
@@ -635,7 +635,7 @@ logging:
   - file:
       enabled: yes
       level: info
-      filename: C:\Users\ANANDHU\Downloads\monitoring-agent-windows\suricata\log\suricata.log
+      filename: suricata.log
       # format: "[%i - %m] %z %d: %S: %M"
       # type: json
   - syslog:
@@ -1775,7 +1775,7 @@ detect:
   # Cache MPM contexts to the disk to avoid rule compilation at the startup.
   # Cache files are created in the standard library directory.
   sgh-mpm-caching: yes
-  sgh-mpm-caching-path: C:\\Program Files\\Suricata\\cache\\sgh\\
+  sgh-mpm-caching-path: suricata\cache\sgh\
   # inspection-recursion-limit: 3000
   # maximum number of times a tx will get logged for rules without app-layer keywords
   # stream-tx-log-limit: 4
@@ -2265,7 +2265,7 @@ napatech:
 ## Configure Suricata to load Suricata-Update managed rules.
 ##
 
-default-rule-path: C:\Users\ANANDHU\Downloads\monitoring-agent-windows\suricata\rules
+default-rule-path: suricata\rules
 
 rule-files:
  - app-layer-events.rules
@@ -2348,9 +2348,9 @@ rule-files:
 ## Auxiliary configuration files.
 ##
 
-classification-file: C:\Users\ANANDHU\Downloads\monitoring-agent-windows\suricata\etc\classification.config
-reference-config-file: C:\Users\ANANDHU\Downloads\monitoring-agent-windows\suricata\etc\reference.config
-# threshold-file: C:\\Program Files\\Suricata\\threshold.config
+classification-file: suricata\etc\classification.config
+reference-config-file: suricata\etc\reference.config
+threshold-config: suricata\etc\threshold.config
 
 ##
 ## Include other configs

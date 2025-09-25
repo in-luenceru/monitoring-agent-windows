@@ -1020,3 +1020,154 @@
 [2025-09-25 18:41:56] [SURICATA] [SUCCESS] Suricata process 19996 terminated
 [2025-09-25 18:41:56] [SURICATA] [INFO] Removed PID file
 [2025-09-25 18:42:00] [SURICATA] [SUCCESS] Suricata stopped successfully
+[2025-09-25 18:48:41] [SURICATA] [INFO] Starting Suricata Network IDS...
+[2025-09-25 18:48:43] [SURICATA] [INFO] Found 3 active network interface(s)
+[2025-09-25 18:48:43] [SURICATA] [INFO]   - Wi-Fi (Index: 12): Intel(R) Wi-Fi 6 AX101
+[2025-09-25 18:48:43] [SURICATA] [INFO]   - Ethernet 2 (Index: 11): VirtualBox Host-Only Ethernet Adapter
+[2025-09-25 18:48:43] [SURICATA] [INFO]   - vEthernet (WSL (Hyper-V firewall)) (Index: 81): Hyper-V Virtual Ethernet Adapter
+[2025-09-25 18:48:43] [SURICATA] [INFO] Using network interface: Wi-Fi
+[2025-09-25 18:48:43] [SURICATA] [INFO] Starting Suricata from workspace: C:\Users\ANANDHU\Downloads\monitoring-agent-windows\suricata\bin\suricata.exe
+[2025-09-25 18:48:43] [SURICATA] [INFO] Command: C:\Users\ANANDHU\Downloads\monitoring-agent-windows\suricata\bin\suricata.exe -c "C:\Users\ANANDHU\Downloads\monitoring-agent-windows\suricata\etc\suricata.yaml" --windivert true -l "C:\Users\ANANDHU\Downloads\monitoring-agent-windows\suricata\log" --init-errors-fatal
+[2025-09-25 18:48:43] [SURICATA] [INFO] Environment PATH includes: C:\Users\ANANDHU\Downloads\monitoring-agent-windows\npcap, C:\Windows\System32\Npcap
+[2025-09-25 18:48:44] [SURICATA] [INFO] Suricata start command executed (Process PID: 21944)
+[2025-09-25 18:48:44] [SURICATA] [INFO] Saved Suricata PID 21944 to file
+[2025-09-25 18:48:47] [SURICATA] [SUCCESS] Suricata process started successfully (PID: 21944)
+[2025-09-25 18:48:49] [SURICATA] [SUCCESS] EVE JSON log file created: C:\Users\ANANDHU\Downloads\monitoring-agent-windows\suricata\log\eve.json
+[2025-09-25 18:54:57] [SURICATA] [INFO] Stopping Suricata Network IDS...
+[2025-09-25 18:54:57] [SURICATA] [INFO] Attempting graceful shutdown of Suricata process (PID: 21944)...
+[2025-09-25 18:55:07] [SURICATA] [WARN] Force terminating Suricata process 21944
+[2025-09-25 18:55:07] [SURICATA] [SUCCESS] Suricata process 21944 terminated
+[2025-09-25 18:55:07] [SURICATA] [INFO] Removed PID file
+[2025-09-25 18:55:11] [SURICATA] [SUCCESS] Suricata stopped successfully
+[2025-09-25 20:11:46] [SURICATA] [INFO] Starting Suricata Network IDS...
+[2025-09-25 20:11:49] [SURICATA] [INFO] Found 3 active network interface(s)
+[2025-09-25 20:11:49] [SURICATA] [INFO]   - Wi-Fi (Index: 12): Intel(R) Wi-Fi 6 AX101
+[2025-09-25 20:11:49] [SURICATA] [INFO]   - Ethernet 2 (Index: 11): VirtualBox Host-Only Ethernet Adapter
+[2025-09-25 20:11:49] [SURICATA] [INFO]   - vEthernet (WSL (Hyper-V firewall)) (Index: 81): Hyper-V Virtual Ethernet Adapter
+[2025-09-25 20:11:49] [SURICATA] [INFO] Using network interface: Wi-Fi
+[2025-09-25 20:11:49] [SURICATA] [INFO] Starting Suricata from workspace: C:\Users\ANANDHU\Downloads\monitoring-agent-windows\suricata\bin\suricata.exe
+[2025-09-25 20:11:49] [SURICATA] [INFO] Command: C:\Users\ANANDHU\Downloads\monitoring-agent-windows\suricata\bin\suricata.exe -c "C:\Users\ANANDHU\Downloads\monitoring-agent-windows\suricata\etc\suricata.yaml" --windivert true -l "C:\Users\ANANDHU\Downloads\monitoring-agent-windows\suricata\log" --init-errors-fatal
+[2025-09-25 20:11:49] [SURICATA] [INFO] Environment PATH includes: C:\Users\ANANDHU\Downloads\monitoring-agent-windows\npcap, C:\Windows\System32\Npcap
+[2025-09-25 20:11:49] [SURICATA] [INFO] Suricata start command executed (Process PID: 14512)
+[2025-09-25 20:11:49] [SURICATA] [INFO] Saved Suricata PID 14512 to file
+[2025-09-25 20:11:52] [SURICATA] [SUCCESS] Suricata process started successfully (PID: 14512)
+[2025-09-25 20:11:54] [SURICATA] [SUCCESS] EVE JSON log file created: C:\Users\ANANDHU\Downloads\monitoring-agent-windows\suricata\log\eve.json
+[2025-09-25 20:16:19] [SURICATA] [INFO] Stopping Suricata Network IDS...
+[2025-09-25 20:16:19] [SURICATA] [INFO] Attempting graceful shutdown of Suricata process (PID: 14512)...
+[2025-09-25 20:16:29] [SURICATA] [WARN] Force terminating Suricata process 14512
+[2025-09-25 20:16:30] [SURICATA] [SUCCESS] Suricata process 14512 terminated
+[2025-09-25 20:16:30] [SURICATA] [INFO] Removed PID file
+[2025-09-25 20:16:34] [SURICATA] [SUCCESS] Suricata stopped successfully
+[2025-09-25 20:22:10] [SURICATA] [INFO] Starting Suricata Network IDS...
+[2025-09-25 20:22:13] [SURICATA] [INFO] Found 3 active network interface(s)
+[2025-09-25 20:22:13] [SURICATA] [INFO]   - Wi-Fi (Index: 12): Intel(R) Wi-Fi 6 AX101
+[2025-09-25 20:22:13] [SURICATA] [INFO]   - Ethernet 2 (Index: 11): VirtualBox Host-Only Ethernet Adapter
+[2025-09-25 20:22:13] [SURICATA] [INFO]   - vEthernet (WSL (Hyper-V firewall)) (Index: 81): Hyper-V Virtual Ethernet Adapter
+[2025-09-25 20:22:13] [SURICATA] [INFO] Using network interface: Wi-Fi
+[2025-09-25 20:22:13] [SURICATA] [INFO] Starting Suricata from workspace: C:\Users\ANANDHU\Downloads\monitoring-agent-windows\suricata\bin\suricata.exe
+[2025-09-25 20:22:13] [SURICATA] [INFO] Command: C:\Users\ANANDHU\Downloads\monitoring-agent-windows\suricata\bin\suricata.exe -c "C:\Users\ANANDHU\Downloads\monitoring-agent-windows\suricata\etc\suricata.yaml" --windivert true -l "C:\Users\ANANDHU\Downloads\monitoring-agent-windows\suricata\log" --init-errors-fatal
+[2025-09-25 20:22:13] [SURICATA] [INFO] Environment PATH includes: C:\Users\ANANDHU\Downloads\monitoring-agent-windows\npcap, C:\Windows\System32\Npcap
+[2025-09-25 20:22:13] [SURICATA] [INFO] Suricata start command executed (Process PID: 7452)
+[2025-09-25 20:22:13] [SURICATA] [INFO] Saved Suricata PID 7452 to file
+[2025-09-25 20:22:17] [SURICATA] [SUCCESS] Suricata process started successfully (PID: 7452)
+[2025-09-25 20:22:19] [SURICATA] [SUCCESS] EVE JSON log file created: C:\Users\ANANDHU\Downloads\monitoring-agent-windows\suricata\log\eve.json
+[2025-09-25 20:48:15] [SURICATA] [INFO] Stopping Suricata Network IDS...
+[2025-09-25 20:48:15] [SURICATA] [INFO] Attempting graceful shutdown of Suricata process (PID: 7452)...
+[2025-09-25 20:48:25] [SURICATA] [WARN] Force terminating Suricata process 7452
+[2025-09-25 20:48:25] [SURICATA] [SUCCESS] Suricata process 7452 terminated
+[2025-09-25 20:48:26] [SURICATA] [INFO] Removed PID file
+[2025-09-25 20:48:29] [SURICATA] [SUCCESS] Suricata stopped successfully
+[2025-09-25 21:04:03] [SURICATA] [INFO] Starting Suricata Network IDS...
+[2025-09-25 21:04:06] [SURICATA] [INFO] Found 3 active network interface(s)
+[2025-09-25 21:04:06] [SURICATA] [INFO]   - Wi-Fi (Index: 12): Intel(R) Wi-Fi 6 AX101
+[2025-09-25 21:04:06] [SURICATA] [INFO]   - Ethernet 2 (Index: 11): VirtualBox Host-Only Ethernet Adapter
+[2025-09-25 21:04:06] [SURICATA] [INFO]   - vEthernet (WSL (Hyper-V firewall)) (Index: 81): Hyper-V Virtual Ethernet Adapter
+[2025-09-25 21:04:06] [SURICATA] [INFO] Using network interface: Wi-Fi
+[2025-09-25 21:04:06] [SURICATA] [INFO] Starting Suricata from workspace: C:\Users\ANANDHU\Downloads\monitoring-agent-windows\suricata\bin\suricata.exe
+[2025-09-25 21:04:06] [SURICATA] [INFO] Command: C:\Users\ANANDHU\Downloads\monitoring-agent-windows\suricata\bin\suricata.exe -c "C:\Users\ANANDHU\Downloads\monitoring-agent-windows\suricata\etc\suricata.yaml" --windivert true -l "C:\Users\ANANDHU\Downloads\monitoring-agent-windows\suricata\log" --init-errors-fatal
+[2025-09-25 21:04:06] [SURICATA] [INFO] Environment PATH includes: C:\Users\ANANDHU\Downloads\monitoring-agent-windows\npcap, C:\Windows\System32\Npcap
+[2025-09-25 21:04:06] [SURICATA] [INFO] Suricata start command executed (Process PID: 9824)
+[2025-09-25 21:04:06] [SURICATA] [INFO] Saved Suricata PID 9824 to file
+[2025-09-25 21:04:09] [SURICATA] [ERROR] Suricata process exited immediately. Check logs for errors.
+[2025-09-25 21:04:09] [SURICATA] [WARN] PID file contains stale process ID 9824 - removing
+[2025-09-25 21:04:09] [SURICATA] [INFO] Removed PID file
+[2025-09-25 21:07:32] [SURICATA] [INFO] Starting Suricata Network IDS...
+[2025-09-25 21:07:35] [SURICATA] [INFO] Found 3 active network interface(s)
+[2025-09-25 21:07:35] [SURICATA] [INFO]   - Wi-Fi (Index: 12): Intel(R) Wi-Fi 6 AX101
+[2025-09-25 21:07:35] [SURICATA] [INFO]   - Ethernet 2 (Index: 11): VirtualBox Host-Only Ethernet Adapter
+[2025-09-25 21:07:35] [SURICATA] [INFO]   - vEthernet (WSL (Hyper-V firewall)) (Index: 81): Hyper-V Virtual Ethernet Adapter
+[2025-09-25 21:07:35] [SURICATA] [INFO] Using network interface: Wi-Fi
+[2025-09-25 21:07:35] [SURICATA] [INFO] Starting Suricata from workspace: C:\Users\ANANDHU\Downloads\monitoring-agent-windows\suricata\bin\suricata.exe
+[2025-09-25 21:07:35] [SURICATA] [INFO] Command: C:\Users\ANANDHU\Downloads\monitoring-agent-windows\suricata\bin\suricata.exe -c "C:\Users\ANANDHU\Downloads\monitoring-agent-windows\suricata\etc\suricata.yaml" --windivert true -l "C:\Users\ANANDHU\Downloads\monitoring-agent-windows\suricata\log" --init-errors-fatal
+[2025-09-25 21:07:35] [SURICATA] [INFO] Environment PATH includes: C:\Users\ANANDHU\Downloads\monitoring-agent-windows\npcap, C:\Windows\System32\Npcap
+[2025-09-25 21:07:35] [SURICATA] [INFO] Suricata start command executed (Process PID: 22672)
+[2025-09-25 21:07:35] [SURICATA] [INFO] Saved Suricata PID 22672 to file
+[2025-09-25 21:07:38] [SURICATA] [WARN] PID file contains stale process ID 22672 - removing
+[2025-09-25 21:07:38] [SURICATA] [INFO] Removed PID file
+[2025-09-25 21:07:38] [SURICATA] [ERROR] Suricata process exited immediately. Check logs for errors.
+[2025-09-25 21:14:20] [SURICATA] [INFO] Starting Suricata Network IDS...
+[2025-09-25 21:14:23] [SURICATA] [INFO] Found 3 active network interface(s)
+[2025-09-25 21:14:23] [SURICATA] [INFO]   - Wi-Fi (Index: 12): Intel(R) Wi-Fi 6 AX101
+[2025-09-25 21:14:23] [SURICATA] [INFO]   - Ethernet 2 (Index: 11): VirtualBox Host-Only Ethernet Adapter
+[2025-09-25 21:14:23] [SURICATA] [INFO]   - vEthernet (WSL (Hyper-V firewall)) (Index: 81): Hyper-V Virtual Ethernet Adapter
+[2025-09-25 21:14:23] [SURICATA] [INFO] Using network interface: Wi-Fi
+[2025-09-25 21:14:23] [SURICATA] [INFO] Starting Suricata from workspace: C:\Users\ANANDHU\Downloads\monitoring-agent-windows\suricata\bin\suricata.exe
+[2025-09-25 21:14:23] [SURICATA] [INFO] Command: C:\Users\ANANDHU\Downloads\monitoring-agent-windows\suricata\bin\suricata.exe -c "C:\Users\ANANDHU\Downloads\monitoring-agent-windows\suricata\etc\suricata.yaml" --windivert true -l "C:\Users\ANANDHU\Downloads\monitoring-agent-windows\suricata\log" --init-errors-fatal
+[2025-09-25 21:14:23] [SURICATA] [INFO] Environment PATH includes: C:\Users\ANANDHU\Downloads\monitoring-agent-windows\npcap, C:\Windows\System32\Npcap
+[2025-09-25 21:14:23] [SURICATA] [INFO] Suricata start command executed (Process PID: 17196)
+[2025-09-25 21:14:23] [SURICATA] [INFO] Saved Suricata PID 17196 to file
+[2025-09-25 21:14:26] [SURICATA] [ERROR] Suricata process exited immediately. Check logs for errors.
+[2025-09-25 21:15:23] [SURICATA] [INFO] Starting Suricata Network IDS...
+[2025-09-25 21:15:23] [SURICATA] [WARN] PID file contains stale process ID 17196 - removing
+[2025-09-25 21:15:23] [SURICATA] [INFO] Removed PID file
+[2025-09-25 21:15:23] [SURICATA] [INFO] Found 3 active network interface(s)
+[2025-09-25 21:15:23] [SURICATA] [INFO]   - Wi-Fi (Index: 12): Intel(R) Wi-Fi 6 AX101
+[2025-09-25 21:15:23] [SURICATA] [INFO]   - Ethernet 2 (Index: 11): VirtualBox Host-Only Ethernet Adapter
+[2025-09-25 21:15:23] [SURICATA] [INFO]   - vEthernet (WSL (Hyper-V firewall)) (Index: 81): Hyper-V Virtual Ethernet Adapter
+[2025-09-25 21:15:23] [SURICATA] [INFO] Using network interface: Wi-Fi
+[2025-09-25 21:15:23] [SURICATA] [INFO] Starting Suricata from workspace: C:\Users\ANANDHU\Downloads\monitoring-agent-windows\suricata\bin\suricata.exe
+[2025-09-25 21:15:23] [SURICATA] [INFO] Command: C:\Users\ANANDHU\Downloads\monitoring-agent-windows\suricata\bin\suricata.exe -c "C:\Users\ANANDHU\Downloads\monitoring-agent-windows\suricata\etc\suricata.yaml" --windivert true -l "C:\Users\ANANDHU\Downloads\monitoring-agent-windows\suricata\log" --init-errors-fatal
+[2025-09-25 21:15:23] [SURICATA] [INFO] Environment PATH includes: C:\Users\ANANDHU\Downloads\monitoring-agent-windows\npcap, C:\Windows\System32\Npcap
+[2025-09-25 21:15:23] [SURICATA] [INFO] Suricata start command executed (Process PID: 25784)
+[2025-09-25 21:15:23] [SURICATA] [INFO] Saved Suricata PID 25784 to file
+[2025-09-25 21:15:26] [SURICATA] [ERROR] Suricata process exited immediately. Check logs for errors.
+[2025-09-25 21:16:00] [SURICATA] [INFO] Starting Suricata Network IDS...
+[2025-09-25 21:16:01] [SURICATA] [WARN] PID file contains stale process ID 25784 - removing
+[2025-09-25 21:16:01] [SURICATA] [INFO] Removed PID file
+[2025-09-25 21:16:01] [SURICATA] [INFO] Found 3 active network interface(s)
+[2025-09-25 21:16:01] [SURICATA] [INFO]   - Wi-Fi (Index: 12): Intel(R) Wi-Fi 6 AX101
+[2025-09-25 21:16:01] [SURICATA] [INFO]   - Ethernet 2 (Index: 11): VirtualBox Host-Only Ethernet Adapter
+[2025-09-25 21:16:01] [SURICATA] [INFO]   - vEthernet (WSL (Hyper-V firewall)) (Index: 81): Hyper-V Virtual Ethernet Adapter
+[2025-09-25 21:16:01] [SURICATA] [INFO] Using network interface: Wi-Fi
+[2025-09-25 21:16:01] [SURICATA] [INFO] Starting Suricata from workspace: C:\Users\ANANDHU\Downloads\monitoring-agent-windows\suricata\bin\suricata.exe
+[2025-09-25 21:16:01] [SURICATA] [INFO] Command: C:\Users\ANANDHU\Downloads\monitoring-agent-windows\suricata\bin\suricata.exe -c "C:\Users\ANANDHU\Downloads\monitoring-agent-windows\suricata\etc\suricata.yaml" --windivert true -l "C:\Users\ANANDHU\Downloads\monitoring-agent-windows\suricata\log" --init-errors-fatal
+[2025-09-25 21:16:01] [SURICATA] [INFO] Environment PATH includes: C:\Users\ANANDHU\Downloads\monitoring-agent-windows\npcap, C:\Windows\System32\Npcap
+[2025-09-25 21:16:01] [SURICATA] [INFO] Suricata start command executed (Process PID: 24936)
+[2025-09-25 21:16:01] [SURICATA] [INFO] Saved Suricata PID 24936 to file
+[2025-09-25 21:16:04] [SURICATA] [SUCCESS] Suricata process started successfully (PID: 24936)
+[2025-09-25 21:16:06] [SURICATA] [SUCCESS] EVE JSON log file created: C:\Users\ANANDHU\Downloads\monitoring-agent-windows\suricata\log\eve.json
+[2025-09-25 21:17:15] [SURICATA] [INFO] Stopping Suricata Network IDS...
+[2025-09-25 21:17:15] [SURICATA] [INFO] Attempting graceful shutdown of Suricata process (PID: 24936)...
+[2025-09-25 21:17:25] [SURICATA] [WARN] Force terminating Suricata process 24936
+[2025-09-25 21:17:25] [SURICATA] [SUCCESS] Suricata process 24936 terminated
+[2025-09-25 21:17:25] [SURICATA] [INFO] Removed PID file
+[2025-09-25 21:17:29] [SURICATA] [SUCCESS] Suricata stopped successfully
+[2025-09-25 21:18:24] [SURICATA] [INFO] Starting Suricata Network IDS...
+[2025-09-25 21:18:26] [SURICATA] [INFO] Found 3 active network interface(s)
+[2025-09-25 21:18:26] [SURICATA] [INFO]   - Wi-Fi (Index: 12): Intel(R) Wi-Fi 6 AX101
+[2025-09-25 21:18:26] [SURICATA] [INFO]   - Ethernet 2 (Index: 11): VirtualBox Host-Only Ethernet Adapter
+[2025-09-25 21:18:26] [SURICATA] [INFO]   - vEthernet (WSL (Hyper-V firewall)) (Index: 81): Hyper-V Virtual Ethernet Adapter
+[2025-09-25 21:18:26] [SURICATA] [INFO] Using network interface: Wi-Fi
+[2025-09-25 21:18:26] [SURICATA] [INFO] Starting Suricata from workspace: C:\Users\ANANDHU\Downloads\monitoring-agent-windows\suricata\bin\suricata.exe
+[2025-09-25 21:18:26] [SURICATA] [INFO] Command: C:\Users\ANANDHU\Downloads\monitoring-agent-windows\suricata\bin\suricata.exe -c "C:\Users\ANANDHU\Downloads\monitoring-agent-windows\suricata\etc\suricata.yaml" --windivert true -l "C:\Users\ANANDHU\Downloads\monitoring-agent-windows\suricata\log" --init-errors-fatal
+[2025-09-25 21:18:26] [SURICATA] [INFO] Environment PATH includes: C:\Users\ANANDHU\Downloads\monitoring-agent-windows\npcap, C:\Windows\System32\Npcap
+[2025-09-25 21:18:27] [SURICATA] [INFO] Suricata start command executed (Process PID: 8912)
+[2025-09-25 21:18:27] [SURICATA] [INFO] Saved Suricata PID 8912 to file
+[2025-09-25 21:18:30] [SURICATA] [SUCCESS] Suricata process started successfully (PID: 8912)
+[2025-09-25 21:18:32] [SURICATA] [SUCCESS] EVE JSON log file created: C:\Users\ANANDHU\Downloads\monitoring-agent-windows\suricata\log\eve.json
+[2025-09-25 21:20:26] [SURICATA] [INFO] Stopping Suricata Network IDS...
+[2025-09-25 21:20:26] [SURICATA] [INFO] Attempting graceful shutdown of Suricata process (PID: 8912)...
+[2025-09-25 21:20:36] [SURICATA] [WARN] Force terminating Suricata process 8912
+[2025-09-25 21:20:36] [SURICATA] [SUCCESS] Suricata process 8912 terminated
+[2025-09-25 21:20:37] [SURICATA] [INFO] Removed PID file
+[2025-09-25 21:20:40] [SURICATA] [SUCCESS] Suricata stopped successfully
