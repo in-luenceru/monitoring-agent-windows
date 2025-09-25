@@ -1,0 +1,12 @@
+2025/09/20 10:05:28 active-response/bin/restart-wazuh.exe: Starting
+2025/09/20 10:05:28 active-response/bin/restart-wazuh.exe: {"version":1,"origin":{"name":"","module":"wazuh-execd"},"command":"add","parameters":{"extra_args":[],"alert":{},"program":"restart-wazuh.exe"}}
+
+2025/09/20 10:05:29 active-response/bin/restart-wazuh.exe: Ended
+2025/09/20 16:52:55 active-response/bin/restart-wazuh.exe: Starting
+2025/09/20 16:52:55 active-response/bin/restart-wazuh.exe: {"version":1,"origin":{"name":"","module":"wazuh-execd"},"command":"add","parameters":{"extra_args":[],"alert":{},"program":"restart-wazuh.exe"}}
+
+2025/09/20 16:52:55 active-response/bin/restart-wazuh.exe: Ended
+2025/09/20 17:31:16 active-response/bin/restart-wazuh.exe: Starting
+2025/09/20 17:31:16 active-response/bin/restart-wazuh.exe: {"version":1,"origin":{"name":"","module":"wazuh-execd"},"command":"add","parameters":{"extra_args":[],"alert":{},"program":"restart-wazuh.exe"}}
+
+2025/09/20 17:31:16 active-response/bin/restart-wazuh.exe: Ended

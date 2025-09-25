@@ -1,0 +1,89 @@
+[2025-09-21 15:02:58] [INFO] [INSTALLER] Starting Monitoring Agent Watchdog service installation...
+[2025-09-21 15:02:58] [INFO] [INSTALLER] Service name: MonitoringAgentWatchdog
+[2025-09-21 15:02:58] [INFO] [INSTALLER] Workspace: C:\Users\ANANDHU\Downloads\monitoring-agent-windows
+[2025-09-21 15:02:58] [INFO] [INSTALLER] Watchdog script: C:\Users\ANANDHU\Downloads\monitoring-agent-windows\MonitoringAgentWatchdog.ps1
+[2025-09-21 15:02:58] [SUCCESS] [INSTALLER] Found NSSM at: .\nssm.exe
+[2025-09-21 15:02:58] [INFO] [INSTALLER] Installing service with NSSM...
+[2025-09-21 15:02:58] [INFO] [INSTALLER] Service command: "C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -ExecutionPolicy Bypass -File "C:\Users\ANANDHU\Downloads\monitoring-agent-windows\MonitoringAgentWatchdog.ps1"
+[2025-09-21 15:02:58] [SUCCESS] [INSTALLER] Service installed successfully with NSSM
+[2025-09-21 15:02:59] [INFO] [INSTALLER] Validating service installation...
+[2025-09-21 15:02:59] [SUCCESS] [INSTALLER] Service exists: MonitoringAgentWatchdog
+[2025-09-21 15:02:59] [INFO] [INSTALLER] Service status: Stopped
+[2025-09-21 15:02:59] [INFO] [INSTALLER] Service start type: Automatic
+[2025-09-21 15:02:59] [SUCCESS] [INSTALLER] Service installation validation passed
+[2025-09-21 15:02:59] [INFO] [INSTALLER] Starting service...
+[2025-09-21 15:02:59] [ERROR] [INSTALLER] Error starting service: Service 'Monitoring Agent Watchdog (MonitoringAgentWatchdog)' cannot be started due to the following error: Cannot start service 'MonitoringAgentWatchdog' on computer '.'.
+[2025-09-21 15:02:59] [WARN] [INSTALLER] Service installation completed but service failed to start
+[2025-09-21 15:02:59] [INFO] [INSTALLER] You can manually start the service with: Start-Service MonitoringAgentWatchdog
+[2025-09-21 16:38:02] [INFO] [INSTALLER] Starting Monitoring Agent Watchdog service installation...
+[2025-09-21 16:38:02] [INFO] [INSTALLER] Service name: MonitoringAgentWatchdog
+[2025-09-21 16:38:02] [INFO] [INSTALLER] Workspace: C:\Users\ANANDHU\Downloads\monitoring-agent-windows
+[2025-09-21 16:38:02] [INFO] [INSTALLER] Watchdog script: C:\Users\ANANDHU\Downloads\monitoring-agent-windows\MonitoringAgentWatchdog.ps1
+[2025-09-21 16:38:02] [SUCCESS] [INSTALLER] Found NSSM at: C:\Users\ANANDHU\Downloads\monitoring-agent-windows\nssm.exe
+[2025-09-21 16:38:02] [INFO] [INSTALLER] Installing service with NSSM...
+[2025-09-21 16:38:02] [INFO] [INSTALLER] Installing NSSM service with execution policy bypass...
+[2025-09-21 16:38:02] [INFO] [INSTALLER] Setting AppParameters: -NoProfile -ExecutionPolicy Bypass -WindowStyle Hidden -File "C:\Users\ANANDHU\Downloads\monitoring-agent-windows\MonitoringAgentWatchdog.ps1"
+[2025-09-21 16:38:03] [SUCCESS] [INSTALLER] Service installed successfully with NSSM
+[2025-09-21 16:38:03] [INFO] [INSTALLER] Validating service installation...
+[2025-09-21 16:38:03] [SUCCESS] [INSTALLER] Service exists: MonitoringAgentWatchdog
+[2025-09-21 16:38:03] [INFO] [INSTALLER] Service status: Stopped
+[2025-09-21 16:38:03] [INFO] [INSTALLER] Service start type: Automatic
+[2025-09-21 16:38:03] [SUCCESS] [INSTALLER] Service installation validation passed
+[2025-09-21 16:38:03] [INFO] [INSTALLER] Starting service...
+[2025-09-21 16:38:03] [ERROR] [INSTALLER] Error starting service: Service 'Monitoring Agent Watchdog (MonitoringAgentWatchdog)' cannot be started due to the following error: Cannot start service MonitoringAgentWatchdog on computer '.'.
+[2025-09-21 16:38:03] [WARN] [INSTALLER] Service installation completed but service failed to start
+[2025-09-21 16:38:03] [INFO] [INSTALLER] You can manually start the service with: Start-Service MonitoringAgentWatchdog
+[2025-09-21 16:56:03] [INFO] [INSTALLER] Starting Monitoring Agent Watchdog service installation...
+[2025-09-21 16:56:03] [INFO] [INSTALLER] Service name: MonitoringAgentWatchdog
+[2025-09-21 16:56:03] [INFO] [INSTALLER] Workspace: C:\Users\ANANDHU\Downloads\monitoring-agent-windows
+[2025-09-21 16:56:03] [INFO] [INSTALLER] Watchdog script: C:\Users\ANANDHU\Downloads\monitoring-agent-windows\MonitoringAgentWatchdog.ps1
+[2025-09-21 16:56:03] [SUCCESS] [INSTALLER] Found NSSM at: C:\Users\ANANDHU\Downloads\monitoring-agent-windows\nssm.exe
+[2025-09-21 16:56:03] [INFO] [INSTALLER] Installing service with NSSM...
+[2025-09-21 16:56:03] [INFO] [INSTALLER] Installing NSSM service with execution policy bypass...
+[2025-09-21 16:56:03] [INFO] [INSTALLER] Setting AppParameters: -NoProfile -ExecutionPolicy Bypass -File "C:\Users\ANANDHU\Downloads\monitoring-agent-windows\MonitoringAgentWatchdog.ps1"
+[2025-09-21 16:56:04] [SUCCESS] [INSTALLER] Service installed successfully with NSSM
+[2025-09-21 16:56:04] [INFO] [INSTALLER] Validating service installation...
+[2025-09-21 16:56:04] [SUCCESS] [INSTALLER] Service exists: MonitoringAgentWatchdog
+[2025-09-21 16:56:04] [INFO] [INSTALLER] Service status: Stopped
+[2025-09-21 16:56:04] [INFO] [INSTALLER] Service start type: Automatic
+[2025-09-21 16:56:04] [SUCCESS] [INSTALLER] Service installation validation passed
+[2025-09-21 16:56:04] [INFO] [INSTALLER] Starting service...
+[2025-09-21 16:56:04] [ERROR] [INSTALLER] Error starting service: Service 'Monitoring Agent Watchdog (MonitoringAgentWatchdog)' cannot be started due to the following error: Cannot start service 'MonitoringAgentWatchdog' on computer '.'.
+[2025-09-21 16:56:04] [WARN] [INSTALLER] Service installation completed but service failed to start
+[2025-09-21 16:56:04] [INFO] [INSTALLER] You can manually start the service with: Start-Service MonitoringAgentWatchdog
+[2025-09-21 16:57:53] [INFO] [INSTALLER] Starting Monitoring Agent Watchdog service installation...
+[2025-09-21 16:57:53] [INFO] [INSTALLER] Service name: MonitoringAgentWatchdog
+[2025-09-21 16:57:53] [INFO] [INSTALLER] Workspace: C:\Users\ANANDHU\Downloads\monitoring-agent-windows
+[2025-09-21 16:57:53] [INFO] [INSTALLER] Watchdog script: C:\Users\ANANDHU\Downloads\monitoring-agent-windows\MonitoringAgentWatchdog.ps1
+[2025-09-21 16:57:53] [SUCCESS] [INSTALLER] Found NSSM at: C:\Users\ANANDHU\Downloads\monitoring-agent-windows\nssm.exe
+[2025-09-21 16:57:53] [INFO] [INSTALLER] Installing service with NSSM...
+[2025-09-21 16:57:53] [INFO] [INSTALLER] Installing NSSM service with execution policy bypass...
+[2025-09-21 16:57:53] [INFO] [INSTALLER] Setting AppParameters: -NoProfile -ExecutionPolicy Bypass -File "C:\Users\ANANDHU\Downloads\monitoring-agent-windows\MonitoringAgentWatchdog.ps1"
+[2025-09-21 16:57:53] [SUCCESS] [INSTALLER] Service installed successfully with NSSM
+[2025-09-21 16:57:53] [INFO] [INSTALLER] Validating service installation...
+[2025-09-21 16:57:53] [SUCCESS] [INSTALLER] Service exists: MonitoringAgentWatchdog
+[2025-09-21 16:57:53] [INFO] [INSTALLER] Service status: Stopped
+[2025-09-21 16:57:53] [INFO] [INSTALLER] Service start type: Automatic
+[2025-09-21 16:57:53] [SUCCESS] [INSTALLER] Service installation validation passed
+[2025-09-21 16:57:53] [INFO] [INSTALLER] Starting service...
+[2025-09-21 16:57:53] [ERROR] [INSTALLER] Error starting service: Service 'Monitoring Agent Watchdog (MonitoringAgentWatchdog)' cannot be started due to the following error: Cannot start service 'MonitoringAgentWatchdog' on computer '.'.
+[2025-09-21 16:57:53] [WARN] [INSTALLER] Service installation completed but service failed to start
+[2025-09-21 16:57:53] [INFO] [INSTALLER] You can manually start the service with: Start-Service MonitoringAgentWatchdog
+[2025-09-21 17:06:00] [INFO] [INSTALLER] Starting Monitoring Agent Watchdog service installation...
+[2025-09-21 17:06:00] [INFO] [INSTALLER] Service name: MonitoringAgentWatchdog
+[2025-09-21 17:06:00] [INFO] [INSTALLER] Workspace: C:\Users\ANANDHU\Downloads\monitoring-agent-windows
+[2025-09-21 17:06:00] [INFO] [INSTALLER] Watchdog script: C:\Users\ANANDHU\Downloads\monitoring-agent-windows\MonitoringAgentWatchdog.ps1
+[2025-09-21 17:06:00] [SUCCESS] [INSTALLER] Found NSSM at: C:\Users\ANANDHU\Downloads\monitoring-agent-windows\nssm.exe
+[2025-09-21 17:06:00] [INFO] [INSTALLER] Installing service with NSSM...
+[2025-09-21 17:06:00] [INFO] [INSTALLER] Installing NSSM service with execution policy bypass...
+[2025-09-21 17:06:00] [INFO] [INSTALLER] Setting AppParameters: -NoProfile -ExecutionPolicy Bypass -File "C:\Users\ANANDHU\Downloads\monitoring-agent-windows\MonitoringAgentWatchdog.ps1"
+[2025-09-21 17:06:01] [SUCCESS] [INSTALLER] Service installed successfully with NSSM
+[2025-09-21 17:06:01] [INFO] [INSTALLER] Validating service installation...
+[2025-09-21 17:06:01] [SUCCESS] [INSTALLER] Service exists: MonitoringAgentWatchdog
+[2025-09-21 17:06:01] [INFO] [INSTALLER] Service status: Stopped
+[2025-09-21 17:06:01] [INFO] [INSTALLER] Service start type: Automatic
+[2025-09-21 17:06:01] [SUCCESS] [INSTALLER] Service installation validation passed
+[2025-09-21 17:06:01] [INFO] [INSTALLER] Starting service...
+[2025-09-21 17:06:01] [ERROR] [INSTALLER] Error starting service: Service 'Monitoring Agent Watchdog (MonitoringAgentWatchdog)' cannot be started due to the following error: Cannot start service 'MonitoringAgentWatchdog' on computer '.'.
+[2025-09-21 17:06:01] [WARN] [INSTALLER] Service installation completed but service failed to start
+[2025-09-21 17:06:01] [INFO] [INSTALLER] You can manually start the service with: Start-Service MonitoringAgentWatchdog

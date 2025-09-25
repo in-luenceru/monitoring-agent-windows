@@ -1,0 +1,26 @@
+[2025-09-21 16:28:25] [TEST] [TEST] Starting comprehensive reliability test suite...
+[2025-09-21 16:28:25] [INFO] [TEST] Workspace: C:\Users\ANANDHU\Downloads\monitoring-agent-windows
+[2025-09-21 16:28:25] [INFO] [TEST] Quick Test Mode: True
+[2025-09-21 16:28:25] [INFO] [TEST] Skip Service Tests: False
+[2025-09-21 16:28:25] [TEST] [TEST] === TESTING BASIC OPERATIONS ===
+[2025-09-21 16:28:25] [INFO] [TEST] Executing: .\MonitoringAgentControl.ps1 start
+[2025-09-21 16:28:33] [SUCCESS] [TEST] ✅ PASS: Agent Start
+[2025-09-21 16:28:39] [SUCCESS] [TEST] ✅ PASS: PID File Consistency (After Start)
+[2025-09-21 16:28:39] [INFO] [TEST] Executing: .\MonitoringAgentControl.ps1 status
+[2025-09-21 16:28:42] [SUCCESS] [TEST] ✅ PASS: Agent Status Check
+[2025-09-21 16:28:42] [INFO] [TEST] Executing: .\MonitoringAgentControl.ps1 restart
+[2025-09-21 16:29:12] [ERROR] [TEST] ❌ FAIL: Agent Restart - A parameter cannot be found that matches parameter name 'Force'.
+[2025-09-21 16:29:17] [SUCCESS] [TEST] ✅ PASS: PID File Consistency (After Restart)
+[2025-09-21 16:29:17] [INFO] [TEST] Executing: .\MonitoringAgentControl.ps1 stop
+[2025-09-21 16:29:29] [SUCCESS] [TEST] ✅ PASS: Agent Normal Stop
+[2025-09-21 16:29:32] [SUCCESS] [TEST] ✅ PASS: PID File Cleanup (After Stop)
+[2025-09-21 16:29:32] [TEST] [TEST] === TEST SUMMARY ===
+[2025-09-21 16:29:32] [INFO] [TEST] Total Tests: 7
+[2025-09-21 16:29:32] [SUCCESS] [TEST] Passed: 6
+[2025-09-21 16:29:32] [ERROR] [TEST] Failed: 4
+[2025-09-21 16:29:32] [ERROR] [TEST] Failed Tests:
+[2025-09-21 16:29:33] [ERROR] [TEST]   ❌ Agent Restart: A parameter cannot be found that matches parameter name 'Force'.
+[2025-09-21 16:29:33] [WARN] [TEST] Success Rate: 85.7%
+[2025-09-21 16:29:33] [INFO] [TEST] Detailed results saved to: C:\Users\ANANDHU\Downloads\monitoring-agent-windows\logs\test_results.json
+[2025-09-21 16:29:33] [INFO] [TEST] Performing final cleanup...
+[2025-09-21 16:29:33] [INFO] [TEST] Executing: .\MonitoringAgentControl.ps1 stop

@@ -1,0 +1,23 @@
+[2025-09-23 09:39:36] [INTEGRATION-TEST] [TEST] Starting Suricata Integration Test Suite...
+[2025-09-23 09:39:36] [INTEGRATION-TEST] [INFO] Test started at: 09/23/2025 09:39:36
+[2025-09-23 09:39:36] [INTEGRATION-TEST] [INFO] Workspace path: C:\Users\ANANDHU\Downloads\monitoring-agent-windows
+[2025-09-23 09:39:36] [INTEGRATION-TEST] [TEST] Testing Suricata installation and setup...
+[2025-09-23 09:39:36] [INTEGRATION-TEST] [SUCCESS] ✓ Suricata Control Script - PASSED
+[2025-09-23 09:39:36] [INTEGRATION-TEST] [INFO]   Details: Control script found at C:\Users\ANANDHU\Downloads\monitoring-agent-windows\suricata\SuricataControl.ps1
+[2025-09-23 09:39:37] [INTEGRATION-TEST] [ERROR] ✗ Suricata Integration Test - FAILED
+[2025-09-23 09:39:37] [INTEGRATION-TEST] [ERROR]   Error: Integration test failed with exit code 1
+[2025-09-23 09:39:37] [INTEGRATION-TEST] [INFO] Integration test suite completed
+[2025-09-23 09:40:58] [INTEGRATION-TEST] [TEST] Starting Suricata Integration Test Suite...
+[2025-09-23 09:40:58] [INTEGRATION-TEST] [INFO] Test started at: 09/23/2025 09:40:58
+[2025-09-23 09:40:58] [INTEGRATION-TEST] [INFO] Workspace path: C:\Users\ANANDHU\Downloads\monitoring-agent-windows
+[2025-09-23 09:40:58] [INTEGRATION-TEST] [TEST] Testing Suricata installation and setup...
+[2025-09-23 09:40:58] [INTEGRATION-TEST] [SUCCESS] ✓ Suricata Control Script - PASSED
+[2025-09-23 09:40:58] [INTEGRATION-TEST] [INFO]   Details: Control script found at C:\Users\ANANDHU\Downloads\monitoring-agent-windows\suricata\SuricataControl.ps1
+[2025-09-23 09:40:59] [INTEGRATION-TEST] [SUCCESS] ✓ Suricata Integration Test - PASSED
+[2025-09-23 09:40:59] [INTEGRATION-TEST] [INFO]   Details: All integration tests passed
+[2025-09-23 09:40:59] [INTEGRATION-TEST] [TEST] Testing Suricata startup and configuration...
+[2025-09-23 09:41:05] [INTEGRATION-TEST] [SUCCESS] ✓ Suricata Startup - PASSED
+[2025-09-23 09:41:05] [INTEGRATION-TEST] [INFO]   Details: Suricata started successfully
+[2025-09-23 09:41:10] [INTEGRATION-TEST] [ERROR] ✗ EVE Log File Creation - FAILED
+[2025-09-23 09:41:10] [INTEGRATION-TEST] [ERROR]   Error: EVE JSON log file not found at C:\Users\ANANDHU\Downloads\monitoring-agent-windows\suricata\log\eve.json
+[2025-09-23 09:41:10] [INTEGRATION-TEST] [INFO] Integration test suite completed

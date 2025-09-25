@@ -1,0 +1,509 @@
+#Requires -RunAsAdministrator
+<#
+.SYNOPSIS
+    Suricata Network IDS Control Script for Monitoring Agent Integration
+    
+.DESCRIPTION
+    Controls Suricata network intrusion detection as part of the monitoring agent workspace.
+    Features:
+    - Start/stop Suricata with proper workspace paths
+    - PID tracking and management
+    - EVE JSON output configuration
+    - Network interface auto-detection
+    - Integration with MonitoringAgentControl.ps1
+    
+.AUTHOR
+    Custom Security Solutions - Suricata Integration
+    
+.VERSION
+    1.0.0
+    
+.NOTES
+    Requires Administrator privileges
+    Part of the monitoring agent workspace integration
+#>
+
+# Script Configuration
+$Script:WorkspacePath = Split-Path $PSScriptRoot -Parent
+$Script:SuricataBin = Join-Path $PSScriptRoot "bin\suricata.exe"
+$Script:SuricataConfig = Join-Path $PSScriptRoot "etc\suricata.yaml" 
+$Script:SuricataLog = Join-Path $PSScriptRoot "log"
+$Script:SuricataPidFile = Join-Path $Script:WorkspacePath "state\suricata.pid"
+$Script:SuricataLogFile = Join-Path $Script:WorkspacePath "logs\suricata-control.log"
+
+# Ensure directories exist
+@($Script:SuricataLog, (Split-Path $Script:SuricataPidFile -Parent), (Split-Path $Script:SuricataLogFile -Parent)) | ForEach-Object {
+    if (!(Test-Path $_)) {
+        New-Item -ItemType Directory -Path $_ -Force | Out-Null
+    }
+}
+
+#region Logging Functions
+function Write-SuricataLog {
+    param(
+        [Parameter(Mandatory=$true)]
+        [string]$Message,
+        
+        [Parameter(Mandatory=$false)]
+        [ValidateSet("INFO", "WARN", "ERROR", "SUCCESS")]
+        [string]$Level = "INFO"
+    )
+    
+    $Timestamp = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
+    $LogEntry = "[$Timestamp] [SURICATA] [$Level] $Message"
+    
+    # Write to console with colors
+    switch ($Level) {
+        "INFO"    { Write-Host $LogEntry -ForegroundColor Cyan }
+        "WARN"    { Write-Host $LogEntry -ForegroundColor Yellow }
+        "ERROR"   { Write-Host $LogEntry -ForegroundColor Red }
+        "SUCCESS" { Write-Host $LogEntry -ForegroundColor Green }
+    }
+    
+    # Write to log file
+    try {
+        Add-Content -Path $Script:SuricataLogFile -Value $LogEntry -ErrorAction SilentlyContinue
+    }
+    catch {
+        # Silently continue if unable to write to log
+    }
+}
+#endregion
+
+#region PID Management Functions
+function Save-SuricataPid {
+    param([int]$ProcessId)
+    
+    try {
+        Set-Content -Path $Script:SuricataPidFile -Value $ProcessId -Force
+        Write-SuricataLog "Saved Suricata PID $ProcessId to file" "INFO"
+        return $true
+    }
+    catch {
+        Write-SuricataLog "Failed to save PID: $($_.Exception.Message)" "ERROR"
+        return $false
+    }
+}
+
+function Get-SuricataPid {
+    try {
+        if (Test-Path $Script:SuricataPidFile) {
+            $ProcessId = Get-Content $Script:SuricataPidFile -ErrorAction SilentlyContinue
+            if ($ProcessId -and $ProcessId -match '^\d+$') {
+                return [int]$ProcessId
+            }
+        }
+        return $null
+    }
+    catch {
+        Write-SuricataLog "Error reading PID file: $($_.Exception.Message)" "WARN"
+        return $null
+    }
+}
+
+function Remove-SuricataPid {
+    try {
+        if (Test-Path $Script:SuricataPidFile) {
+            Remove-Item $Script:SuricataPidFile -Force -ErrorAction SilentlyContinue
+            Write-SuricataLog "Removed PID file" "INFO"
+        }
+        return $true
+    }
+    catch {
+        Write-SuricataLog "Failed to remove PID file: $($_.Exception.Message)" "WARN"
+        return $false
+    }
+}
+
+function Test-SuricataProcessRunning {
+    param([int]$ProcessId)
+    
+    try {
+        $Process = Get-Process -Id $ProcessId -ErrorAction SilentlyContinue
+        return ($null -ne $Process)
+    }
+    catch {
+        return $false
+    }
+}
+#endregion
+
+#region Network Interface Functions
+function Get-AvailableNetworkInterfaces {
+    try {
+        $interfaces = Get-NetAdapter | Where-Object { $_.Status -eq "Up" } | Select-Object Name, InterfaceIndex, InterfaceDescription
+        
+        if ($interfaces.Count -eq 0) {
+            Write-SuricataLog "No active network interfaces found" "WARN"
+            return @("any")  # Fallback to 'any'
+        }
+        
+        Write-SuricataLog "Found $($interfaces.Count) active network interface(s)" "INFO"
+        foreach ($iface in $interfaces) {
+            Write-SuricataLog "  - $($iface.Name) (Index: $($iface.InterfaceIndex)): $($iface.InterfaceDescription)" "INFO"
+        }
+        
+        # Prioritize Wi-Fi interfaces over virtual ones and return interface name
+        $prioritizedInterfaces = @()
+        
+        # First, add Wi-Fi interfaces
+        $wifiInterfaces = $interfaces | Where-Object { $_.Name -like "*Wi-Fi*" -or $_.InterfaceDescription -like "*Wi-Fi*" -or $_.InterfaceDescription -like "*Wireless*" }
+        if ($wifiInterfaces) {
+            $prioritizedInterfaces += $wifiInterfaces.Name
+        }
+        
+        # Then add physical Ethernet interfaces
+        $ethernetInterfaces = $interfaces | Where-Object { $_.Name -like "*Ethernet*" -and $_.InterfaceDescription -notlike "*Virtual*" -and $_.InterfaceDescription -notlike "*Hyper-V*" }
+        if ($ethernetInterfaces) {
+            $prioritizedInterfaces += $ethernetInterfaces.Name
+        }
+        
+        # Finally add virtual interfaces as fallback
+        $virtualInterfaces = $interfaces | Where-Object { $_.InterfaceDescription -like "*Virtual*" -or $_.InterfaceDescription -like "*Hyper-V*" }
+        if ($virtualInterfaces) {
+            $prioritizedInterfaces += $virtualInterfaces.Name
+        }
+        
+        if ($prioritizedInterfaces.Count -gt 0) {
+            return $prioritizedInterfaces
+        } else {
+            return $interfaces.Name
+        }
+    }
+    catch {
+        Write-SuricataLog "Error detecting network interfaces: $($_.Exception.Message)" "WARN"
+        return @("any")  # Fallback to 'any'
+    }
+}
+#endregion
+
+#region Suricata Control Functions
+function Get-SuricataStatus {
+    try {
+        $PidFromFile = Get-SuricataPid
+        $ProcessRunning = $false
+        $ProcessId = $null
+        
+        if ($PidFromFile) {
+            $ProcessRunning = Test-SuricataProcessRunning $PidFromFile
+            if ($ProcessRunning) {
+                $ProcessId = $PidFromFile
+            } else {
+                # PID file is stale, remove it
+                Write-SuricataLog "PID file contains stale process ID $PidFromFile - removing" "WARN"
+                Remove-SuricataPid
+                $PidFromFile = $null
+            }
+        }
+        
+        # If PID file doesn't match running process, find actual process
+        if (!$ProcessRunning) {
+            $SuricataProcesses = Get-CimInstance -ClassName Win32_Process -Filter "Name = 'suricata.exe'" -ErrorAction SilentlyContinue
+            $WorkspaceProcesses = $SuricataProcesses | Where-Object { $_.ExecutablePath -eq $Script:SuricataBin }
+            
+            if ($WorkspaceProcesses.Count -gt 0) {
+                $ProcessRunning = $true
+                $ProcessId = $WorkspaceProcesses[0].ProcessId
+                
+                # Update PID file with correct process ID
+                Save-SuricataPid $ProcessId
+            }
+        }
+        
+        return @{
+            Running = $ProcessRunning
+            ProcessId = $ProcessId
+            PidFromFile = $PidFromFile
+            ConfigFile = $Script:SuricataConfig
+            LogDirectory = $Script:SuricataLog
+            EVELogFile = Join-Path $Script:SuricataLog "eve.json"
+        }
+    }
+    catch {
+        Write-SuricataLog "Error checking Suricata status: $($_.Exception.Message)" "ERROR"
+        return @{
+            Running = $false
+            ProcessId = $null
+            PidFromFile = $null
+            Error = $_.Exception.Message
+        }
+    }
+}
+
+function Start-SuricataService {
+    Write-SuricataLog "Starting Suricata Network IDS..." "INFO"
+    
+    try {
+        $Status = Get-SuricataStatus
+        if ($Status.Running) {
+            Write-SuricataLog "Suricata is already running (PID: $($Status.ProcessId))" "WARN"
+            return $true
+        }
+        
+        if (!(Test-Path $Script:SuricataBin)) {
+            Write-SuricataLog "Suricata executable not found: $Script:SuricataBin" "ERROR"
+            return $false
+        }
+        
+        if (!(Test-Path $Script:SuricataConfig)) {
+            Write-SuricataLog "Suricata config file not found: $Script:SuricataConfig" "ERROR"
+            return $false
+        }
+        
+        # Detect network interfaces
+        $Interfaces = Get-AvailableNetworkInterfaces
+        $PrimaryInterface = $Interfaces[0]
+        
+        Write-SuricataLog "Using network interface: $PrimaryInterface" "INFO"
+        Write-SuricataLog "Starting Suricata from workspace: $Script:SuricataBin" "INFO"
+        
+        # Set up environment for Npcap
+        $OriginalPath = $env:PATH
+        $WorkspaceBin = Split-Path $Script:SuricataBin -Parent
+        $WorkspaceNpcap = Join-Path $Script:WorkspacePath "npcap"
+        $SystemNpcap = "C:\Windows\System32\Npcap"
+        
+        # Add both workspace and system Npcap paths to PATH
+        $env:PATH = "$WorkspaceBin;$WorkspaceNpcap;$SystemNpcap;$OriginalPath"
+        
+        try {
+            # Prepare Suricata arguments - use WinDivert for Windows packet capture
+            $SuricataArgs = @(
+                "-c", "`"$Script:SuricataConfig`"",
+                "--windivert", "true",  # Use WinDivert for Windows packet capture (works better than pcap)
+                "-l", "`"$Script:SuricataLog`"",
+                "--init-errors-fatal"
+            )
+            
+            Write-SuricataLog "Command: $Script:SuricataBin $($SuricataArgs -join ' ')" "INFO"
+            Write-SuricataLog "Environment PATH includes: $WorkspaceNpcap, $SystemNpcap" "INFO"
+            
+            # Create startup info for background process
+            $StartInfo = New-Object System.Diagnostics.ProcessStartInfo
+            $StartInfo.FileName = $Script:SuricataBin
+            $StartInfo.Arguments = $SuricataArgs -join " "
+            $StartInfo.UseShellExecute = $false
+            $StartInfo.CreateNoWindow = $false  # Show window for debugging
+            $StartInfo.RedirectStandardOutput = $false  # Don't redirect for Windows compatibility
+            $StartInfo.RedirectStandardError = $false
+            $StartInfo.WorkingDirectory = (Split-Path $Script:SuricataBin -Parent)
+            
+            # Start the process
+            $Process = [System.Diagnostics.Process]::Start($StartInfo)
+            if ($Process) {
+                Write-SuricataLog "Suricata start command executed (Process PID: $($Process.Id))" "INFO"
+                
+                # Save the PID immediately
+                Save-SuricataPid $Process.Id
+                
+                # Wait a moment and check if process is still running
+                Start-Sleep -Seconds 3
+                
+                if (!$Process.HasExited) {
+                    Write-SuricataLog "Suricata process started successfully (PID: $($Process.Id))" "SUCCESS"
+                    
+                    # Verify EVE log file creation
+                    Start-Sleep -Seconds 2
+                    $EVELogFile = Join-Path $Script:SuricataLog "eve.json"
+                    if (Test-Path $EVELogFile) {
+                        Write-SuricataLog "EVE JSON log file created: $EVELogFile" "SUCCESS"
+                    } else {
+                        Write-SuricataLog "Waiting for EVE JSON log file creation..." "INFO"
+                    }
+                    
+                    return $true
+                } else {
+                    Write-SuricataLog "Suricata process exited immediately. Check logs for errors." "ERROR"
+                    return $false
+                }
+        } else {
+            Write-SuricataLog "Failed to execute Suricata start command" "ERROR"
+            return $false
+        }
+        }
+        catch {
+            Write-SuricataLog "Error in inner Suricata startup: $($_.Exception.Message)" "ERROR"
+            return $false
+        }
+        finally {
+            # Restore original PATH for Npcap
+            $env:PATH = $OriginalPath
+        }
+    }
+    catch {
+        Write-SuricataLog "Error starting Suricata: $($_.Exception.Message)" "ERROR"
+        return $false
+    }
+}
+
+function Stop-SuricataService {
+    Write-SuricataLog "Stopping Suricata Network IDS..." "INFO"
+    
+    try {
+        $Status = Get-SuricataStatus
+        if (!$Status.Running) {
+            Write-SuricataLog "Suricata is not running" "WARN"
+            Remove-SuricataPid
+            return $true
+        }
+        
+        # Try graceful shutdown first
+        Write-SuricataLog "Attempting graceful shutdown of Suricata process (PID: $($Status.ProcessId))..." "INFO"
+        
+        try {
+            $Process = Get-Process -Id $Status.ProcessId -ErrorAction SilentlyContinue
+            if ($Process) {
+                # Send termination signal
+                if ($Process.CloseMainWindow()) {
+                    Write-SuricataLog "Sent close signal to Suricata process $($Status.ProcessId)" "INFO"
+                    $Process.WaitForExit(10000)  # Wait 10 seconds for graceful exit
+                }
+                
+                # If still running, force terminate
+                if (!$Process.HasExited) {
+                    Write-SuricataLog "Force terminating Suricata process $($Status.ProcessId)" "WARN"
+                    $Process.Kill()
+                    $Process.WaitForExit(5000)  # Wait 5 seconds for termination
+                }
+                
+                Write-SuricataLog "Suricata process $($Status.ProcessId) terminated" "SUCCESS"
+            }
+        }
+        catch {
+            Write-SuricataLog "Failed to terminate Suricata process $($Status.ProcessId): $($_.Exception.Message)" "ERROR"
+        }
+        
+        # Clean up PID file
+        Remove-SuricataPid
+        
+        # Verify termination
+        Start-Sleep -Seconds 2
+        $FinalStatus = Get-SuricataStatus
+        if (!$FinalStatus.Running) {
+            Write-SuricataLog "Suricata stopped successfully" "SUCCESS"
+            return $true
+        } else {
+            Write-SuricataLog "Failed to stop Suricata completely" "ERROR"
+            return $false
+        }
+    }
+    catch {
+        Write-SuricataLog "Error stopping Suricata: $($_.Exception.Message)" "ERROR"
+        return $false
+    }
+}
+
+function Restart-SuricataService {
+    Write-SuricataLog "Restarting Suricata Network IDS..." "INFO"
+    
+    if (Stop-SuricataService) {
+        Start-Sleep -Seconds 3
+        return Start-SuricataService
+    }
+    return $false
+}
+#endregion
+
+#region Main Functions
+function Show-SuricataStatus {
+    $Status = Get-SuricataStatus
+    
+    Write-Host "`n=== SURICATA NETWORK IDS STATUS ===" -ForegroundColor Cyan
+    
+    if ($Status.Running) {
+        Write-Host "Status: " -NoNewline -ForegroundColor White
+        Write-Host "RUNNING" -ForegroundColor Green
+        Write-Host "PID: $($Status.ProcessId)" -ForegroundColor Gray
+    } else {
+        Write-Host "Status: " -NoNewline -ForegroundColor White
+        Write-Host "STOPPED" -ForegroundColor Red
+    }
+    
+    Write-Host "Config File: $($Status.ConfigFile)" -ForegroundColor Gray
+    Write-Host "Log Directory: $($Status.LogDirectory)" -ForegroundColor Gray
+    Write-Host "EVE Log File: $($Status.EVELogFile)" -ForegroundColor Gray
+    
+    if (Test-Path $Status.EVELogFile) {
+        $FileInfo = Get-Item $Status.EVELogFile
+        Write-Host "EVE Log Size: $([math]::Round($FileInfo.Length / 1KB, 2)) KB" -ForegroundColor Gray
+        Write-Host "EVE Log Modified: $($FileInfo.LastWriteTime)" -ForegroundColor Gray
+    }
+    
+    Write-Host "="*50 -ForegroundColor Gray
+}
+
+function Test-SuricataIntegration {
+    Write-Host "`n=== SURICATA INTEGRATION TEST ===" -ForegroundColor Cyan
+    
+    # Test 1: Check binary
+    Write-Host "Testing Suricata binary..." -ForegroundColor Yellow
+    if (Test-Path $Script:SuricataBin) {
+        Write-Host "✓ Suricata executable found" -ForegroundColor Green
+    } else {
+        Write-Host "✗ Suricata executable missing" -ForegroundColor Red
+        return $false
+    }
+    
+    # Test 2: Check config
+    Write-Host "Testing configuration file..." -ForegroundColor Yellow
+    if (Test-Path $Script:SuricataConfig) {
+        Write-Host "✓ Configuration file found" -ForegroundColor Green
+    } else {
+        Write-Host "✗ Configuration file missing" -ForegroundColor Red
+        return $false
+    }
+    
+    # Test 3: Check network interfaces
+    Write-Host "Testing network interfaces..." -ForegroundColor Yellow
+    $Interfaces = Get-AvailableNetworkInterfaces
+    Write-Host "✓ Found $($Interfaces.Count) interface(s): $($Interfaces -join ', ')" -ForegroundColor Green
+    
+    # Test 4: Check permissions
+    Write-Host "Testing directory permissions..." -ForegroundColor Yellow
+    try {
+        $TestFile = Join-Path $Script:SuricataLog "test_permissions.tmp"
+        "test" | Out-File $TestFile -Force
+        Remove-Item $TestFile -Force
+        Write-Host "✓ Log directory is writable" -ForegroundColor Green
+    } catch {
+        Write-Host "✗ Cannot write to log directory" -ForegroundColor Red
+        return $false
+    }
+    
+    Write-Host "✓ All integration tests passed" -ForegroundColor Green
+    return $true
+}
+#endregion
+
+# Main script execution
+if ($args.Count -gt 0) {
+    switch ($args[0].ToLower()) {
+        "start" {
+            if (Start-SuricataService) { exit 0 } else { exit 1 }
+        }
+        "stop" {
+            if (Stop-SuricataService) { exit 0 } else { exit 1 }
+        }
+        "restart" {
+            if (Restart-SuricataService) { exit 0 } else { exit 1 }
+        }
+        "status" {
+            Show-SuricataStatus
+            exit 0
+        }
+        "test" {
+            if (Test-SuricataIntegration) { exit 0 } else { exit 1 }
+        }
+        default {
+            Write-Host "Usage: .\SuricataControl.ps1 [start|stop|restart|status|test]" -ForegroundColor Yellow
+            Write-Host "  start    - Start Suricata Network IDS" -ForegroundColor Gray
+            Write-Host "  stop     - Stop Suricata Network IDS" -ForegroundColor Gray
+            Write-Host "  restart  - Restart Suricata Network IDS" -ForegroundColor Gray
+            Write-Host "  status   - Show current status" -ForegroundColor Gray
+            Write-Host "  test     - Test integration setup" -ForegroundColor Gray
+            exit 1
+        }
+    }
+} else {
+    Show-SuricataStatus
+}

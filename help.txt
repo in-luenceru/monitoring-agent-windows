@@ -1,0 +1,66 @@
+** Custom SecureMonitor Agent **
+** Copyright (C) 2025, Custom Security Solutions **
+
+========================================
+CUSTOM SECUREMONITOR AGENT v4.13.0-CUSTOM
+========================================
+
+Welcome to your Custom Security Monitoring Solution!
+
+Thanks for installing the 'Custom SecureMonitor Windows Agent'. This is a
+fully customized and rebranded security monitoring agent based on 
+industry-standard security frameworks.
+
+** Table of contents **
+
+1- About this Custom Agent
+2- What this agent does  
+3- Configuration and Management
+4- Support
+
+
+** Responses **
+
+1- About this Custom Agent
+
+This is a professionally customized security monitoring solution featuring:
+- Version: 4.13.0-custom
+- Organization: Custom Security Solutions
+- Build Date: 2025-09-20
+- Custom Name: SecureMonitor Agent
+
+Full source control and customization capabilities provided.
+
+
+2- What this agent does
+
+The Custom SecureMonitor Agent performs the following enhanced tasks:
+
+- Real-time Windows event log monitoring with custom filters
+- Advanced log analysis for IIS, FTP, SMTP and custom application logs
+- Enhanced Windows Registry monitoring with custom policies
+- Real-time file integrity monitoring with custom rules
+- Custom security policy verification and compliance checking
+- Automated threat response with customizable actions
+- System inventory and vulnerability assessment
+- Custom reporting and alerting
+
+
+3- Configuration and Management
+
+- Main configuration: ossec.conf
+- Agent management: manage_agents.exe  
+- Main executable: wazuh-agent.exe (custom build)
+- Custom profiles: Available in shared/ directory
+- Active response: Configurable in active-response/ directory
+
+
+4- Support
+
+For support, customization, and enterprise features:
+- Contact: Custom Security Solutions Team
+- Enterprise Support: Available 24/7
+- Custom Development: Available on request
+
+© 2025 Custom Security Solutions. All rights reserved.
+This is a professionally customized security solution.
