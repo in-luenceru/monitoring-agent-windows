@@ -19726,3 +19726,200 @@
 2025/09/25 13:11:07 wazuh-agent: INFO: Trying to connect to server ([127.0.0.1]:1514/tcp).
 2025/09/25 13:11:09 wazuh-agent: ERROR: (1216): Unable to connect to '[127.0.0.1]:1514/tcp': 'No connection could be made because the target machine actively refused it.'.
 2025/09/25 13:11:10 wazuh-agent: INFO: Requesting a key from server: 127.0.0.1
+2025/09/25 14:17:06 wazuh-agent: INFO: Trust verification of a module failed by using the signature method. The file 'C:\Users\ANANDHU\Downloads\monitoring-agent-windows\monitoring-agent.exe' or its signature is corrupt.
+2025/09/25 14:17:06 wazuh-agent: INFO: Trust verification of a module failed by using the hash method. CryptCATAdminEnumCatalogFromHash failed with error 1168 for 'C:\Users\ANANDHU\Downloads\monitoring-agent-windows\monitoring-agent.exe': Element not found.
+2025/09/25 14:17:06 wazuh-agent: WARNING: The file 'C:\Users\ANANDHU\Downloads\monitoring-agent-windows\monitoring-agent.exe' is not signed or its signature is invalid.
+2025/09/25 14:17:06 wazuh-agent: ERROR: (1103): Could not open file '.agent_info' due to [(2)-(No such file or directory)].
+2025/09/25 14:17:06 wazuh-agent: ERROR: (1103): Could not open file '.agent_info' due to [(2)-(No such file or directory)].
+2025/09/25 14:17:06 wazuh-agent: INFO: (1410): Reading authentication keys file.
+2025/09/25 14:17:06 wazuh-agent: INFO: Using notify time: 20 and max time to reconnect: 60
+2025/09/25 14:17:06 wazuh-agent: INFO: Started (pid: 24320).
+2025/09/25 14:17:06 wazuh-agent: ERROR: (1103): Could not open file '.agent_info' due to [(2)-(No such file or directory)].
+2025/09/25 14:17:06 wazuh-agent: ERROR: (1103): Could not open file '.agent_info' due to [(2)-(No such file or directory)].
+2025/09/25 14:17:06 wazuh-agent: ERROR: (1103): Could not open file '.agent_info' due to [(2)-(No such file or directory)].
+2025/09/25 14:17:06 rootcheck: INFO: Started (pid: 24320).
+2025/09/25 14:17:06 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Classes\batfile', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 14:17:06 wazuh-agent: INFO: Windows version is 6.0 or newer. (Microsoft Windows 11 Home Single Language [Ver: 10.0.26100.6584] - Wazuh v4.13.0).
+2025/09/25 14:17:06 wazuh-agent: ERROR: (1103): Could not open file '.agent_info' due to [(2)-(No such file or directory)].
+2025/09/25 14:17:06 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Classes\cmdfile', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 14:17:06 sca: INFO: Module started.
+2025/09/25 14:17:06 wazuh-modulesd:agent-upgrade: INFO: (8153): Module Agent Upgrade started.
+2025/09/25 14:17:06 wazuh-agent: INFO: Using AES as encryption method.
+2025/09/25 14:17:06 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Classes\comfile', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 14:17:06 sca: INFO: Loaded policy 'C:\Users\ANANDHU\Downloads\monitoring-agent-windows\ruleset\sca\cis_win11_enterprise.yml'
+2025/09/25 14:17:06 sca: INFO: Starting Security Configuration Assessment scan.
+2025/09/25 14:17:06 wazuh-modulesd:osquery: INFO: Module disabled. Exiting...
+2025/09/25 14:17:06 wazuh-modulesd:ciscat: INFO: Module disabled. Exiting...
+2025/09/25 14:17:06 wazuh-modulesd:syscollector: INFO: Module started.
+2025/09/25 14:17:06 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Classes\exefile', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 14:17:06 wazuh-agent: INFO: (1951): Analyzing event log: 'Application'.
+2025/09/25 14:17:06 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Classes\piffile', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 14:17:06 wazuh-agent: INFO: Trying to connect to server ([127.0.0.1]:1514/tcp).
+2025/09/25 14:17:06 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Classes\AllFilesystemObjects', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 14:17:07 sca: INFO: Starting evaluation of policy: 'C:\Users\ANANDHU\Downloads\monitoring-agent-windows\ruleset\sca\cis_win11_enterprise.yml'
+2025/09/25 14:17:07 wazuh-agent: INFO: (4102): Connected to the server ([127.0.0.1]:1514/tcp).
+2025/09/25 14:17:07 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Classes\Directory', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 14:17:07 wazuh-agent: INFO: (1951): Analyzing event log: 'Security'.
+2025/09/25 14:17:07 wazuh-agent: INFO: (1951): Analyzing event log: 'System'.
+2025/09/25 14:17:07 wazuh-modulesd:syscollector: INFO: Starting evaluation.
+2025/09/25 14:17:07 wazuh-agent: INFO: (1950): Analyzing file: 'active-response\active-responses.log'.
+2025/09/25 14:17:07 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Classes\Folder', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 14:17:07 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Classes\Protocols [x64]', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 14:17:07 wazuh-agent: INFO: (1950): Analyzing file: 'suricata\log\eve.json'.
+2025/09/25 14:17:07 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Classes\Protocols', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 14:17:07 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Policies [x64]', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 14:17:07 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Policies', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 14:17:07 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Security', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 14:17:07 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Microsoft\Internet Explorer [x64]', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 14:17:07 wazuh-agent: INFO: Started (pid: 24320).
+2025/09/25 14:17:07 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Microsoft\Internet Explorer', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 14:17:07 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 14:17:07 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\Session Manager\KnownDLLs', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 14:17:07 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\SecurePipeServers\winreg', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 14:17:07 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Run [x64]', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 14:17:07 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Run', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 14:17:07 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\RunOnce [x64]', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 14:17:07 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\RunOnce', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 14:17:07 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\RunOnceEx', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 14:17:07 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\URL [x64]', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 14:17:07 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\URL', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 14:17:07 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Policies [x64]', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 14:17:07 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Policies', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 14:17:07 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Windows [x64]', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 14:17:07 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Windows', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 14:17:07 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Winlogon [x64]', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 14:17:07 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Winlogon', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 14:17:07 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Microsoft\Active Setup\Installed Components [x64]', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 14:17:07 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Microsoft\Active Setup\Installed Components', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 14:17:07 wazuh-agent: INFO: (6003): Monitoring path: 'c:\programdata\microsoft\windows\start menu\programs\startup', with options 'size | permissions | owner | group | mtime | inode | hash_md5 | hash_sha1 | hash_sha256 | attributes | realtime'.
+2025/09/25 14:17:07 wazuh-agent: INFO: (6003): Monitoring path: 'c:\windows', with options 'size | permissions | owner | group | mtime | inode | hash_md5 | hash_sha1 | hash_sha256 | attributes | scheduled'.
+2025/09/25 14:17:07 wazuh-agent: INFO: (6003): Monitoring path: 'c:\windows\system32', with options 'size | permissions | owner | group | mtime | inode | hash_md5 | hash_sha1 | hash_sha256 | attributes | scheduled'.
+2025/09/25 14:17:07 wazuh-agent: INFO: (6003): Monitoring path: 'c:\windows\system32\drivers\etc', with options 'size | permissions | owner | group | mtime | inode | hash_md5 | hash_sha1 | hash_sha256 | attributes | scheduled'.
+2025/09/25 14:17:07 wazuh-agent: INFO: (6003): Monitoring path: 'c:\windows\system32\wbem', with options 'size | permissions | owner | group | mtime | inode | hash_md5 | hash_sha1 | hash_sha256 | attributes | scheduled'.
+2025/09/25 14:17:07 wazuh-agent: INFO: (6003): Monitoring path: 'c:\windows\system32\windowspowershell\v1.0', with options 'size | permissions | owner | group | mtime | inode | hash_md5 | hash_sha1 | hash_sha256 | attributes | scheduled'.
+2025/09/25 14:17:07 wazuh-agent: INFO: (6206): Ignore 'file' entry 'c:\programdata\microsoft\windows\start menu\programs\startup\desktop.ini'
+2025/09/25 14:17:07 wazuh-agent: INFO: (6207): Ignore 'file' sregex '.log$|.htm$|.jpg$|.png$|.chm$|.pnf$|.evtx$'
+2025/09/25 14:17:07 wazuh-agent: INFO: (6206): Ignore 'registry' entry 'HKEY_LOCAL_MACHINE\Security\Policy\Secrets'
+2025/09/25 14:17:07 wazuh-agent: INFO: (6206): Ignore 'registry' entry 'HKEY_LOCAL_MACHINE\Security\SAM\Domains\Account\Users'
+2025/09/25 14:17:07 wazuh-agent: INFO: (6206): Ignore 'registry' entry 'HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\MpsSvc\Parameters\AppCs'
+2025/09/25 14:17:07 wazuh-agent: INFO: (6206): Ignore 'registry' entry 'HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\MpsSvc\Parameters\PortKeywords\DHCP'
+2025/09/25 14:17:07 wazuh-agent: INFO: (6206): Ignore 'registry' entry 'HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\MpsSvc\Parameters\PortKeywords\IPTLSIn'
+2025/09/25 14:17:07 wazuh-agent: INFO: (6206): Ignore 'registry' entry 'HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\MpsSvc\Parameters\PortKeywords\IPTLSOut'
+2025/09/25 14:17:07 wazuh-agent: INFO: (6206): Ignore 'registry' entry 'HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\MpsSvc\Parameters\PortKeywords\RPC-EPMap'
+2025/09/25 14:17:07 wazuh-agent: INFO: (6206): Ignore 'registry' entry 'HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\MpsSvc\Parameters\PortKeywords\Teredo'
+2025/09/25 14:17:07 wazuh-agent: INFO: (6206): Ignore 'registry' entry 'HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\PolicyAgent\Parameters\Cache'
+2025/09/25 14:17:08 wazuh-agent: INFO: (6206): Ignore 'registry' entry 'HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\RunOnceEx'
+2025/09/25 14:17:08 wazuh-agent: INFO: (6206): Ignore 'registry' entry 'HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\ADOVMPPackage\Final'
+2025/09/25 14:17:08 wazuh-agent: INFO: (6207): Ignore 'registry' sregex '\Enum$'
+2025/09/25 14:17:08 wazuh-agent: INFO: Started (pid: 24320).
+2025/09/25 14:17:08 rootcheck: INFO: Starting rootcheck scan.
+2025/09/25 14:17:08 wazuh-agent: INFO: (6000): Starting daemon...
+2025/09/25 14:17:08 wazuh-agent: INFO: (6010): File integrity monitoring scan frequency: 43200 seconds
+2025/09/25 14:17:08 wazuh-agent: INFO: (6008): File integrity monitoring scan started.
+2025/09/25 14:17:09 wazuh-modulesd:syscollector: INFO: Evaluation finished.
+2025/09/25 14:17:12 sca: INFO: Evaluation finished for policy 'C:\Users\ANANDHU\Downloads\monitoring-agent-windows\ruleset\sca\cis_win11_enterprise.yml'
+2025/09/25 14:17:12 sca: INFO: Security Configuration Assessment scan finished. Duration: 6 seconds.
+2025/09/25 14:17:13 rootcheck: INFO: Ending rootcheck scan.
+2025/09/25 14:17:44 wazuh-agent: WARNING: Agent buffer at 90 %.
+2025/09/25 14:17:44 wazuh-agent: WARNING: Agent buffer is full: Events may be lost.
+2025/09/25 14:17:59 wazuh-agent: WARNING: Agent buffer is flooded: Producing too many events.
+2025/09/25 14:18:12 wazuh-agent: INFO: (6009): File integrity monitoring scan ended.
+2025/09/25 14:18:12 wazuh-agent: INFO: FIM sync module started.
+2025/09/25 14:18:13 wazuh-agent: INFO: (6012): Real-time file integrity monitoring started.
+2025/09/25 18:37:21 wazuh-agent: INFO: Trust verification of a module failed by using the signature method. The file 'C:\Users\ANANDHU\Downloads\monitoring-agent-windows\monitoring-agent.exe' or its signature is corrupt.
+2025/09/25 18:37:21 wazuh-agent: INFO: Trust verification of a module failed by using the hash method. CryptCATAdminEnumCatalogFromHash failed with error 1168 for 'C:\Users\ANANDHU\Downloads\monitoring-agent-windows\monitoring-agent.exe': Element not found.
+2025/09/25 18:37:21 wazuh-agent: WARNING: The file 'C:\Users\ANANDHU\Downloads\monitoring-agent-windows\monitoring-agent.exe' is not signed or its signature is invalid.
+2025/09/25 18:37:21 wazuh-agent: ERROR: (1103): Could not open file '.agent_info' due to [(2)-(No such file or directory)].
+2025/09/25 18:37:21 wazuh-agent: ERROR: (1103): Could not open file '.agent_info' due to [(2)-(No such file or directory)].
+2025/09/25 18:37:21 wazuh-agent: INFO: (1410): Reading authentication keys file.
+2025/09/25 18:37:21 wazuh-agent: INFO: Using notify time: 20 and max time to reconnect: 60
+2025/09/25 18:37:21 wazuh-agent: INFO: Started (pid: 24444).
+2025/09/25 18:37:21 wazuh-agent: ERROR: (1103): Could not open file '.agent_info' due to [(2)-(No such file or directory)].
+2025/09/25 18:37:21 wazuh-agent: ERROR: (1103): Could not open file '.agent_info' due to [(2)-(No such file or directory)].
+2025/09/25 18:37:21 wazuh-agent: ERROR: (1103): Could not open file '.agent_info' due to [(2)-(No such file or directory)].
+2025/09/25 18:37:21 rootcheck: INFO: Started (pid: 24444).
+2025/09/25 18:37:21 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Classes\batfile', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 18:37:21 wazuh-agent: ERROR: (1103): Could not open file '.agent_info' due to [(2)-(No such file or directory)].
+2025/09/25 18:37:21 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Classes\cmdfile', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 18:37:21 wazuh-modulesd:osquery: INFO: Module disabled. Exiting...
+2025/09/25 18:37:21 sca: INFO: Module started.
+2025/09/25 18:37:21 wazuh-modulesd:agent-upgrade: INFO: (8153): Module Agent Upgrade started.
+2025/09/25 18:37:21 wazuh-modulesd:ciscat: INFO: Module disabled. Exiting...
+2025/09/25 18:37:21 wazuh-agent: INFO: Using AES as encryption method.
+2025/09/25 18:37:21 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Classes\comfile', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 18:37:21 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Classes\exefile', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 18:37:21 sca: INFO: Loaded policy 'C:\Users\ANANDHU\Downloads\monitoring-agent-windows\ruleset\sca\cis_win11_enterprise.yml'
+2025/09/25 18:37:21 wazuh-modulesd:syscollector: INFO: Module started.
+2025/09/25 18:37:21 sca: INFO: Starting Security Configuration Assessment scan.
+2025/09/25 18:37:21 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Classes\piffile', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 18:37:21 wazuh-modulesd:syscollector: INFO: Starting evaluation.
+2025/09/25 18:37:21 wazuh-agent: INFO: Trying to connect to server ([127.0.0.1]:1514/tcp).
+2025/09/25 18:37:21 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Classes\AllFilesystemObjects', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 18:37:21 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Classes\Directory', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 18:37:21 wazuh-agent: INFO: (4102): Connected to the server ([127.0.0.1]:1514/tcp).
+2025/09/25 18:37:21 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Classes\Folder', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 18:37:21 sca: INFO: Starting evaluation of policy: 'C:\Users\ANANDHU\Downloads\monitoring-agent-windows\ruleset\sca\cis_win11_enterprise.yml'
+2025/09/25 18:37:21 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Classes\Protocols [x64]', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 18:37:22 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Classes\Protocols', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 18:37:22 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Policies [x64]', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 18:37:22 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Policies', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 18:37:22 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Security', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 18:37:22 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Microsoft\Internet Explorer [x64]', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 18:37:22 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Microsoft\Internet Explorer', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 18:37:22 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 18:37:22 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\Session Manager\KnownDLLs', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 18:37:22 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\SecurePipeServers\winreg', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 18:37:22 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Run [x64]', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 18:37:22 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Run', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 18:37:22 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\RunOnce [x64]', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 18:37:22 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\RunOnce', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 18:37:22 wazuh-agent: INFO: Windows version is 6.0 or newer. (Microsoft Windows 11 Home Single Language [Ver: 10.0.26100.6584] - Wazuh v4.13.0).
+2025/09/25 18:37:22 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\RunOnceEx', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 18:37:22 wazuh-agent: INFO: (1951): Analyzing event log: 'Application'.
+2025/09/25 18:37:22 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\URL [x64]', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 18:37:22 wazuh-agent: INFO: (1951): Analyzing event log: 'Security'.
+2025/09/25 18:37:22 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\URL', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 18:37:22 wazuh-agent: INFO: (1951): Analyzing event log: 'System'.
+2025/09/25 18:37:22 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Policies [x64]', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 18:37:22 wazuh-agent: INFO: (1950): Analyzing file: 'active-response\active-responses.log'.
+2025/09/25 18:37:22 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Policies', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 18:37:22 wazuh-agent: INFO: (1950): Analyzing file: 'suricata\log\eve.json'.
+2025/09/25 18:37:22 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Windows [x64]', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 18:37:22 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Windows', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 18:37:22 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Winlogon [x64]', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 18:37:22 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Winlogon', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 18:37:22 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Microsoft\Active Setup\Installed Components [x64]', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 18:37:22 wazuh-agent: INFO: (6002): Monitoring registry entry: 'HKEY_LOCAL_MACHINE\Software\Microsoft\Active Setup\Installed Components', with options 'size | permissions | owner | group | mtime | hash_md5 | hash_sha1 | hash_sha256 | reg_value_type'
+2025/09/25 18:37:22 wazuh-agent: INFO: (6003): Monitoring path: 'c:\programdata\microsoft\windows\start menu\programs\startup', with options 'size | permissions | owner | group | mtime | inode | hash_md5 | hash_sha1 | hash_sha256 | attributes | realtime'.
+2025/09/25 18:37:22 wazuh-agent: INFO: (6003): Monitoring path: 'c:\windows', with options 'size | permissions | owner | group | mtime | inode | hash_md5 | hash_sha1 | hash_sha256 | attributes | scheduled'.
+2025/09/25 18:37:22 wazuh-agent: INFO: (6003): Monitoring path: 'c:\windows\system32', with options 'size | permissions | owner | group | mtime | inode | hash_md5 | hash_sha1 | hash_sha256 | attributes | scheduled'.
+2025/09/25 18:37:22 wazuh-agent: INFO: (6003): Monitoring path: 'c:\windows\system32\drivers\etc', with options 'size | permissions | owner | group | mtime | inode | hash_md5 | hash_sha1 | hash_sha256 | attributes | scheduled'.
+2025/09/25 18:37:22 wazuh-agent: INFO: (6003): Monitoring path: 'c:\windows\system32\wbem', with options 'size | permissions | owner | group | mtime | inode | hash_md5 | hash_sha1 | hash_sha256 | attributes | scheduled'.
+2025/09/25 18:37:22 wazuh-agent: INFO: (6003): Monitoring path: 'c:\windows\system32\windowspowershell\v1.0', with options 'size | permissions | owner | group | mtime | inode | hash_md5 | hash_sha1 | hash_sha256 | attributes | scheduled'.
+2025/09/25 18:37:22 wazuh-agent: INFO: (6206): Ignore 'file' entry 'c:\programdata\microsoft\windows\start menu\programs\startup\desktop.ini'
+2025/09/25 18:37:22 wazuh-agent: INFO: (6207): Ignore 'file' sregex '.log$|.htm$|.jpg$|.png$|.chm$|.pnf$|.evtx$'
+2025/09/25 18:37:22 wazuh-agent: INFO: (6206): Ignore 'registry' entry 'HKEY_LOCAL_MACHINE\Security\Policy\Secrets'
+2025/09/25 18:37:22 wazuh-agent: INFO: (6206): Ignore 'registry' entry 'HKEY_LOCAL_MACHINE\Security\SAM\Domains\Account\Users'
+2025/09/25 18:37:22 wazuh-agent: INFO: (6206): Ignore 'registry' entry 'HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\MpsSvc\Parameters\AppCs'
+2025/09/25 18:37:22 wazuh-agent: INFO: (6206): Ignore 'registry' entry 'HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\MpsSvc\Parameters\PortKeywords\DHCP'
+2025/09/25 18:37:22 wazuh-agent: INFO: (6206): Ignore 'registry' entry 'HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\MpsSvc\Parameters\PortKeywords\IPTLSIn'
+2025/09/25 18:37:22 wazuh-agent: INFO: (6206): Ignore 'registry' entry 'HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\MpsSvc\Parameters\PortKeywords\IPTLSOut'
+2025/09/25 18:37:22 wazuh-agent: INFO: (6206): Ignore 'registry' entry 'HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\MpsSvc\Parameters\PortKeywords\RPC-EPMap'
+2025/09/25 18:37:22 wazuh-agent: INFO: (6206): Ignore 'registry' entry 'HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\MpsSvc\Parameters\PortKeywords\Teredo'
+2025/09/25 18:37:22 wazuh-agent: INFO: (6206): Ignore 'registry' entry 'HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\PolicyAgent\Parameters\Cache'
+2025/09/25 18:37:22 wazuh-agent: INFO: (6206): Ignore 'registry' entry 'HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\RunOnceEx'
+2025/09/25 18:37:22 wazuh-agent: INFO: (6206): Ignore 'registry' entry 'HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\ADOVMPPackage\Final'
+2025/09/25 18:37:22 wazuh-agent: INFO: (6207): Ignore 'registry' sregex '\Enum$'
+2025/09/25 18:37:22 wazuh-agent: INFO: Started (pid: 24444).
+2025/09/25 18:37:22 rootcheck: INFO: Starting rootcheck scan.
+2025/09/25 18:37:22 wazuh-agent: INFO: (6000): Starting daemon...
+2025/09/25 18:37:22 wazuh-agent: INFO: (6010): File integrity monitoring scan frequency: 43200 seconds
+2025/09/25 18:37:22 wazuh-agent: INFO: (6008): File integrity monitoring scan started.
+2025/09/25 18:37:23 wazuh-agent: INFO: Started (pid: 24444).
+2025/09/25 18:37:24 wazuh-modulesd:syscollector: INFO: Evaluation finished.
+2025/09/25 18:37:26 sca: INFO: Evaluation finished for policy 'C:\Users\ANANDHU\Downloads\monitoring-agent-windows\ruleset\sca\cis_win11_enterprise.yml'
+2025/09/25 18:37:26 sca: INFO: Security Configuration Assessment scan finished. Duration: 5 seconds.
+2025/09/25 18:37:28 rootcheck: INFO: Ending rootcheck scan.
+2025/09/25 18:37:45 wazuh-agent: INFO: (6009): File integrity monitoring scan ended.
+2025/09/25 18:37:45 wazuh-agent: INFO: FIM sync module started.
+2025/09/25 18:37:48 wazuh-agent: INFO: (6012): Real-time file integrity monitoring started.

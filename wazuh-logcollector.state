@@ -1,11 +1,11 @@
 {
 	"global":	{
-		"start":	"2025-09-25 13:09:16",
-		"end":	"2025-09-25 13:10:16",
+		"start":	"2025-09-25 14:17:06",
+		"end":	"2025-09-25 14:40:07",
 		"files":	[{
 				"location":	"suricata\\log\\eve.json",
-				"events":	0,
-				"bytes":	0,
+				"events":	424573,
+				"bytes":	271786096,
 				"targets":	[{
 						"name":	"agent",
 						"drops":	0
@@ -20,24 +20,24 @@
 					}]
 			}, {
 				"location":	"System",
-				"events":	1,
-				"bytes":	1029,
+				"events":	102,
+				"bytes":	104943,
 				"targets":	[{
 						"name":	"agent",
 						"drops":	0
 					}]
 			}, {
 				"location":	"Security",
-				"events":	1,
-				"bytes":	4320,
+				"events":	19,
+				"bytes":	42081,
 				"targets":	[{
 						"name":	"agent",
 						"drops":	0
 					}]
 			}, {
 				"location":	"Application",
-				"events":	0,
-				"bytes":	0,
+				"events":	2,
+				"bytes":	1536,
 				"targets":	[{
 						"name":	"agent",
 						"drops":	0
@@ -45,12 +45,12 @@
 			}]
 	},
 	"interval":	{
-		"start":	"2025-09-25 13:09:16",
-		"end":	"2025-09-25 13:10:16",
+		"start":	"2025-09-25 14:39:07",
+		"end":	"2025-09-25 14:40:07",
 		"files":	[{
 				"location":	"suricata\\log\\eve.json",
-				"events":	0,
-				"bytes":	0,
+				"events":	19225,
+				"bytes":	12307590,
 				"targets":	[{
 						"name":	"agent",
 						"drops":	0
@@ -65,16 +65,16 @@
 					}]
 			}, {
 				"location":	"System",
-				"events":	1,
-				"bytes":	1029,
+				"events":	2,
+				"bytes":	2060,
 				"targets":	[{
 						"name":	"agent",
 						"drops":	0
 					}]
 			}, {
 				"location":	"Security",
-				"events":	1,
-				"bytes":	4320,
+				"events":	0,
+				"bytes":	0,
 				"targets":	[{
 						"name":	"agent",
 						"drops":	0

@@ -338,3 +338,24 @@
 [2025-09-25 13:11:33] [INFO] Starting auto-startup task removal
 [2025-09-25 13:11:33] [SUCCESS] Removed startup task: MonitoringAgentAutoStart
 [2025-09-25 13:11:33] [SUCCESS] Auto-startup task removal completed - removed 1 task(s)
+[2025-09-25 14:17:23] [INFO] Starting enhanced auto-startup tasks installation
+[2025-09-25 14:17:23] [INFO] Removing existing auto-startup tasks (if any)
+[2025-09-25 14:17:23] [INFO] Starting auto-startup task removal
+[2025-09-25 14:17:23] [INFO] Startup task not found: MonitoringAgentAutoStart
+[2025-09-25 14:17:23] [INFO] No auto-startup task found to remove
+[2025-09-25 14:17:23] [INFO] Creating enhanced agent startup task: MonitoringAgentAutoStart
+[2025-09-25 14:17:23] [SUCCESS] Enhanced agent startup task created: MonitoringAgentAutoStart
+[2025-09-25 14:17:23] [INFO] Watchdog service installation skipped to prevent hanging
+[2025-09-25 14:17:23] [SUCCESS] Enhanced auto-startup installation completed
+[2025-09-25 14:41:12] [INFO] Starting auto-startup task removal
+[2025-09-25 14:41:12] [SUCCESS] Removed startup task: MonitoringAgentAutoStart
+[2025-09-25 14:41:12] [SUCCESS] Auto-startup task removal completed - removed 1 task(s)
+[2025-09-25 18:37:38] [INFO] Starting enhanced auto-startup tasks installation
+[2025-09-25 18:37:38] [INFO] Removing existing auto-startup tasks (if any)
+[2025-09-25 18:37:38] [INFO] Starting auto-startup task removal
+[2025-09-25 18:37:38] [INFO] Startup task not found: MonitoringAgentAutoStart
+[2025-09-25 18:37:38] [INFO] No auto-startup task found to remove
+[2025-09-25 18:37:38] [INFO] Creating enhanced agent startup task: MonitoringAgentAutoStart
+[2025-09-25 18:37:38] [SUCCESS] Enhanced agent startup task created: MonitoringAgentAutoStart
+[2025-09-25 18:37:38] [INFO] Watchdog service installation skipped to prevent hanging
+[2025-09-25 18:37:38] [SUCCESS] Enhanced auto-startup installation completed

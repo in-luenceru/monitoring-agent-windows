@@ -6901,3 +6901,132 @@ i: threads: Threads created -> RX: 1 W: 8 TX: 1 FM: 1 FR: 1   Engine started.
 [2025-09-25 13:11:33] [INFO] Removing auto-startup task...
 [2025-09-25 13:11:36] [INFO] Removed startup task: MonitoringAgentAutoStart
 [2025-09-25 13:11:38] [SUCCESS] Auto-startup task removed successfully
+[2025-09-25 14:15:45] [INFO] Monitoring Agent Control Center started
+[2025-09-25 14:15:45] [INFO] Checking agent status...
+[2025-09-25 14:15:46] [WARN] PID file refers to process 3948 but process is not running - PID file may be stale
+[2025-09-25 14:15:46] [WARN] No monitoring-agent processes found from workspace
+[2025-09-25 14:17:00] [INFO] Monitoring Agent Control Center started
+[2025-09-25 14:17:00] [INFO] Starting Monitoring agent...
+[2025-09-25 14:17:00] [INFO] Checking agent status...
+[2025-09-25 14:17:01] [WARN] PID file refers to process 3948 but process is not running - PID file may be stale
+[2025-09-25 14:17:01] [WARN] No monitoring-agent processes found from workspace
+[2025-09-25 14:17:04] [INFO] Starting agent from workspace: C:\Users\ANANDHU\Downloads\monitoring-agent-windows\monitoring-agent.exe
+[2025-09-25 14:17:05] [INFO] Agent start command executed (Launcher PID: 24320)
+[2025-09-25 14:17:18] [INFO] Checking agent status...
+[2025-09-25 14:17:19] [WARN] PID file doesn't match any running process, using first workspace process
+[2025-09-25 14:17:19] [SUCCESS] Found workspace agent process (PID: 24320)
+[2025-09-25 14:17:19] [INFO] Updating PID file with current running process ID: 24320
+[2025-09-25 14:17:19] [INFO] Saved agent PID 24320 to file
+[2025-09-25 14:17:19] [INFO] Agent state file found
+[2025-09-25 14:17:19] [INFO] Agent appears to be connected based on state file
+[2025-09-25 14:17:22] [SUCCESS] Agent daemon started successfully (PID: 24320)
+[2025-09-25 14:17:22] [INFO] Configuring auto-startup...
+[2025-09-25 14:17:23] [INFO] Installing enhanced auto-startup tasks...
+[2025-09-25 14:17:23] [INFO] Removing auto-startup task...
+[2025-09-25 14:17:26] [INFO] No auto-startup task found to remove
+[2025-09-25 14:17:26] [INFO] Creating enhanced agent startup task...
+[2025-09-25 14:17:27] [SUCCESS] Enhanced agent startup task created successfully
+[2025-09-25 14:17:27] [INFO] Skipping watchdog service installation (prevents terminal hanging)
+[2025-09-25 14:17:27] [SUCCESS] Enhanced auto-startup installation completed successfully
+[2025-09-25 14:17:27] [INFO] Starting Suricata Network IDS...
+[2025-09-25 14:17:27] [INFO] Starting Suricata Network IDS...
+[2025-09-25 14:17:29] [INFO] Suricata startup initiated (Control Process PID: 24760)
+[2025-09-25 14:17:34] [INFO] Waiting for Suricata to start... (2/15 seconds)
+[2025-09-25 14:17:40] [SUCCESS] Suricata started successfully (PID: 27196)
+[2025-09-25 14:17:40] [SUCCESS] Suricata Network IDS started successfully
+[2025-09-25 14:20:04] [INFO] Monitoring Agent Control Center started
+[2025-09-25 14:20:04] [INFO] Checking agent status...
+[2025-09-25 14:20:04] [SUCCESS] PID file matches running process (PID: 24320)
+[2025-09-25 14:20:05] [SUCCESS] Found workspace agent process (PID: 24320)
+[2025-09-25 14:20:05] [INFO] Agent state file found
+[2025-09-25 14:20:05] [INFO] Agent appears to be connected based on state file
+[2025-09-25 14:40:22] [INFO] Monitoring Agent Control Center started
+[2025-09-25 14:40:22] [INFO] Checking agent status...
+[2025-09-25 14:40:22] [SUCCESS] PID file matches running process (PID: 24320)
+[2025-09-25 14:40:22] [SUCCESS] Found workspace agent process (PID: 24320)
+[2025-09-25 14:40:22] [INFO] Agent state file found
+[2025-09-25 14:40:22] [INFO] Agent appears to be connected based on state file
+[2025-09-25 14:40:31] [INFO] Monitoring Agent Control Center started
+[2025-09-25 14:40:31] [INFO] Stopping Monitoring agent...
+[2025-09-25 14:40:31] [INFO] Checking agent status...
+[2025-09-25 14:40:31] [SUCCESS] PID file matches running process (PID: 24320)
+[2025-09-25 14:40:31] [SUCCESS] Found workspace agent process (PID: 24320)
+[2025-09-25 14:40:31] [INFO] Agent state file found
+[2025-09-25 14:40:31] [INFO] Agent appears to be connected based on state file
+[2025-09-25 14:40:35] [INFO] Attempting graceful shutdown using Windows termination signals...
+[2025-09-25 14:40:36] [INFO] Sending graceful shutdown signal to process 24320...
+[2025-09-25 14:40:42] [INFO] Checking agent status...
+[2025-09-25 14:40:42] [SUCCESS] PID file matches running process (PID: 24320)
+[2025-09-25 14:40:42] [SUCCESS] Found workspace agent process (PID: 24320)
+[2025-09-25 14:40:42] [INFO] Agent state file found
+[2025-09-25 14:40:42] [INFO] Agent appears to be connected based on state file
+[2025-09-25 14:40:47] [WARN] Graceful shutdown failed, force terminating processes...
+[2025-09-25 14:40:47] [INFO] Force terminating workspace agent process (PID: 24320)
+[2025-09-25 14:40:47] [WARN] Force killing process 24320
+[2025-09-25 14:40:47] [SUCCESS] Process 24320 terminated
+[2025-09-25 14:40:47] [INFO] Preserving PID file for reference
+[2025-09-25 14:40:47] [INFO] Removed .agent_info file
+[2025-09-25 14:40:47] [INFO] Updated agent state to disconnected with immediate effect
+[2025-09-25 14:40:47] [INFO] Cleared any pending queue files
+[2025-09-25 14:40:49] [INFO] Checking agent status...
+[2025-09-25 14:40:49] [WARN] PID file refers to process 24320 but process is not running - PID file may be stale
+[2025-09-25 14:40:49] [WARN] No monitoring-agent processes found from workspace
+[2025-09-25 14:40:54] [SUCCESS] Agent stopped successfully and should disconnect from manager
+[2025-09-25 14:40:54] [INFO] Stopping Suricata Network IDS...
+[2025-09-25 14:40:54] [INFO] Stopping Suricata Network IDS...
+[2025-09-25 14:41:12] [SUCCESS] Suricata stopped successfully
+[2025-09-25 14:41:12] [INFO] Suricata output: [2025-09-25 14:40:57] [SURICATA] [INFO] Stopping Suricata Network IDS...
+[2025-09-25 14:40:57] [SURICATA] [INFO] Attempting graceful shutdown of Suricata process (PID: 27196)...
+[2025-09-25 14:41:07] [SURICATA] [WARN] Force terminating Suricata process 27196
+[2025-09-25 14:41:07] [SURICATA] [SUCCESS] Suricata process 27196 terminated
+[2025-09-25 14:41:07] [SURICATA] [INFO] Removed PID file
+[2025-09-25 14:41:11] [SURICATA] [SUCCESS] Suricata stopped successfully
+
+[2025-09-25 14:41:12] [SUCCESS] Suricata Network IDS stopped successfully
+[2025-09-25 14:41:12] [INFO] Disabling auto-startup (manual stop)...
+[2025-09-25 14:41:12] [INFO] Removing auto-startup task...
+[2025-09-25 14:41:18] [INFO] Removed startup task: MonitoringAgentAutoStart
+[2025-09-25 14:41:21] [SUCCESS] Auto-startup task removed successfully
+[2025-09-25 14:42:25] [INFO] Monitoring Agent Control Center started
+[2025-09-25 14:42:25] [INFO] Checking agent status...
+[2025-09-25 14:42:25] [WARN] PID file refers to process 24320 but process is not running - PID file may be stale
+[2025-09-25 14:42:25] [WARN] No monitoring-agent processes found from workspace
+[2025-09-25 17:28:49] [INFO] Monitoring Agent Control Center started
+[2025-09-25 17:28:50] [INFO] Checking agent status...
+[2025-09-25 17:28:50] [WARN] PID file refers to process 24320 but process is not running - PID file may be stale
+[2025-09-25 17:28:50] [WARN] No monitoring-agent processes found from workspace
+[2025-09-25 18:37:15] [INFO] Monitoring Agent Control Center started
+[2025-09-25 18:37:15] [INFO] Starting Monitoring agent...
+[2025-09-25 18:37:15] [INFO] Checking agent status...
+[2025-09-25 18:37:16] [WARN] PID file refers to process 24320 but process is not running - PID file may be stale
+[2025-09-25 18:37:16] [WARN] No monitoring-agent processes found from workspace
+[2025-09-25 18:37:20] [INFO] Starting agent from workspace: C:\Users\ANANDHU\Downloads\monitoring-agent-windows\monitoring-agent.exe
+[2025-09-25 18:37:21] [INFO] Agent start command executed (Launcher PID: 24444)
+[2025-09-25 18:37:34] [INFO] Checking agent status...
+[2025-09-25 18:37:34] [WARN] PID file doesn't match any running process, using first workspace process
+[2025-09-25 18:37:34] [SUCCESS] Found workspace agent process (PID: 24444)
+[2025-09-25 18:37:34] [INFO] Updating PID file with current running process ID: 24444
+[2025-09-25 18:37:34] [INFO] Saved agent PID 24444 to file
+[2025-09-25 18:37:34] [INFO] Agent state file found
+[2025-09-25 18:37:34] [INFO] Agent appears to be connected based on state file
+[2025-09-25 18:37:37] [SUCCESS] Agent daemon started successfully (PID: 24444)
+[2025-09-25 18:37:37] [INFO] Configuring auto-startup...
+[2025-09-25 18:37:38] [INFO] Installing enhanced auto-startup tasks...
+[2025-09-25 18:37:38] [INFO] Removing auto-startup task...
+[2025-09-25 18:37:41] [INFO] No auto-startup task found to remove
+[2025-09-25 18:37:41] [INFO] Creating enhanced agent startup task...
+[2025-09-25 18:37:41] [SUCCESS] Enhanced agent startup task created successfully
+[2025-09-25 18:37:41] [INFO] Skipping watchdog service installation (prevents terminal hanging)
+[2025-09-25 18:37:41] [SUCCESS] Enhanced auto-startup installation completed successfully
+[2025-09-25 18:37:41] [INFO] Starting Suricata Network IDS...
+[2025-09-25 18:37:41] [INFO] Starting Suricata Network IDS...
+[2025-09-25 18:37:43] [INFO] Suricata startup initiated (Control Process PID: 26784)
+[2025-09-25 18:37:47] [INFO] Waiting for Suricata to start... (2/15 seconds)
+[2025-09-25 18:37:50] [SUCCESS] Suricata started successfully (PID: 19996)
+[2025-09-25 18:37:50] [SUCCESS] Suricata Network IDS started successfully
+[2025-09-25 18:37:57] [INFO] Monitoring Agent Control Center started
+[2025-09-25 18:37:57] [INFO] Checking agent status...
+[2025-09-25 18:37:57] [SUCCESS] PID file matches running process (PID: 24444)
+[2025-09-25 18:37:57] [SUCCESS] Found workspace agent process (PID: 24444)
+[2025-09-25 18:37:57] [INFO] Agent state file found
+[2025-09-25 18:37:57] [INFO] Agent appears to be connected based on state file

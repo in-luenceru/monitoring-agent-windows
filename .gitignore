@@ -1,10 +1,8 @@
 # Log files
 *.log
 logs/
-suricata/log/
 
 # Temporary and backup files
-*.backup_*
 *.tmp
 *.temp
 
@@ -14,15 +12,10 @@ suricata/log/
 # State files
 *.state
 
-# Database files
-*.db
 
 # Agent keys (sensitive)
 client.keys
 client.keys.*
-
-# Local configuration overrides
-local_internal_options.conf
 
 # Queue data
 queue/
@@ -45,12 +38,3 @@ test_results.*
 
 # Watchdog logs
 watchdog.log
-
-# Image files
-*.jpg
-*.jpeg
-*.png
-*.gif
-
-# Backup configurations with timestamps
-ossec.conf.backup_*
