@@ -359,3 +359,6 @@
 [2025-09-25 18:37:38] [SUCCESS] Enhanced agent startup task created: MonitoringAgentAutoStart
 [2025-09-25 18:37:38] [INFO] Watchdog service installation skipped to prevent hanging
 [2025-09-25 18:37:38] [SUCCESS] Enhanced auto-startup installation completed
+[2025-09-25 18:42:00] [INFO] Starting auto-startup task removal
+[2025-09-25 18:42:00] [SUCCESS] Removed startup task: MonitoringAgentAutoStart
+[2025-09-25 18:42:00] [SUCCESS] Auto-startup task removal completed - removed 1 task(s)

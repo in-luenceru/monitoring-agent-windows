@@ -7030,3 +7030,50 @@ i: threads: Threads created -> RX: 1 W: 8 TX: 1 FM: 1 FR: 1   Engine started.
 [2025-09-25 18:37:57] [SUCCESS] Found workspace agent process (PID: 24444)
 [2025-09-25 18:37:57] [INFO] Agent state file found
 [2025-09-25 18:37:57] [INFO] Agent appears to be connected based on state file
+[2025-09-25 18:41:08] [INFO] Monitoring Agent Control Center started
+[2025-09-25 18:41:08] [INFO] Checking agent status...
+[2025-09-25 18:41:09] [SUCCESS] PID file matches running process (PID: 24444)
+[2025-09-25 18:41:09] [SUCCESS] Found workspace agent process (PID: 24444)
+[2025-09-25 18:41:09] [INFO] Agent state file found
+[2025-09-25 18:41:09] [INFO] Agent appears to be connected based on state file
+[2025-09-25 18:41:17] [INFO] Monitoring Agent Control Center started
+[2025-09-25 18:41:17] [INFO] Stopping Monitoring agent...
+[2025-09-25 18:41:17] [INFO] Checking agent status...
+[2025-09-25 18:41:17] [SUCCESS] PID file matches running process (PID: 24444)
+[2025-09-25 18:41:17] [SUCCESS] Found workspace agent process (PID: 24444)
+[2025-09-25 18:41:17] [INFO] Agent state file found
+[2025-09-25 18:41:17] [INFO] Agent appears to be connected based on state file
+[2025-09-25 18:41:21] [INFO] Attempting graceful shutdown using Windows termination signals...
+[2025-09-25 18:41:21] [INFO] Sending graceful shutdown signal to process 24444...
+[2025-09-25 18:41:28] [INFO] Checking agent status...
+[2025-09-25 18:41:29] [SUCCESS] PID file matches running process (PID: 24444)
+[2025-09-25 18:41:29] [SUCCESS] Found workspace agent process (PID: 24444)
+[2025-09-25 18:41:29] [INFO] Agent state file found
+[2025-09-25 18:41:29] [INFO] Agent appears to be connected based on state file
+[2025-09-25 18:41:34] [WARN] Graceful shutdown failed, force terminating processes...
+[2025-09-25 18:41:34] [INFO] Force terminating workspace agent process (PID: 24444)
+[2025-09-25 18:41:34] [WARN] Force killing process 24444
+[2025-09-25 18:41:34] [SUCCESS] Process 24444 terminated
+[2025-09-25 18:41:34] [INFO] Preserving PID file for reference
+[2025-09-25 18:41:34] [INFO] Removed .agent_info file
+[2025-09-25 18:41:34] [INFO] Updated agent state to disconnected with immediate effect
+[2025-09-25 18:41:34] [INFO] Cleared any pending queue files
+[2025-09-25 18:41:36] [INFO] Checking agent status...
+[2025-09-25 18:41:37] [WARN] PID file refers to process 24444 but process is not running - PID file may be stale
+[2025-09-25 18:41:37] [WARN] No monitoring-agent processes found from workspace
+[2025-09-25 18:41:41] [SUCCESS] Agent stopped successfully and should disconnect from manager
+[2025-09-25 18:41:41] [INFO] Stopping Suricata Network IDS...
+[2025-09-25 18:41:41] [INFO] Stopping Suricata Network IDS...
+[2025-09-25 18:42:00] [SUCCESS] Suricata stopped successfully
+[2025-09-25 18:42:00] [INFO] Suricata output: [2025-09-25 18:41:46] [SURICATA] [INFO] Stopping Suricata Network IDS...
+[2025-09-25 18:41:46] [SURICATA] [INFO] Attempting graceful shutdown of Suricata process (PID: 19996)...
+[2025-09-25 18:41:56] [SURICATA] [WARN] Force terminating Suricata process 19996
+[2025-09-25 18:41:56] [SURICATA] [SUCCESS] Suricata process 19996 terminated
+[2025-09-25 18:41:56] [SURICATA] [INFO] Removed PID file
+[2025-09-25 18:42:00] [SURICATA] [SUCCESS] Suricata stopped successfully
+
+[2025-09-25 18:42:00] [SUCCESS] Suricata Network IDS stopped successfully
+[2025-09-25 18:42:00] [INFO] Disabling auto-startup (manual stop)...
+[2025-09-25 18:42:00] [INFO] Removing auto-startup task...
+[2025-09-25 18:42:04] [INFO] Removed startup task: MonitoringAgentAutoStart
+[2025-09-25 18:42:06] [SUCCESS] Auto-startup task removed successfully

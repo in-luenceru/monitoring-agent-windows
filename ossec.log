@@ -19923,3 +19923,10 @@
 2025/09/25 18:37:45 wazuh-agent: INFO: (6009): File integrity monitoring scan ended.
 2025/09/25 18:37:45 wazuh-agent: INFO: FIM sync module started.
 2025/09/25 18:37:48 wazuh-agent: INFO: (6012): Real-time file integrity monitoring started.
+2025/09/25 18:38:26 wazuh-agent: WARNING: Agent buffer at 90 %.
+2025/09/25 18:38:29 wazuh-agent: WARNING: Agent buffer is full: Events may be lost.
+2025/09/25 18:38:44 wazuh-agent: WARNING: Agent buffer is flooded: Producing too many events.
+2025/09/25 18:40:09 wazuh-agent: INFO: Agent buffer is under 70 %. Working properly again.
+2025/09/25 18:40:37 wazuh-agent: WARNING: Agent buffer at 90 %.
+2025/09/25 18:40:37 wazuh-agent: WARNING: Agent buffer is full: Events may be lost.
+2025/09/25 18:40:52 wazuh-agent: WARNING: Agent buffer is flooded: Producing too many events.
